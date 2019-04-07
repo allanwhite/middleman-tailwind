@@ -1,8 +1,11 @@
 - set_meta_tags title: data.site.name + " | " + data.site.description, full_title: false
-= inline_svg "logo.svg", class: "middleman-logo"
 
-h1.text-grey-darker Middleman is Running
-h2.text-blue-dark.text-sm.block.mb-4 with Tailwind, Webpack, and Slim templating
-
-= link_to 'Read Documentation', 'https://middlemanapp.com/basics/templating_language/', class: 'text-grey-dark', target: '_blank'
-= link_to 'Testing Second Page', 'second-page', class: 'text-grey-dark'
+.flex.flex-row.flex-wrap.items-center.mx-auto.w-full
+    .text-right
+        = inline_svg "easel-logo.svg", class: "logo inline-block h-48"
+    .text-left
+        h1 class="text-4xl font-bold font-serif mb-2" R. Allan White
+        h2.font-normal.font-sans.italic.text-lg.mb-4 with Tailwind, Webpack, and Slim templating
+div
+    = link_to 'Read Documentation', 'https://middlemanapp.com/basics/templating_language/', class: 'text-grey-dark', target: '_blank'
+    = link_to 'Testing Second Page', 'second-page', class: 'text-grey-dark'
