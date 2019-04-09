@@ -1,11 +1,19 @@
 - set_meta_tags title: data.site.name + " | " + data.site.description, full_title: false
 
-.flex.flex-row.flex-wrap.items-center.mx-auto.w-full
-    .text-right
-        = inline_svg "easel-logo.svg", class: "logo inline-block h-48"
-    .text-left
-        h1 class="text-4xl font-bold font-serif mb-2" R. Allan White
-        h2.font-normal.font-sans.italic.text-lg.mb-4 with Tailwind, Webpack, and Slim templating
-div
-    = link_to 'Read Documentation', 'https://middlemanapp.com/basics/templating_language/', class: 'text-grey-dark', target: '_blank'
-    = link_to 'Testing Second Page', 'second-page', class: 'text-grey-dark'
+.grid-container.items-center
+    div
+        img src="images/loader-disc.svg" alt="photo" class="max-w-48"
+        / = inline_svg "loader-disc.svg", class: "logo inline-block h-48"
+    div
+        h1 class="text-4xl font-bold font-serif" R. Allan White
+        h2.font-normal.font-serif.italic.text-3xl Designer
+.grid-container
+    b
+    /= link_to 'Read Documentation', 'https://middlemanapp.com/basics/templating_language/', class: 'text-grey-dark', target: '_blank'
+    /= link_to 'Testing Second Page', 'second-page', class: 'text-grey-dark'
+    div
+        p.lead As a seasoned design professional, I've got 24 years of experience solving business problems. I've worked as a full-stack designer, web & interactive developer, live event producer, animator and video editor, photographer , and user experience (UX) designer.
+        p Currently, I work as a communication designer for <a href="https://datica.com" title="Datica.com">Datica Health</a>, where I design their brand, collateral, and build their website. I occasionally write at Medium.com. Check out my <a href="https://behance.net/allanwhite/">portfolio</a> and case studies, and see how I code at <a href="https://codepen.io/allanwhite/pens/public/">Codepen</a> and <a href="https://github.com/allanwhite" title="Github Profile">Github</a>.
+    div
+        = inline_svg "easel-logo.svg", class: "logo inline-block h-24 w-auto text-orange"
+        h4.font-normal.font-serif.italic.text-3xl Let's Talk.

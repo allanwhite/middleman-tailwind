@@ -47,13 +47,13 @@ let colors = {
   'transparent': 'transparent',
 
   'black': '#22292f',
-  'grey-darkest': '#3d4852',
-  'grey-darker': '#606f7b',
-  'grey-dark': '#8795a1',
-  'grey': '#b8c2cc',
-  'grey-light': '#dae1e7',
-  'grey-lighter': '#f1f5f8',
-  'grey-lightest': '#f8fafc',
+  'gray-darkest': '#3d4852',
+  'gray-darker': '#606f7b',
+  'gray-dark': '#8795a1',
+  'gray': '#b8c2cc',
+  'gray-light': '#dae1e7',
+  'gray-lighter': '#f1f5f8',
+  'gray-lightest': '#f8fafc',
   'white': '#ffffff',
 
   'red-darkest': '#3b0d0c',
@@ -67,7 +67,7 @@ let colors = {
   'orange-darkest': '#462a16',
   'orange-darker': '#613b1f',
   'orange-dark': '#de751f',
-  'orange': '#f6993f',
+  'orange': '#FF6000',
   'orange-light': '#faad63',
   'orange-lighter': '#fcd9b6',
   'orange-lightest': '#fff5eb',
@@ -424,7 +424,7 @@ module.exports = {
   |
   */
 
-  borderColors: global.Object.assign({ default: colors['grey-light'] }, colors),
+  borderColors: global.Object.assign({ default: colors['gray-light'] }, colors),
 
 
   /*

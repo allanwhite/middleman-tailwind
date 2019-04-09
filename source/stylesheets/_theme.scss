@@ -1,1 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,600|IBM+Plex+Sans+Condensed:400,700|IBM+Plex+Sans:300,300i,400,400i,700,700i|IBM+Plex+Serif:300,300i,400,400i,700,700i');
+html {
+    font-family: config('fonts.sans');
+}
+.grid-container {
+    display: grid;
+    // grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: minmax(10rem, 1fr) minmax(10rem, 30rem) minmax(5rem, 1fr);
+    grid-template-rows: auto; //fills in rows automatically
+    // grid-template-rows: 1fr 2fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: stretch;
+    // align-items: stretch; // this should use a utility class
+}
+.max-w-48 {
+    max-width: 12rem;
+}
+.max-w-64 {
+    max-width: 16rem;
+}
+p {
+    @apply text-base leading-normal font-sans;
+}
+.lead {
+    @apply text-xl leading-normal font-sans;
+}
