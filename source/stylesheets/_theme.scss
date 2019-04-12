@@ -2,47 +2,27 @@
 html {
     font-family: config('fonts.sans');
 }
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(200px,1fr));
-    grid-gap: calc(.5rem + 2vw);
-    grid-auto-flow: dense;
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-    grid-template-areas:
-    "profile title title"
-    "sidebar content content"
-    "......  footer  footer";
-}
-.sidebar {
-    grid-area: sidebar;
+
+img {
+    max-width: 100%;
 }
 
-.content {
-    grid-area: content;
+.row {
+    @apply flex flex-row items-stretch;
 }
 
-.header {
-    &-profile {
-        grid-area: profile;
-    }
-    &-title {
-        grid-area: title;
-    }
-}
-
-.footer {
-    grid-area: footer;
-}
 .max-w-48 {
     max-width: 12rem;
 }
+
 .max-w-64 {
     max-width: 16rem;
 }
+
 p {
     @apply text-base leading-normal font-sans;
 }
+
 .lead {
     @apply text-xl leading-normal font-sans;
 }

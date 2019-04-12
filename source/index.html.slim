@@ -1,13 +1,13 @@
 - set_meta_tags title: data.site.name + " | " + data.site.description, full_title: false
 
-.grid-container.items-center
-    div
+.flex.items-center.align-center
+    div class="w-1/4 mx-auto"
         img src="images/loader-disc.svg" alt="photo" class="max-w-48"
         / = inline_svg "loader-disc.svg", class: "logo inline-block h-48"
-    div
+    div class="w-1/2 mx-auto"
         h1 class="text-4xl font-bold font-serif" R. Allan White
         h2.font-normal.font-serif.italic.text-3xl Designer
-.grid-container
+.flex.items-center
     b
     /= link_to 'Read Documentation', 'https://middlemanapp.com/basics/templating_language/', class: 'text-grey-dark', target: '_blank'
     /= link_to 'Testing Second Page', 'second-page', class: 'text-grey-dark'
