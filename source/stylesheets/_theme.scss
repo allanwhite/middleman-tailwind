@@ -4,14 +4,35 @@ html {
 }
 .grid-container {
     display: grid;
-    // grid-template-columns: 1fr 2fr 1fr;
-    grid-template-columns: minmax(10rem, 1fr) minmax(10rem, 30rem) minmax(5rem, 1fr);
-    grid-template-rows: auto; //fills in rows automatically
-    // grid-template-rows: 1fr 2fr;
+    grid-template-columns: repeat(6, minmax(200px,1fr));
+    grid-gap: calc(.5rem + 2vw);
+    grid-auto-flow: dense;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
-    justify-items: stretch;
-    // align-items: stretch; // this should use a utility class
+    grid-template-areas:
+    "profile title title"
+    "sidebar content content"
+    "......  footer  footer";
+}
+.sidebar {
+    grid-area: sidebar;
+}
+
+.content {
+    grid-area: content;
+}
+
+.header {
+    &-profile {
+        grid-area: profile;
+    }
+    &-title {
+        grid-area: title;
+    }
+}
+
+.footer {
+    grid-area: footer;
 }
 .max-w-48 {
     max-width: 12rem;
