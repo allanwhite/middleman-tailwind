@@ -9,6 +9,7 @@
  *
  * @import "tailwindcss/preflight";
  */
+
 @tailwind preflight;
 
 /**
@@ -18,6 +19,7 @@
   *
   * @import "tailwindcss/components";
   */
+
 @tailwind components;
 
 /**
@@ -36,6 +38,7 @@
   * @import "components/forms";
   */
 
+
 /**
   * This injects all of Tailwind's utility classes, generated based on your
   * config file.
@@ -44,6 +47,7 @@
   *
   * @import "tailwindcss/utilities";
   */
+
 @tailwind utilities;
 
 /**
@@ -63,3 +67,4 @@
 
 // Other Imports
 @import 'theme';
+@import 'components/media-object';

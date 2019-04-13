@@ -1,19 +1,23 @@
 - set_meta_tags title: data.site.name + " | " + data.site.description, full_title: false
 
-.flex.items-center.align-center
-    div class="w-1/4 mx-auto"
-        img src="images/loader-disc.svg" alt="photo" class="max-w-48"
-        / = inline_svg "loader-disc.svg", class: "logo inline-block h-48"
-    div class="w-1/2 mx-auto"
-        h1 class="text-4xl font-bold font-serif" R. Allan White
-        h2.font-normal.font-serif.italic.text-3xl Designer
-.flex.items-center
-    b
+.flex
+    div class="md:w-1/6"
+
+    div class="md:w-1/2"
+        .media.items-center.max-w-md
+            .img
+                img src="images/loader-disc.svg" alt="photo" class="max-w-48" /
+            .content
+                h1 class="title text-4xl font-bold font-serif" R. Allan White
+                h2.font-normal.font-serif.italic.text-3xl Designer
+    
+div class="flex flex-col md:flex-row"
+    div class="md:w-1/6"
     /= link_to 'Read Documentation', 'https://middlemanapp.com/basics/templating_language/', class: 'text-grey-dark', target: '_blank'
     /= link_to 'Testing Second Page', 'second-page', class: 'text-grey-dark'
-    div
+    div class="w-full md:w-2/3 max-w-md"
         p.lead As a seasoned design professional, I've got 24 years of experience solving business problems. I've worked as a full-stack designer, web & interactive developer, live event producer, animator and video editor, photographer , and user experience (UX) designer.
         p Currently, I work as a communication designer for <a href="https://datica.com" title="Datica.com">Datica Health</a>, where I design their brand, collateral, and build their website. I occasionally write at Medium.com. Check out my <a href="https://behance.net/allanwhite/">portfolio</a> and case studies, and see how I code at <a href="https://codepen.io/allanwhite/pens/public/">Codepen</a> and <a href="https://github.com/allanwhite" title="Github Profile">Github</a>.
-    div
+    div class="md:w-auto"
         = inline_svg "easel-logo.svg", class: "logo inline-block h-24 w-auto text-orange"
         h4.font-normal.font-serif.italic.text-3xl Let's Talk.

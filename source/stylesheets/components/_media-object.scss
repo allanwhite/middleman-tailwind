@@ -1,7 +1,11 @@
-.media {
-    margin-bottom: 2em;
-    border: 2px solid #444;
-    padding: 10px;
+// .media {
+//     margin-bottom: 2em;
+//     border: 2px solid #444;
+//     padding: 10px;
+// }
+:root {
+    --media-gap: 20px;
+    --media-bp: 150px;
 }
 
 .media>.title {
@@ -22,11 +26,11 @@
 
 .media {
     display: grid;
-    grid-column-gap: 20px;
+    grid-column-gap: var(--media-gap);
     grid-template-areas: "title" "img" "bd" "ft";
 }
 
-@media (min-width: 600px) {
+@media (min-width: 480px) {
     /* clearfix*/
     .media:after {
         content: "";
@@ -34,13 +38,13 @@
         clear: both;
     }
     .media>.media {
-        margin-left: 160px;
+        margin-left: calc(var(--media-bp) + 10px);
         clear: both;
     }
     .media .img {
         float: left;
         margin: 0 10px 0 0;
-        width: 150px;
+        width: var(--media-bp);
     }
     .media .footer {
         background-color: #eee;
@@ -51,10 +55,10 @@
         margin: 0 0 0 10px;
     }
     .media>* {
-        margin: 0 0 0 160px;
+        margin: 0 0 0 calc(var(--media-bp) + 10px);
     }
     .media.media-flip>* {
-        margin: 0 160px 0 0;
+        margin: 0 calc(var(--media-bp) + 10px) 0 0;
     }
     @supports(display: grid) {
         /* override */
@@ -72,27 +76,27 @@
         }
         .media {
             display: grid;
-            grid-column-gap: 20px;
-            grid-template-columns: 150px 3fr;
+            grid-column-gap: var(--media-gap);
+            grid-template-columns: var(--media-bp) max-content;
             grid-template-rows: auto 1fr auto;
             grid-template-areas: "img title" "img bd" "ft ft";
         }
         .media.media-flip {
-            grid-template-columns: 3fr 150px;
+            grid-template-columns: 3fr var(--media-bp);
             grid-template-areas: "title img" "bd img" "ft ft";
         }
         .media.img-flexie {
-            grid-template-columns: minmax(150px, 1fr) 3fr;
+            grid-template-columns: minmax(var(--media-bp), 1fr) 3fr;
         }
         .media.media-flip.img-flexie {
-            grid-template-columns: 3fr minmax(150px, 1fr);
+            grid-template-columns: 3fr minmax(var(--media-bp), 1fr);
         }
         /* nested */
-        .media>.media {
-            grid-column: 2 / -1;
-            margin: 0;
-            /* override */
-            margin-top: 1em;
-        }
+        // .media>.media {
+        //     grid-column: 2 / -1;
+        //     margin: 0;
+        //     /* override */
+        //     margin-top: 1em;
+        // }
     }
 }
