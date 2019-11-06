@@ -73,7 +73,7 @@ a.link {
 
 $card-gap: calc(0.5rem + 2vw);
 .multicol {
-    columns: 3;
+    columns: 4;
     column-gap: $card-gap;
 }
 
@@ -88,11 +88,19 @@ $card-gap: calc(0.5rem + 2vw);
 }
 
 .pov {
-    perspective: 750px;
+    perspective: 1000px;
+}
+.perspective-0 {
+    perspective: 0; // for resetting
 }
 .work-gallery {
     // transform: rotateX(-3deg) rotateY(-18deg) rotateZ(-9deg);
     transform: rotateX(21deg) rotateY(-31deg) rotateZ(21deg) translate3d(0,-4px,91px);
+    transition: transform;
+    transition-timing-function: ease-in-out;
+    animation-name: bigPan; 
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
     // transform: rotateX(16deg) rotateY(-32deg) rotateZ(22deg) translate3d(-7vw, -434px, -18vw);
 }
 .work-gallery-item {
@@ -117,7 +125,7 @@ $card-gap: calc(0.5rem + 2vw);
     }
     .lozad[data-loaded="true"], [data-loaded="true"] .lozad { 
         animation-name: showLazyImg; 
-        animation-duration: 0.7s;
+        animation-duration: 0.3s;
         animation-fill-mode: both;
         animation-delay: 0.5s;
     } 
@@ -130,7 +138,17 @@ $card-gap: calc(0.5rem + 2vw);
         opacity: 1;
     }
 }
-
+@keyframes bigPan {
+    0% {
+        transform: rotateX(21deg) rotateY(-31deg) rotateZ(21deg) translate3d(0,-4px,91px);
+    }
+    50% {
+        transform: rotateX(21deg) rotateY(-31deg) rotateZ(21deg) translate3d(0,200px,91px);
+    }
+    100% {
+        transform: rotateX(21deg) rotateY(-31deg) rotateZ(21deg) translate3d(0,-4px,91px);
+    }
+}
 /* CSS variables. Not needed for the effect to work. */
 :root {
     --duo-base:              var(--color-orange);//#FF6746;
