@@ -22,6 +22,9 @@ author:
   twitter: 'allanwhite'
   linkedin: 'allanwhite'
   instagram: 'allanwhite'
+img:
+  disc: '/images/loader-disc.svg'
+  rect: '/images/loader-rect.svg'
 
 contact:
   -

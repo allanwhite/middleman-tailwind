@@ -8,9 +8,10 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag "site" %>
-    <%= javascript_include_tag "site" %>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
   </head>
   <body class="">
     <%= yield %>
   </body>
+    <%= javascript_include_tag "site" %>
 </html>
