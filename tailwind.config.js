@@ -18,7 +18,7 @@ module.exports = {
         900: '#1a202c',
       },
       orange: {
-        default: '#F26C4F',
+        default: '#FF6746',
         dark: '#E23B16',
         light: '#FF9779'
       },

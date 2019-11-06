@@ -2,11 +2,11 @@
 - set_meta_tags title: data.site.name, full_title: false
 - info_work = data.about.info_work
 
-.flex.h-screen.w-full.bg-orange.text-white.justify-start.items-center
+.flex.min-h-screen.w-full.bg-orange.text-white.justify-start.items-center
     .w-full class="lg:w-2/3 pad max-w-4xl"
         = inline_svg "easel-logo.svg", class: "logo inline-block h-32 mb-4 w-auto fill-current"
-        h1 class="title text-5xl md:text-6xl font-light font-serif leading-none" R. Allan White
-        h2.subhead.text-2xl.mb-12 Full-stack designer
+        h1 class="title text-5xl md:text-6xl font-light font-serif leading-none tracking-tight" R. Allan White
+        h2.subhead.text-2xl.mb-12.text-black Full-stack designer
         p.lead I'm an interdisciplinary designer and developer with 25 years of experience. I've solved business problems in organizations of all sizes through communication design, branding, video, event design, user experience design, and web development.
 .flex.w-full.bg-white.pad class="flex-col md:flex-row"
     div class="w-full max-w-xl md:mr-8 lg:mr-16 xl:mr-24 justify-center items-start"
@@ -22,7 +22,7 @@
             img.rounded-full src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
         div class="w-auto"
             h3.text-5xl.font-bold.text-orange Hire Allan.
-            p.italic.mb-8 Available starting December 2019.
+            p.italic.mb-8 Available for hire in December 2019.
             a.button.mb-12.inline-block.px-4.py-2.border-2.border-orange.rounded.font-mono class="hover:text-orange hover:border-orange-light" title="Email Allan" href=("mailto:" + data.site.author.email)
                 = inline_svg "icon-mail.svg", class: "icon-inline" 
                 = data.site.author.email
