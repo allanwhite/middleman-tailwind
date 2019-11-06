@@ -2,7 +2,9 @@
 html {
     font-family: config('fonts.sans');
 }
-
+.z--10 {
+    z-index: -10;
+}
 img {
     max-width: 100%;
 }
@@ -68,3 +70,110 @@ a.link {
 .bg-orange, .bg-blue, .bg-blue-dark {
     @apply text-white;
 }
+
+$card-gap: calc(0.5rem + 2vw);
+.multicol {
+    columns: 3;
+    column-gap: $card-gap;
+}
+
+.defs-only { // for svg filters
+    position: absolute;
+    height: 0; width: 0;
+    overflow: none;
+    left: -100%;
+}
+.duotone {
+    filter:  url(#duotone);
+}
+
+.pov {
+    perspective: 750px;
+}
+.work-gallery {
+    // transform: rotateX(-3deg) rotateY(-18deg) rotateZ(-9deg);
+    transform: rotateX(21deg) rotateY(-31deg) rotateZ(21deg) translate3d(0,-4px,91px);
+    // transform: rotateX(16deg) rotateY(-32deg) rotateZ(22deg) translate3d(-7vw, -434px, -18vw);
+}
+.work-gallery-item {
+    margin-bottom: $card-gap;
+    // @for $i from 1 through 8 { // add a small bit of delay for n children. Estimating 8
+    //     $t: 0.05s * $i + 0.2s;
+    //     &:nth-child(#{$i}) a { 
+    //         // transition-delay: $t;
+    //         animation-delay: $t;
+    //     }
+    // }
+
+    .lozad {
+    //     transition: opacity 0.3s linear, transform 0.3s ease-in-out;
+    //     transition-delay: 0.5s;
+        opacity: 0.3;
+    //     transform: translate3d(0,0,-10px);
+    //     &.loaded {
+    //         transform: translate3d(0,0,0);
+    //         opacity: 1;
+    //     }
+    }
+    .lozad[data-loaded="true"], [data-loaded="true"] .lozad { 
+        animation-name: showLazyImg; 
+        animation-duration: 0.7s;
+        animation-fill-mode: both;
+        animation-delay: 0.5s;
+    } 
+}
+@keyframes showLazyImg {
+    from { 
+        opacity: 0;
+    }
+    to { 
+        opacity: 1;
+    }
+}
+
+/* CSS variables. Not needed for the effect to work. */
+:root {
+    --duo-base:              var(--color-orange);//#FF6746;
+    --duo-bg-blend:          multiply;
+    --duo-blur:              0px;
+    --duo-fg-blend:          lighten;
+    --duo-foreground:        theme('colors.blue.dark'); //#2B3652;
+    --duo-opacity:           1;
+    --duo-spacing:           0;
+}
+.img-duotone {
+    background-color:    var(--duo-base);
+    display:             flex;
+    flex:                1 1 100%;
+    height:              100%;
+    overflow:            hidden;
+    padding:             var(--duo-spacing);
+    position:            relative;
+}
+
+.img-duotone img {
+    filter:              grayscale(100%) contrast(1) blur(var(--duo-blur));
+    flex:                1 0 100%;
+    height:              100%;
+    max-width:           100%;
+    mix-blend-mode:      var(--duo-bg-blend);
+    object-fit:          cover;
+    opacity:             var(--duo-opacity);
+    position:            relative;
+    width:               100%;
+}
+
+.img-duotone::before {
+    background-color:    var(--duo-foreground);
+    bottom:              0;
+    content:             '';
+    height:              100%;
+    left:                0;
+    mix-blend-mode:      var(--duo-fg-blend);
+    position:            absolute;
+    right:               0;
+    top:                 0;
+    width:               100%;
+    z-index:             1;
+}
+  
