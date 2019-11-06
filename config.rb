@@ -24,6 +24,11 @@ activate :livereload
 configure :development do
   set      :debug_assets, true
   activate :pry
+  activate :images do |images|
+    # Optimize images (default: false)
+    images.optimize = true
+    images.ignore_original = true
+  end
 end
 
 configure :build do
@@ -36,7 +41,8 @@ configure :build do
   activate :minify_html
   activate :images do |images|
     # Optimize images (default: false)
-    images.optimize = false
+    images.optimize = true
+    images.ignore_original = true
   end
   activate :search_engine_sitemap
   activate :relative_assets
