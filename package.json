@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=development webpack -d --watch --config ./webpack.config.js --color --display-error-details",
-    "build": "NODE_ENV=production webpack -p --config ./webpack.config.js --progress --color --display-error-details --bail"
+    "build": "NODE_ENV=production webpack -p --config ./webpack.config.js --progress --color --display-error-details --bail",
+    "export-tailwind-config": "tailwindcss-export-config --config=tailwind.config.js --destination=source/stylesheets/tailwind-vars --format=scss --flat=true"
   },
   "keywords": [],
   "author": "@richjdsmith",

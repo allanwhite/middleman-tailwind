@@ -1,23 +1,53 @@
-- set_meta_tags title: data.site.name + " | " + data.site.description, full_title: false
+/- set_meta_tags title: data.site.name + " | " + data.site.description, full_title: false
+- set_meta_tags title: data.site.name, full_title: false
+- info_work = data.about.info_work
 
-.flex
-    div class="md:w-1/6"
-
-    div class="md:w-1/2"
-        .media.items-center.max-w-md
-            .img
-                img src="images/loader-disc.svg" alt="photo" class="max-w-48" /
-            .content
-                h1 class="title text-4xl font-bold font-serif" R. Allan White
-                h2.font-normal.font-serif.italic.text-3xl Designer
-    
-div class="flex flex-col md:flex-row"
-    div class="md:w-1/6"
-    /= link_to 'Read Documentation', 'https://middlemanapp.com/basics/templating_language/', class: 'text-grey-dark', target: '_blank'
-    /= link_to 'Testing Second Page', 'second-page', class: 'text-grey-dark'
-    div class="w-full md:w-2/3 max-w-md"
-        p.lead As a seasoned design professional, I've got 24 years of experience solving business problems. I've worked as a full-stack designer, web & interactive developer, live event producer, animator and video editor, photographer , and user experience (UX) designer.
-        p Currently, I work as a communication designer for <a href="https://datica.com" title="Datica.com">Datica Health</a>, where I design their brand, collateral, and build their website. I occasionally write at Medium.com. Check out my <a href="https://behance.net/allanwhite/">portfolio</a> and case studies, and see how I code at <a href="https://codepen.io/allanwhite/pens/public/">Codepen</a> and <a href="https://github.com/allanwhite" title="Github Profile">Github</a>.
-    div class="md:w-auto"
-        = inline_svg "easel-logo.svg", class: "logo inline-block h-24 w-auto text-orange"
-        h4.font-normal.font-serif.italic.text-3xl Let's Talk.
+.flex.h-screen.w-full.bg-orange.text-white.justify-start.items-center
+    .w-full class="lg:w-2/3 pad max-w-4xl"
+        = inline_svg "easel-logo.svg", class: "logo inline-block h-32 mb-4 w-auto fill-current"
+        h1 class="title text-5xl md:text-6xl font-light font-serif leading-none" R. Allan White
+        h2.subhead.text-2xl.mb-12 Full-stack designer
+        p.lead I'm an interdisciplinary designer and developer with 25 years of experience. I've solved business problems in organizations of all sizes through communication design, branding, video, event design, user experience design, and web development.
+.flex.w-full.bg-white.pad class="flex-col md:flex-row"
+    div class="w-full max-w-xl md:mr-8 lg:mr-16 xl:mr-24 justify-center items-start"
+        h2.text-5xl.font-bold.text-orange.mb-8 Work
+        - info_work.each do | category |
+            .mb-8
+                h3.text-xl.font-bold.subhead = category.title
+                p = category.desc
+                - if category.link
+                    a.font-medium.text-orange class="hover:text-gray-700" href=category.url = category.link
+    div class="w-full md:w-1/2 justify-center items-center"
+        div class=""
+            img.rounded-full src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
+        div class="w-auto"
+            h3.text-5xl.font-bold.text-orange Hire Allan.
+            p.italic.mb-8 Available starting December 2019.
+            a.button.mb-12.inline-block.px-4.py-2.border-2.border-orange.rounded.font-mono class="hover:text-orange hover:border-orange-light" title="Email Allan" href=("mailto:" + data.site.author.email)
+                = inline_svg "icon-mail.svg", class: "icon-inline" 
+                = data.site.author.email
+            div class="flex flex-row"
+                ul.list-none.mr-6
+                    - data.site.contact.each do | info |    
+                        li.mb-2
+                            a.text-lg.font-medium.leading-none class="hover:text-orange" href=info.url title=info.action
+                                = inline_svg info.icon, class: "icon-inline mr-2" 
+                                = info.label
+                ul.list-none
+                    - data.site.links.each do | info |
+                        li.mb-2
+                            a.text-lg.font-medium.leading-none class="hover:text-orange" href=info.url title=info.action
+                                = inline_svg info.icon, class: "icon-inline mr-2" 
+                                = info.label
+/ .flex.w-full.bg-orange
+    div class="flex flex-col md:flex-row"
+        div class="md:w-1/6"
+        /= link_to 'Read Documentation', 'https://middlemanapp.com/basics/templating_language/', class: 'text-grey-dark', target: '_blank'
+        /= link_to 'Testing Second Page', 'second-page', class: 'text-grey-dark'
+        div class="w-full md:w-2/3 max-w-md"
+            p Currently, I work as a communication designer for <a href="https://datica.com" title="Datica.com">Datica Health</a>, where I design their brand, collateral, and build their website. I occasionally write at Medium.com. Check out my <a href="https://behance.net/allanwhite/">portfolio</a> and case studies, and see how I code at <a href="https://codepen.io/allanwhite/pens/public/">Codepen</a> and <a href="https://github.com/allanwhite" title="Github Profile">Github</a>.
+        div class="md:w-auto"
+            = inline_svg "easel-logo.svg", class: "logo inline-block h-24 w-auto fill-current"
+            h4.font-normal.font-serif.italic.text-3xl Let's Talk.
+        .img
+            img src="images/loader-disc.svg" alt="photo" class="max-w-48" /

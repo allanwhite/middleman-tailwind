@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,600|IBM+Plex+Sans+Condensed:400,700|IBM+Plex+Sans:300,300i,400,400i,700,700i|IBM+Plex+Serif:300,300i,400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,600|IBM+Plex+Sans+Condensed:400,700|IBM+Plex+Sans:300,300i,400,400i,500,500i,700,700i|IBM+Plex+Serif:300,300i,400,400i,700,700i');
 html {
     font-family: config('fonts.sans');
 }
@@ -7,22 +7,46 @@ img {
     max-width: 100%;
 }
 
-.row {
-    @apply flex flex-row items-stretch;
-}
+// .row {
+//     @apply flex flex-row items-stretch;
+// }
 
-.max-w-48 {
-    max-width: 12rem;
-}
+// .max-w-48 {
+//     max-width: 12rem;
+// }
 
-.max-w-64 {
-    max-width: 16rem;
-}
+// .max-w-64 {
+//     max-width: 16rem;
+// }
 
 p {
     @apply text-base leading-normal font-sans;
 }
+.subhead {
+    @apply font-sans font-medium leading-tight uppercase tracking-widest;
+}
 
 .lead {
-    @apply text-xl leading-normal font-sans;
+    @apply text-xl leading-normal font-serif font-light;
 }
+.pad {
+    @apply p-8;
+    @screen md {
+        @apply p-12;
+    }
+    @screen lg {
+        @apply p-24;
+    }
+}
+.icon-inline {
+    @apply inline-block fill-current;
+    width: 1em;
+    height: 1em;
+    margin-top: -0.3em; // whyy
+}
+a {
+    transition: color 150ms linear, border-color 150ms linear;
+}
+// a.button {
+//     transition: color 150ms linear;
+// }

@@ -1,8 +1,8 @@
 name: 'R. Allan White | Full-stack designer'
-description: 'I'm an interdisciplinary designer with 25 years experience in communication design, branding, video, event design, user experience design, and web development.'
+description: "I'm an interdisciplinary designer with 25 years experience in communication design, branding, video, event design, user experience design, and web development."
 host: 'https://allanwhite.design'
 keywords: 'design, UX, product design, front-end, web development, CSS, video, animation'
-thumbnail: 'banner.jpg'
+thumbnail: 'twitter-share-card.png'
 favicon: '_favicon.svg'
 base_color: '#F26C4F'
 repository: 'https://github.com/richjdsmith/middleman-tailwind'
@@ -22,3 +22,47 @@ author:
   twitter: 'allanwhite'
   linkedin: 'allanwhite'
   instagram: 'allanwhite'
+
+contact:
+  -
+    label: "503.799.2217"
+    action: "Call Allan"
+    url: "tel:+15037992217"
+    icon: icon-phone.svg
+  -
+    label: "@allanwhite"
+    action: "Follow Allan on Twitter"
+    url: "https://twitter.com/allanwhite"
+    icon: icon-twitter.svg
+  -
+    label: "LinkedIn"
+    action: "Call Allan at "
+    url: "https://www.linkedin.com/in/allanwhite"
+    icon: icon-linkedin.svg
+
+links:
+  -
+    label: "Behance Portfolio"
+    action: "See Allan's work at Behance"
+    url: "https://behance.net/allanwhite"
+    icon: icon-behance.svg
+  -
+    label: "Dev.to Blog"
+    action: "Read Allan's Writing at his blog"
+    url: "https://dev.to/allanwhite"
+    icon: icon-pencil.svg
+  -
+    label: "Github"
+    action: "Code on Github"
+    url: "https://github.com/allanwhite"
+    icon: icon-github.svg
+  -
+    label: "CodePen"
+    action: "Explore my code sketches on CodePen"
+    url: "https://codepen.io/allanwhite/pens/"
+    icon: icon-codepen.svg
+  -
+    label: "Download my résumé"
+    action: "Download Allan's Resume"
+    url: 
+    icon: icon-file-text-o.svg

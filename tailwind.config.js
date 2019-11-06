@@ -17,16 +17,15 @@ module.exports = {
         800: '#2d3748',
         900: '#1a202c',
       },
-      purple: {
-        default: '#D73BFF',
-        dark: '#9B00FF',
-        light: '#5C00EB'
+      orange: {
+        default: '#F26C4F',
+        dark: '#E23B16',
+        light: '#FF9779'
       },
-      green: {
-        default: '#718765',
-        dark: '#27516C',
-        light: '#709DC9',
-        bright: '#718765',
+      aqua: {
+        default: '#00F0E6',
+        dark: '#00C4D0',
+        bright: '#0BFFF0',
       },
       blue: {
         default: '#6689AB',
@@ -43,17 +42,17 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        '"GT America"',
+        '"IBM Plex Sans"',
         'system-ui',
         'sans-serif',
       ],
       serif: [
-        '"Source Serif Pro"',
+        '"IBM Plex Serif"',
         'Georgia',
         'serif',
       ],
       mono: [
-        'Menlo',
+        '"IBM Plex Mono"',
         'Monaco',
         'Consolas',
         'Liberation Mono',
