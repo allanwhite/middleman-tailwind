@@ -9,7 +9,7 @@
         h2.subhead.text-2xl.mb-12.text-blue-dark Full-stack designer
         p.lead I'm an interdisciplinary designer and developer with 25 years of experience. I've solved business problems in organizations of all sizes through communication design, branding, video, event design, user experience design, and web development.
 .flex.w-full.bg-white.text-blue-light.pad class="flex-col md:flex-row"
-    div class="w-full max-w-xl md:mr-8 lg:mr-16 xl:mr-24 justify-center items-start"
+    div class="w-full max-w-xl md:mr-8 lg:mr-16 xl:mr-24 mb-8 justify-center items-start"
         h2.text-5xl.font-bold.text-orange.mb-8 Work
         - info_work.each do | category |
             .mb-8
@@ -19,7 +19,7 @@
                     a.font-medium.text-orange class="hover:text-gray-700" href=category.url = category.link
     div class="w-full md:w-1/2 justify-center items-center"
         div class=""
-            img.rounded-full src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
+            img.rounded-full.lozad data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
         div class="w-auto"
             h3.text-5xl.font-bold.text-orange Hire Allan.
             p.italic.mb-8 Available for hire in December 2019.
@@ -27,17 +27,17 @@
                 = inline_svg "icon-mail.svg", class: "icon-inline" 
                 = data.site.author.email
             div class="flex flex-row"
-                ul.list-none.mr-6
+                ul.list-none.mr-4 class="md:mr-6 lg:mr-8"
                     - data.site.contact.each do | info |    
-                        li.mb-2
-                            a.text-lg.font-medium.leading-none class="hover:text-orange" href=info.url title=info.action
-                                = inline_svg info.icon, class: "icon-inline mr-2" 
+                        li.mb-2.whitespace-no-wrap
+                            a.link href=info.url title=info.action
+                                = inline_svg info.icon, class: "icon-inline mr-1 md:mr-2" 
                                 = info.label
                 ul.list-none
                     - data.site.links.each do | info |
-                        li.mb-2
-                            a.text-lg.font-medium.leading-none class="hover:text-orange" href=info.url title=info.action
-                                = inline_svg info.icon, class: "icon-inline mr-2" 
+                        li.mb-2.whitespace-no-wrap
+                            a.link href=info.url title=info.action
+                                = inline_svg info.icon, class: "icon-inline mr-1 md:mr-2" 
                                 = info.label
 / .flex.w-full.bg-orange
     div class="flex flex-col md:flex-row"

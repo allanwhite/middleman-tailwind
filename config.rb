@@ -29,14 +29,14 @@ end
 configure :build do
   set      :asset_host, @app.data.site.host
   set      :relative_links, true
-  activate :asset_hash
+  # activate :asset_hash
   activate :directory_indexes
   activate :favicon_maker, icons: generate_favicons_hash
   activate :gzip
   activate :minify_html
   activate :images do |images|
     # Optimize images (default: false)
-    images.optimize = true
+    images.optimize = false
   end
   activate :search_engine_sitemap
   activate :relative_assets

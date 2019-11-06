@@ -47,6 +47,16 @@ p {
 a {
     transition: color 150ms linear, border-color 150ms linear;
 }
+
+a.link {
+    @apply text-base font-medium leading-none;
+    @screen md {
+        @apply text-lg;
+    }
+    &:hover {
+        @apply text-orange;
+    }
+}
 // a.button {
 //     transition: color 150ms linear;
 // }
@@ -55,6 +65,6 @@ a {
     @apply text-blue-dark;
 }
 
-.bg-orange {
+.bg-orange, .bg-blue, .bg-blue-dark {
     @apply text-white;
 }

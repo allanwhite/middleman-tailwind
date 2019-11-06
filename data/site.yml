@@ -3,9 +3,9 @@ description: "I'm an interdisciplinary designer with 25 years experience in comm
 host: 'https://allanwhite.design'
 keywords: 'design, UX, product design, front-end, web development, CSS, video, animation'
 thumbnail: 'twitter-share-card.png'
-favicon: '_favicon.svg'
-base_color: '#F26C4F'
-repository: 'https://github.com/richjdsmith/middleman-tailwind'
+favicon: '_favicon.png'
+base_color: '#ffffff'
+repository: 'https://github.com/allanwhite/middleman-tailwind'
 license: 'MIT'
 geocoding:
   place: 'Gresham, Oregon'
