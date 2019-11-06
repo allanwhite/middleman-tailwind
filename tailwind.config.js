@@ -28,9 +28,9 @@ module.exports = {
         bright: '#0BFFF0',
       },
       blue: {
-        default: '#6689AB',
-        dark: '#27516C',
-        light: '#709DC9',
+        default: '#2B3652',
+        dark: '#232F4B',
+        light: '#4077B6',
       }
     },
     screens: {

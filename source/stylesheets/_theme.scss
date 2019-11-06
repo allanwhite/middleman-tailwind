@@ -50,3 +50,11 @@ a {
 // a.button {
 //     transition: color 150ms linear;
 // }
+
+.bg-white{
+    @apply text-blue-dark;
+}
+
+.bg-orange {
+    @apply text-white;
+}
