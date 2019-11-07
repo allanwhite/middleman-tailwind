@@ -42,6 +42,11 @@ contact:
     action: "Call Allan at "
     url: "https://www.linkedin.com/in/allanwhite"
     icon: icon-linkedin.svg
+  - 
+    label: "Book a meeting"
+    action: "Schedule a meeting with Allan via Calendly"
+    url: "https://calendly.com/allanwhite"
+    icon: icon-date.svg
 
 links:
   -
@@ -67,5 +72,5 @@ links:
   -
     label: "Download my résumé"
     action: "Download Allan's Resume"
-    url: 
+    url: "/images/work/Allan White - Resume 2019 (full-stack designer).pdf"
     icon: icon-file-text-o.svg

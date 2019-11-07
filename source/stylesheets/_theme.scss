@@ -98,6 +98,7 @@ $card-gap: calc(0.5rem + 2vw);
     // transform: rotateX(21deg) rotateY(-31deg) rotateZ(21deg) translate3d(0,-4px,91px);
     // transform: rotateX(16deg) rotateY(-32deg) rotateZ(22deg) translate3d(-7vw, -434px, -18vw);
     height: 102%;
+    transition: opacity 0.7s;
 }
 .masthead {
     transform: scale3d(1,1,1);
