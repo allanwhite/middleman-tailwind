@@ -10,7 +10,7 @@
         .flex class="flex-col items-start md:flex-row justify-start"
             = inline_svg "easel-logo.svg", class: "logo inline-block h-48 mb-4 mr-6 w-auto"
             .title
-                h1 class="title text-5xl-scale mt-4 md:text-6xl-scale font-light font-serif leading-none tracking-tight" R. Allan White
+                h1 class="title text-5xl-scale mt-4 md:text-6xl-scale font-normal lg:font-light font-serif leading-none tracking-tight" R. Allan White
                 h2.subhead.text-4xl-scale.mb-12 Full-stack designer
                 a href="#work" title="More"
                     = inline_svg "icon-angle-down-large.svg", class: "h-24 waypoint fill-current"
@@ -18,10 +18,10 @@
         = partial "partials/masthead-picture", :locals => { :the_img => img_masthead }
 section#work.relative.w-full.bg-gray-100.text-blue.pad.z-20 tabindex="-1"
     .max-w-6xl.flex.flex-col.justify-start.items-center.mx-auto class="md:flex-row"
-        .w-full.px-8.mb-8 class="md:w-1/2"
-            p class="text-2xl leading-loose font-serif font-light" style="max-width: 40em;" 
+        .w-full.px-0.mb-8 class="md:w-1/2 md:px-4 lg:px-8"
+            p class="text-lg lg:text-2xl lg:leading-loose font-serif font-light" style="max-width: 40em;" 
                 | I'm an interdisciplinary designer and developer with 25 years of experience. I've solved business problems in organizations of all sizes through communication design, branding, video, event design, user experience design, and web development.
-        .w-full.px-8 class="md:w-1/2"
+        .w-full.px-0 class="md:w-1/2 md:px-4 lg:px-8"
             h2.text-5xl.font-bold.text-orange.mb-8 Work
             - info_work.each do | category |
                 .mb-8
@@ -39,15 +39,15 @@ scss:
     }
 footer.relative.w-full.bg-orange.text-white.z-0.pad
     .max-w-6xl.flex.justify-start.mx-auto
-        .z-10.p-12.rounded-lg.shadow-sm.shadow-xl.relative class="bg-white lg:p-16"
+        .z-10.p-6.rounded-lg.shadow-sm.shadow-xl.relative class="bg-white md:p-10 lg:p-16"
             img.rounded-full.lozad src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
             h3.text-5xl.font-bold.text-orange Hire Allan.
             p.italic.mb-8 Available for hire in December 2019. 
             a.button.mb-12.inline-block.px-4.py-2.border-2.border-orange.rounded.font-mono class="hover:text-orange hover:border-orange-light" title="Email Allan" href=("mailto:" + data.site.author.email)
                 = inline_svg "icon-mail.svg", class: "icon-inline" 
                 = data.site.author.email
-            div class="flex flex-row"
-                ul.list-none.mr-4 class="md:mr-6 lg:mr-8"
+            div class="flex flex-col md:flex-row"
+                ul.list-none.mr-4 class="mb-4 md:mb-0 md:mr-6 lg:mr-8"
                     - data.site.contact.each do | info |
                         li.mb-2.whitespace-no-wrap
                             a.link href=info.url title=info.action
