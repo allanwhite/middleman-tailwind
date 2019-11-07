@@ -15,25 +15,7 @@
                 a href="#work" title="More"
                     = inline_svg "icon-angle-down-large.svg", class: "h-24 waypoint fill-current"
     .work-gallery.z-0.left-0.top-0.pov.overflow-hidden.absolute.h-full.w-full class=""
-        / img.lozad src="/images/work/moodboard-2-angle-preload.svg" data-src="/images/work/moodboard-2-angle-tint.jpg"
-        picture.masthead.flex.lozad.h-full.w-full data-alt="Allan White work" data-iesrc="" style=("display: block; min-height: 1rem") 
-            source media="(min-width: 1438px)" srcset=(image_path img_masthead, resize: '2400x2400') 
-            source media="(min-width: 980px)" srcset=(image_path img_masthead, resize: '1800x1800') 
-            source media="(min-width: 320px)" srcset=(image_path img_masthead, resize: '800x800') 
-            noscript
-                img.object-cover.h-full.w-full src=(image_path img_masthead, resize: '800x800') alt="Allan White Work"
-        / img.lozad.object-cover.object-center data-src=(image_path img_masthead, resize: '800x800')
-
-        /img src=(image_path, img_masthead, resize: '2400x2400')
-        / .multicol.work-gallery
-            / = inline_svg "filter-duotone.svg", class: "" 
-            - work_thumbs.each do | entry |
-                .work-gallery-item.rounded-lg.overflow-hidden.img-duotone
-                    img.lozad.object-cover.object-center data-src=entry.url
-/ section.relative.z-0.bg-gray-100.pad
-    aside.z-0.right-0.bottom-0.pov.overflow-hidden.fixed class="lg:top-0"
-        img.lozad src="/images/work/moodboard-2-angle-preload.svg" data-src="/images/work/moodboard-2-angle-color.jpg"
-
+        = partial "partials/masthead-picture", :locals => { :the_img => img_masthead }
 section#work.relative.w-full.bg-gray-100.text-blue.pad.z-20 tabindex="-1"
     .max-w-6xl.flex.flex-col.justify-start.items-center.mx-auto class="md:flex-row"
         .w-full.px-8.mb-8 class="md:w-1/2"
@@ -79,19 +61,9 @@ footer.relative.w-full.bg-orange.text-white.z-0.pad
                                 = info.label
     .work-gallery.image-tinted.z-0.left-0.top-0.pov.overflow-hidden.absolute.h-full.w-full
         / img.lozad src="/images/work/moodboard-2-angle-preload.svg" data-src="/images/work/moodboard-2-angle-tint.jpg"
-        picture.masthead.flex.lozad.h-full.w-full data-alt="Allan White work" data-iesrc="" style=("display: block; min-height: 1rem") 
-            source media="(min-width: 1438px)" srcset=(image_path img_masthead, resize: '2400x2400') 
-            source media="(min-width: 980px)" srcset=(image_path img_masthead, resize: '1800x1800') 
-            source media="(min-width: 320px)" srcset=(image_path img_masthead, resize: '800x800') 
-            noscript
-                img.object-cover.h-full.w-full src=(image_path img_masthead, resize: '800x800') alt="Allan White Work"
+        = partial "partials/masthead-picture", :locals => { :the_img => img_masthead }
     .work-gallery.image-bright.z-0.left-0.top-0.pov.overflow-hidden.absolute.h-full.w-full.opacity-0
-        picture.masthead.flex.lozad.h-full.w-full data-alt="Allan White work" data-iesrc="" style=("display: block; min-height: 1rem") 
-            source media="(min-width: 1438px)" srcset=(image_path img_masthead_color, resize: '2400x2400') 
-            source media="(min-width: 980px)" srcset=(image_path img_masthead_color, resize: '1800x1800') 
-            source media="(min-width: 320px)" srcset=(image_path img_masthead_color, resize: '800x800') 
-            noscript
-                img.object-cover.h-full.w-full src=(image_path img_masthead_color, resize: '800x800') alt="Allan White Work"
+        = partial "partials/masthead-picture", :locals => { :the_img => img_masthead_color }
 
 / img.w-full.h-4 src="/images/work/color-strip.jpg" alt="texture"
 /src=data.site.img.rect 
