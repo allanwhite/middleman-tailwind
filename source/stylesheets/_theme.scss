@@ -92,7 +92,13 @@ $card-gap: calc(0.5rem + 2vw);
 }
 .work-gallery {
     // transform: rotateX(-3deg) rotateY(-18deg) rotateZ(-9deg);
-    transform: rotateX(21deg) rotateY(-31deg) rotateZ(21deg) translate3d(0,-4px,91px);
+    // transform: rotateX(21deg) rotateY(-31deg) rotateZ(21deg) translate3d(0,-4px,91px);
+    transform: scale3d(1,1,1);
+    transition: transform;
+    transition-timing-function: ease-in-out;
+    animation-name: bigPan; 
+    animation-duration: 80s;
+    animation-iteration-count: infinite;
     // transform: rotateX(16deg) rotateY(-32deg) rotateZ(22deg) translate3d(-7vw, -434px, -18vw);
 }
 .work-gallery-item {
@@ -130,50 +136,15 @@ $card-gap: calc(0.5rem + 2vw);
         opacity: 1;
     }
 }
-
-/* CSS variables. Not needed for the effect to work. */
-:root {
-    --duo-base:              var(--color-orange);//#FF6746;
-    --duo-bg-blend:          multiply;
-    --duo-blur:              0px;
-    --duo-fg-blend:          lighten;
-    --duo-foreground:        theme('colors.blue.dark'); //#2B3652;
-    --duo-opacity:           1;
-    --duo-spacing:           0;
+@keyframes bigPan {
+    $z: 1.2;
+    0% {
+        transform: scale3d(1,1,1);
+    }
+    50% {
+        transform: scale3d($z,$z,$z);
+    }
+    100% {
+        transform: scale3d(1,1,1);
+    }
 }
-.img-duotone {
-    background-color:    var(--duo-base);
-    display:             flex;
-    flex:                1 1 100%;
-    height:              100%;
-    overflow:            hidden;
-    padding:             var(--duo-spacing);
-    position:            relative;
-}
-
-.img-duotone img {
-    filter:              grayscale(100%) contrast(1) blur(var(--duo-blur));
-    flex:                1 0 100%;
-    height:              100%;
-    max-width:           100%;
-    mix-blend-mode:      var(--duo-bg-blend);
-    object-fit:          cover;
-    opacity:             var(--duo-opacity);
-    position:            relative;
-    width:               100%;
-}
-
-.img-duotone::before {
-    background-color:    var(--duo-foreground);
-    bottom:              0;
-    content:             '';
-    height:              100%;
-    left:                0;
-    mix-blend-mode:      var(--duo-fg-blend);
-    position:            absolute;
-    right:               0;
-    top:                 0;
-    width:               100%;
-    z-index:             1;
-}
-  
