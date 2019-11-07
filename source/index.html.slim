@@ -2,15 +2,30 @@
 - set_meta_tags title: data.site.name, full_title: false
 - info_work = data.about.info_work
 - work_thumbs = data.work_grid.samples
+- img_masthead = "/images/work/moodboard-2-angle-tint.jpg"
+- img_masthead_color = "/images/work/moodboard-2-angle-color.jpg"
 
-.flex.min-h-screen.w-full.bg-orange.text-white.justify-start.items-center.z--10
-    .w-full.z-10 class="lg:w-2/3 pad max-w-4xl"
-        = inline_svg "easel-logo.svg", class: "logo inline-block h-32 mb-4 w-auto"
-        h1 class="title text-5xl md:text-6xl font-light font-serif leading-none tracking-tight" R. Allan White
-        h2.subhead.text-2xl.mb-12 Full-stack designer
-        p.lead I'm an interdisciplinary designer and developer with 25 years of experience. I've solved business problems in organizations of all sizes through communication design, branding, video, event design, user experience design, and web development.
-    aside.work-gallery.z-0.right-0.bottom-0.pov.overflow-hidden.absolute class="lg:top-0"
-        img.lozad src="/images/work/moodboard-2-angle-preload.svg" data-src="/images/work/moodboard-2-angle-tint.jpg"
+.flex.min-h-screen.w-full.bg-orange.text-white.justify-center.items-center.z--10
+    header.z-10.pad class=""
+        .flex class="flex-col items-start md:flex-row justify-start"
+            = inline_svg "easel-logo.svg", class: "logo inline-block h-48 mb-4 mr-6 w-auto"
+            .title
+                h1 class="title text-5xl-scale md:text-6xl-scale font-light font-serif leading-none tracking-tight" R. Allan White
+                h2.subhead.text-4xl-scale.mb-12 Full-stack designer
+                p class="text-2xl leading-normal font-serif font-light" style="max-width: 40em;" I'm an interdisciplinary designer and developer with 25 years of experience. I've solved business problems in organizations of all sizes through communication design, branding, video, event design, user experience design, and web development.
+                a href="#work" title="More"
+                    = inline_svg "icon-angle-down-large.svg", class: "h-24 waypoint fill-current"
+    .work-gallery.z-0.left-0.top-0.pov.overflow-hidden.absolute.h-full.w-full class=""
+        / img.lozad src="/images/work/moodboard-2-angle-preload.svg" data-src="/images/work/moodboard-2-angle-tint.jpg"
+        picture.masthead.flex.lozad.h-full.w-full data-alt="Allan White work" data-iesrc="" style=("display: block; min-height: 1rem") 
+            source media="(min-width: 1438px)" srcset=(image_path img_masthead, resize: '2400x2400') 
+            source media="(min-width: 980px)" srcset=(image_path img_masthead, resize: '1800x1800') 
+            source media="(min-width: 320px)" srcset=(image_path img_masthead, resize: '800x800') 
+            noscript
+                img.object-cover.h-full.w-full src=(image_path img_masthead, resize: '800x800') alt="Allan White Work"
+        / img.lozad.object-cover.object-center data-src=(image_path img_masthead, resize: '800x800')
+
+        /img src=(image_path, img_masthead, resize: '2400x2400')
         / .multicol.work-gallery
             / = inline_svg "filter-duotone.svg", class: "" 
             - work_thumbs.each do | entry |
@@ -20,7 +35,7 @@
     aside.z-0.right-0.bottom-0.pov.overflow-hidden.fixed class="lg:top-0"
         img.lozad src="/images/work/moodboard-2-angle-preload.svg" data-src="/images/work/moodboard-2-angle-color.jpg"
 
-.flex.relative.w-full.bg-white.text-blue-light.pad.z-20 class="flex-col md:flex-row"
+section#work.flex.relative.w-full.bg-gray-100.text-blue.pad.z-20.justify-center class="flex-col md:flex-row"
     div class="w-full max-w-xl md:mr-8 lg:mr-16 xl:mr-24 mb-8 justify-center items-start"
         h2.text-5xl.font-bold.text-orange.mb-8 Work
         - info_work.each do | category |
@@ -28,8 +43,8 @@
                 h3.text-xl.font-bold.subhead = category.title
                 p = category.desc
                 - if category.link
-                    a.font-medium.text-orange class="hover:text-gray-700" href=category.url = category.link
-    div class="w-full md:w-1/2 justify-center items-center"
+                    a.font-medium.text-orange-dark class="hover:text-blue" href=category.url = category.link
+    div class="w-full max-w-xl justify-center items-center"
         div class=""
             img.rounded-full.lozad src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
         div class="w-auto"
@@ -51,7 +66,15 @@
                             a.link href=info.url title=info.action
                                 = inline_svg info.icon, class: "icon-inline mr-1 md:mr-2" 
                                 = info.label
+.flex.w-full.bg-orange.text-white.justify-center.items-center.z--10.h-48
+    picture.masthead.flex.lozad.h-full.w-full data-alt="Allan White work" data-iesrc="" style=("display: block; min-height: 1rem") 
+        source media="(min-width: 1438px)" srcset=(image_path img_masthead_color, resize: '2400x2400') 
+        source media="(min-width: 980px)" srcset=(image_path img_masthead_color, resize: '1800x1800') 
+        source media="(min-width: 320px)" srcset=(image_path img_masthead_color, resize: '800x800') 
+        noscript
+            img.object-cover.h-full.w-full src=(image_path img_masthead_color, resize: '800x800') alt="Allan White Work"
 
+/ img.w-full.h-4 src="/images/work/color-strip.jpg" alt="texture"
 /src=data.site.img.rect 
 / style="max-width: calc(7rem + 41vw);"
 / .flex.w-full.bg-orange
