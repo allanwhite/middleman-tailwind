@@ -3,13 +3,13 @@
 - info_work = data.about.info_work
 - work_thumbs = data.work_grid.samples
 
-.flex.min-h-screen.w-full.bg-orange.text-white.justify-start.items-center.z--10.relative
+.flex.min-h-screen.w-full.bg-orange.text-white.justify-start.items-center.z--10.relative.overflow-hidden
     .w-full.z-10 class="xl:w-2/3 pad max-w-4xl"
         = inline_svg "easel-logo.svg", class: "logo inline-block h-32 mb-4 w-auto text-blue-dark md:text-white xl:text-blue-dark"
         h1 class="title text-5xl md:text-6xl font-light font-serif leading-none tracking-tight" R. Allan White
         h2.subhead.text-2xl.mb-12 class="text-blue-dark md:text-white xl:text-blue-dark" Full-stack designer
         p.lead I'm an interdisciplinary designer and developer with 25 years of experience. I've solved business problems in organizations of all sizes through communication design, branding, video, event design, user experience design, and web development.
-    aside.h-screen.w-screen.z-0.absolute.left-0.top-0.pov.overflow-hidden.hidden.work-gallery-container class="md:block"
+    aside.z-0.absolute.h-full.w-full.left-0.top-0.hidden.work-gallery-container.flex.justify-center.items-center class="md:block"
         .multicol.work-gallery
             / = inline_svg "filter-duotone.svg", class: "" 
             - work_thumbs.each do | entry |
