@@ -1,0 +1,47 @@
+
+/* CSS variables. Not needed for the effect to work. */
+:root {
+    --duo-base:              var(--color-orange);//#FF6746;
+    --duo-bg-blend:          multiply;
+    --duo-blur:              0px;
+    --duo-fg-blend:          lighten;
+    --duo-foreground:        theme('colors.blue.dark'); //#2B3652;
+    --duo-opacity:           1;
+    --duo-spacing:           0;
+}
+.img-duotone {
+    background-color:    var(--duo-base);
+    display:             flex;
+    flex:                1 1 100%;
+    height:              100%;
+    overflow:            hidden;
+    padding:             var(--duo-spacing);
+    position:            relative;
+}
+
+.img-duotone img {
+    filter:              grayscale(100%) contrast(1) blur(var(--duo-blur));
+    flex:                1 0 100%;
+    height:              100%;
+    max-width:           100%;
+    mix-blend-mode:      var(--duo-bg-blend);
+    object-fit:          cover;
+    opacity:             var(--duo-opacity);
+    position:            relative;
+    width:               100%;
+}
+
+.img-duotone::before {
+    background-color:    var(--duo-foreground);
+    bottom:              0;
+    content:             '';
+    height:              100%;
+    left:                0;
+    mix-blend-mode:      var(--duo-fg-blend);
+    position:            absolute;
+    right:               0;
+    top:                 0;
+    width:               100%;
+    z-index:             1;
+}
+  

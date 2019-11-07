@@ -2,7 +2,9 @@
 html {
     font-family: config('fonts.sans');
 }
-
+.z--10 {
+    z-index: -10;
+}
 img {
     max-width: 100%;
 }
@@ -60,6 +62,9 @@ a.link {
 // a.button {
 //     transition: color 150ms linear;
 // }
+.line-length {
+    max-width: 50em;
+}
 
 .bg-white{
     @apply text-blue-dark;
@@ -67,4 +72,100 @@ a.link {
 
 .bg-orange, .bg-blue, .bg-blue-dark {
     @apply text-white;
+}
+
+$card-gap: calc(0.5rem + 2vw);
+.multicol {
+    columns: 3;
+    column-gap: $card-gap;
+}
+
+.defs-only { // for svg filters
+    position: absolute;
+    height: 0; width: 0;
+    overflow: none;
+    left: -100%;
+}
+.duotone {
+    filter:  url(#duotone);
+}
+
+.pov {
+    perspective: 750px;
+}
+.work-gallery {
+    // transform: rotateX(-3deg) rotateY(-18deg) rotateZ(-9deg);
+    // transform: rotateX(21deg) rotateY(-31deg) rotateZ(21deg) translate3d(0,-4px,91px);
+    // transform: rotateX(16deg) rotateY(-32deg) rotateZ(22deg) translate3d(-7vw, -434px, -18vw);
+    height: 102%;
+    transition: opacity 0.7s;
+}
+.masthead {
+    transform: scale3d(1,1,1);
+    transition: transform;
+    transition-timing-function: ease-in-out;
+    animation-name: bigPan; 
+    animation-duration: 80s;
+    animation-iteration-count: infinite;
+}
+.masthead img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.work-gallery-item {
+    margin-bottom: $card-gap;
+    // @for $i from 1 through 8 { // add a small bit of delay for n children. Estimating 8
+    //     $t: 0.05s * $i + 0.2s;
+    //     &:nth-child(#{$i}) a { 
+    //         // transition-delay: $t;
+    //         animation-delay: $t;
+    //     }
+    // }
+
+    .lozad {
+    //     transition: opacity 0.3s linear, transform 0.3s ease-in-out;
+    //     transition-delay: 0.5s;
+        opacity: 0.3;
+    //     transform: translate3d(0,0,-10px);
+    //     &.loaded {
+    //         transform: translate3d(0,0,0);
+    //         opacity: 1;
+    //     }
+    }
+    .lozad[data-loaded="true"], [data-loaded="true"] .lozad { 
+        animation-name: showLazyImg; 
+        animation-duration: 0.7s;
+        animation-fill-mode: both;
+        animation-delay: 0.5s;
+    } 
+}
+.waypoint {
+    animation: pulse 1.5s infinite;
+}
+@keyframes showLazyImg {
+    from { 
+        opacity: 0;
+    }
+    to { 
+        opacity: 1;
+    }
+}
+@keyframes bigPan {
+    $z: 1.2;
+    0%, 100% {
+        transform: scale3d(1,1,1);
+    }
+    50% {
+        transform: scale3d($z,$z,$z);
+    }
+}
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.2;
+    }
 }
