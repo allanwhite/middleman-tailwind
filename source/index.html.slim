@@ -40,7 +40,7 @@ scss:
 footer.relative.w-full.bg-orange.text-white.z-0.pad
     .max-w-6xl.flex.justify-start.mx-auto
         .card.z-10.p-6.rounded-lg.shadow-sm.shadow-xl.relative.w-full class="md:w-auto bg-white md:p-10 lg:p-16"
-            img.rounded-full.lozad src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
+            img.rounded-full.lozad.mb-4 src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
             h3.text-3xl.font-bold.text-orange.leading-none class="md:text-5xl" Hire Allan.
             p.italic.mb-8 Available for new opportunities in December 2019. 
             a.button.whitespace-no-wrap.text-xs.mb-12.inline-block.px-3.py-1.border-2.border-orange.rounded.font-mono class="md:px-4 md:py-2 md:text-base hover:text-orange hover:border-orange-light" title="Email Allan" href=("mailto:" + data.site.author.email)
@@ -62,7 +62,7 @@ footer.relative.w-full.bg-orange.text-white.z-0.pad
     .work-gallery.image-tinted.z-0.left-0.top-0.pov.overflow-hidden.absolute.h-full.w-full
         / img.lozad src="/images/work/moodboard-2-angle-preload.svg" data-src="/images/work/moodboard-2-angle-tint.jpg"
         = partial "partials/masthead-picture", :locals => { :the_img => img_masthead }
-    .work-gallery.image-bright.z-0.left-0.top-0.pov.overflow-hidden.absolute.h-full.w-full.opacity-0
+    .work-gallery.image-bright.z-0.left-0.top-0.pov.overflow-hidden.absolute.h-full.w-full.opacity-0.hidden class="md:block"
         = partial "partials/masthead-picture", :locals => { :the_img => img_masthead_color }
 
 / img.w-full.h-4 src="/images/work/color-strip.jpg" alt="texture"
