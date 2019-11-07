@@ -9,6 +9,14 @@
         h1 class="title text-5xl md:text-6xl font-light font-serif leading-none tracking-tight" R. Allan White
         h2.subhead.text-2xl.mb-12.text-blue-dark Full-stack designer
         p.lead I'm an interdisciplinary designer and developer with 25 years of experience. I've solved business problems in organizations of all sizes through communication design, branding, video, event design, user experience design, and web development.
+    aside.z-0.absolute.right-0.bottom-0.pov.overflow-hidden class="lg:top-0"
+        img.lozad src="/images/work/moodboard-1-preload.svg" data-src="/images/work/moodboard-1-tint.jpg"
+        / .multicol.work-gallery
+            / = inline_svg "filter-duotone.svg", class: "" 
+            - work_thumbs.each do | entry |
+                .work-gallery-item.rounded-lg.overflow-hidden.img-duotone
+                    img.lozad.object-cover.object-center data-src=entry.url
+
 .flex.w-full.bg-white.text-blue-light.pad.z-20 class="flex-col md:flex-row"
     div class="w-full max-w-xl md:mr-8 lg:mr-16 xl:mr-24 mb-8 justify-center items-start"
         h2.text-5xl.font-bold.text-orange.mb-8 Work
@@ -41,12 +49,6 @@
                                 = inline_svg info.icon, class: "icon-inline mr-1 md:mr-2" 
                                 = info.label
 
-aside.z-0.absolute.right-0.bottom-0.pov.overflow-hidden.hidden class="md:block lg:top-0"
-    .multicol.work-gallery
-        / = inline_svg "filter-duotone.svg", class: "" 
-        - work_thumbs.each do | entry |
-            .work-gallery-item.rounded-lg.overflow-hidden.img-duotone
-                img.lozad.object-cover.object-center data-src=entry.url
 /src=data.site.img.rect 
 / style="max-width: calc(7rem + 41vw);"
 / .flex.w-full.bg-orange
