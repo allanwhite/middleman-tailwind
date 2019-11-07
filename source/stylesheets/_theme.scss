@@ -32,7 +32,10 @@ p {
     @apply text-xl leading-normal font-serif font-light;
 }
 .pad {
-    @apply p-8;
+    @apply p-4;
+    @screen sm {
+        @apply p-8;
+    }
     @screen md {
         @apply p-12;
     }
