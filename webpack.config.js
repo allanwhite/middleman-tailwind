@@ -2,6 +2,16 @@ const path = require('path');
 const loaders = require('./webpack/loaders.js');
 const plugins = require('./webpack/plugins.js');
 
+const CopyPlugin = require('copy-webpack-plugin');
+
+module.exports = {
+  plugins: [
+    new CopyPlugin([
+      { from: 'source', to: 'dest' },
+      { from: 'other', to: 'public' },
+    ]),
+  ],
+};
 // const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 // const HOST = process.env.HOST || 'localhost';
 // const PORT = process.env.PORT || 8000;
@@ -20,6 +30,10 @@ module.exports = {
   },
   plugins: [
     plugins.MiniCssExtractPlugin,
+    new CopyPlugin([
+      { from: './source/fonts', to: './.tmp/dist/fonts' },
+      { from: './source/fonts', to: './build/fonts' },
+    ]),
     // new BrowserSyncPlugin(
     //   // BrowserSync options
     //   {

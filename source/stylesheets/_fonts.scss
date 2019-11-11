@@ -1,146 +1,146 @@
 // @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500|IBM+Plex+Sans:300,300i,400,400i,500,500i,700,700i|IBM+Plex+Serif:400,400i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500|IBM+Plex+Sans:400,400i,500,500i,700,700i&display=swap');
 
-@font-face {
-    font-family: 'Quadon';
-    src: url('Quadon-Heavy.woff2') format('woff2'),
-        url('Quadon-Heavy.woff') format('woff');
-    font-weight: 900;
-    font-style: normal;
-}
+// @font-face {
+//     font-family: '/fonts/Quadon';
+//     src: url('/fonts/Quadon-Heavy.woff2') format('woff2'),
+//         url('/fonts/Quadon-Heavy.woff') format('woff');
+//     font-weight: 900;
+//     font-style: normal;
+// }
+
+// @font-face {
+//     font-family: '/fonts/Quadon';
+//     src: url('/fonts/Quadon-Black.woff2') format('woff2'),
+//         url('/fonts/Quadon-Black.woff') format('woff');
+//     font-weight: 900;
+//     font-style: normal;
+// }
+
+// @font-face {
+//     font-family: '/fonts/Quadon';
+//     src: url('/fonts/Quadon-HeavyItalic.woff2') format('woff2'),
+//         url('/fonts/Quadon-HeavyItalic.woff') format('woff');
+//     font-weight: 900;
+//     font-style: italic;
+// }
+
+// @font-face {
+//     font-family: '/fonts/Quadon';
+//     src: url('/fonts/Quadon-UltraBoldItalic.woff2') format('woff2'),
+//         url('/fonts/Quadon-UltraBoldItalic.woff') format('woff');
+//     font-weight: 800;
+//     font-style: italic;
+// }
 
 @font-face {
-    font-family: 'Quadon';
-    src: url('Quadon-Black.woff2') format('woff2'),
-        url('Quadon-Black.woff') format('woff');
-    font-weight: 900;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Quadon';
-    src: url('Quadon-HeavyItalic.woff2') format('woff2'),
-        url('Quadon-HeavyItalic.woff') format('woff');
-    font-weight: 900;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Quadon';
-    src: url('Quadon-UltraBoldItalic.woff2') format('woff2'),
-        url('Quadon-UltraBoldItalic.woff') format('woff');
-    font-weight: 800;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Quadon';
-    src: url('Quadon-Bold.woff2') format('woff2'),
-        url('Quadon-Bold.woff') format('woff');
+    font-family: '/fonts/Quadon';
+    src: url('/fonts/Quadon-Bold.woff2') format('woff2'),
+        url('/fonts/Quadon-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Quadon';
-    src: url('Quadon-Medium.woff2') format('woff2'),
-        url('Quadon-Medium.woff') format('woff');
+    font-family: '/fonts/Quadon';
+    src: url('/fonts/Quadon-Medium.woff2') format('woff2'),
+        url('/fonts/Quadon-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'Quadon';
-    src: url('Quadon-ExtraBold.woff2') format('woff2'),
-        url('Quadon-ExtraBold.woff') format('woff');
-    font-weight: 800;
-    font-style: normal;
-}
+// @font-face {
+//     font-family: '/fonts/Quadon';
+//     src: url('/fonts/Quadon-ExtraBold.woff2') format('woff2'),
+//         url('/fonts/Quadon-ExtraBold.woff') format('woff');
+//     font-weight: 800;
+//     font-style: normal;
+// }
 
 @font-face {
-    font-family: 'Quadon';
-    src: url('Quadon-BoldItalic.woff2') format('woff2'),
-        url('Quadon-BoldItalic.woff') format('woff');
+    font-family: '/fonts/Quadon';
+    src: url('/fonts/Quadon-BoldItalic.woff2') format('woff2'),
+        url('/fonts/Quadon-BoldItalic.woff') format('woff');
     font-weight: bold;
     font-style: italic;
 }
 
 @font-face {
-    font-family: 'Quadon';
-    src: url('Quadon-RegularItalic.woff2') format('woff2'),
-        url('Quadon-RegularItalic.woff') format('woff');
+    font-family: '/fonts/Quadon';
+    src: url('/fonts/Quadon-RegularItalic.woff2') format('woff2'),
+        url('/fonts/Quadon-RegularItalic.woff') format('woff');
     font-weight: normal;
     font-style: italic;
 }
 
 @font-face {
-    font-family: 'Quadon';
-    src: url('Quadon-MediumItalic.woff2') format('woff2'),
-        url('Quadon-MediumItalic.woff') format('woff');
+    font-family: '/fonts/Quadon';
+    src: url('/fonts/Quadon-MediumItalic.woff2') format('woff2'),
+        url('/fonts/Quadon-MediumItalic.woff') format('woff');
     font-weight: 500;
     font-style: italic;
 }
 
-@font-face {
-    font-family: 'Quadon';
-    src: url('Quadon-ExtraBoldItalic.woff2') format('woff2'),
-        url('Quadon-ExtraBoldItalic.woff') format('woff');
-    font-weight: 800;
-    font-style: italic;
-}
+// @font-face {
+//     font-family: '/fonts/Quadon';
+//     src: url('/fonts/Quadon-ExtraBoldItalic.woff2') format('woff2'),
+//         url('/fonts/Quadon-ExtraBoldItalic.woff') format('woff');
+//     font-weight: 800;
+//     font-style: italic;
+// }
+
+// @font-face {
+//     font-family: '/fonts/Quadon';
+//     src: url('/fonts/Quadon-ThinItalic.woff2') format('woff2'),
+//         url('/fonts/Quadon-ThinItalic.woff') format('woff');
+//     font-weight: 100;
+//     font-style: italic;
+// }
 
 @font-face {
-    font-family: 'Quadon';
-    src: url('Quadon-ThinItalic.woff2') format('woff2'),
-        url('Quadon-ThinItalic.woff') format('woff');
-    font-weight: 100;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Quadon';
-    src: url('Quadon-LightItalic.woff2') format('woff2'),
-        url('Quadon-LightItalic.woff') format('woff');
+    font-family: '/fonts/Quadon';
+    src: url('/fonts/Quadon-LightItalic.woff2') format('woff2'),
+        url('/fonts/Quadon-LightItalic.woff') format('woff');
     font-weight: 300;
     font-style: italic;
 }
 
-@font-face {
-    font-family: 'Quadon';
-    src: url('Quadon-BlackItalic.woff2') format('woff2'),
-        url('Quadon-BlackItalic.woff') format('woff');
-    font-weight: 900;
-    font-style: italic;
-}
+// @font-face {
+//     font-family: '/fonts/Quadon';
+//     src: url('/fonts/Quadon-BlackItalic.woff2') format('woff2'),
+//         url('/fonts/Quadon-BlackItalic.woff') format('woff');
+//     font-weight: 900;
+//     font-style: italic;
+// }
+
+// @font-face {
+//     font-family: '/fonts/Quadon';
+//     src: url('/fonts/Quadon-Thin.woff2') format('woff2'),
+//         url('/fonts/Quadon-Thin.woff') format('woff');
+//     font-weight: 100;
+//     font-style: normal;
+// }
+
+// @font-face {
+//     font-family: '/fonts/Quadon';
+//     src: url('/fonts/Quadon-UltraBold.woff2') format('woff2'),
+//         url('/fonts/Quadon-UltraBold.woff') format('woff');
+//     font-weight: 800;
+//     font-style: normal;
+// }
 
 @font-face {
-    font-family: 'Quadon';
-    src: url('Quadon-Thin.woff2') format('woff2'),
-        url('Quadon-Thin.woff') format('woff');
-    font-weight: 100;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Quadon';
-    src: url('Quadon-UltraBold.woff2') format('woff2'),
-        url('Quadon-UltraBold.woff') format('woff');
-    font-weight: 800;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Quadon';
-    src: url('Quadon-Regular.woff2') format('woff2'),
-        url('Quadon-Regular.woff') format('woff');
+    font-family: '/fonts/Quadon';
+    src: url('/fonts/Quadon-Regular.woff2') format('woff2'),
+        url('/fonts/Quadon-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Quadon';
-    src: url('Quadon-Light.woff2') format('woff2'),
-        url('Quadon-Light.woff') format('woff');
+    font-family: '/fonts/Quadon';
+    src: url('/fonts/Quadon-Light.woff2') format('woff2'),
+        url('/fonts/Quadon-Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
 }

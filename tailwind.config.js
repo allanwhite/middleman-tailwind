@@ -47,7 +47,7 @@ module.exports = {
         'sans-serif',
       ],
       serif: [
-        '"IBM Plex Serif"',
+        '"Quadon"',
         'Georgia',
         'serif',
       ],
