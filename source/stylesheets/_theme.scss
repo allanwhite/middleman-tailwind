@@ -85,3 +85,7 @@ $card-gap: calc(0.5rem + 2vw);
     //     }
     // }
 }
+
+.shadow-start {
+    @include shadowStart;
+}

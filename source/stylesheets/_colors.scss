@@ -38,7 +38,7 @@ a.waypoint {
 }
 
 .bg-orange {
-    // --bg: white;
+    --bg: var(--color-orange);
     --text-color: var(--color-white);
     --text-color-alt: var(--color-blue-dark);
     --link-color: var(--color-white);
@@ -46,48 +46,26 @@ a.waypoint {
     color: var(--text-color);
     .theme-alt {
         color: var(--color-white);
-    }
-    // a {
-    //     color: var(--link-color);
-    //     &:hover {
-    //         color: var(--link-hover);
-    //     }
-    // }
-    // .button {
-    //     color: var(--link-color);
-    //     border-color: var(--link-color);
-    //     &:hover {
-    //         color: var(--link-hover);
-    //         border-color: var(--link-hover);
-    //     }
-    // }      
+    }    
 }
 .bg-blue, .bg-blue-dark {
-    // --bg: white;
-    --text-color: var(--color-blue);
+    --text-color: var(--color-white);
     --text-color-alt: var(--color-orange);
     --link-color: var(--color-orange);
     --link-hover: var(--color-orange-dark);
     color: var(--text-color);
     .theme-alt {
         color: var(--color-white);
-    }
-    // a {
-    //     color: var(--link-color);
-    //     &:hover {
-    //         color: var(--link-hover);
-    //     }
-    // }
-    // .button {
-    //     color: var(--link-color);
-    //     border-color: var(--link-color);
-    //     &:hover {
-    //         color: var(--link-hover);
-    //         border-color: var(--link-hover);
-    //     }
-    // }     
+    }  
+}
+.bg-blue {
+    --bg: var(--color-blue);
+}
+.bg-blue-dark {
+    --bg: var(--color-blue-dark);
 }
 .bg-white {
+    --bg: var(--color-white);
     --text-color: var(--color-blue);
     --text-color-alt: var(--color-orange);
     --link-color: var(--color-orange);

@@ -22,4 +22,28 @@ a.link {
         // }
     }
 }
-
+.cta {
+    @include transitions;
+}
+a.card-hover {
+    color: var(--text-color);
+}
+.card-hover {
+    @apply rounded-lg p-4;
+    @screen md {
+        @apply p-8;
+    }
+    @include shadowStart;
+    // @include transitions;
+    transition-duration: 100ms;
+    &:hover {
+        @apply shadow-xl shadow-2xl;
+        background-color: white; //fallback
+        background-color: var(--bg); // this should be provided by the parent container
+        --link-color: var(--text-color);
+        --link-hover: var(--text-color);
+        .cta {
+            color: var(--color-orange);
+        }
+    }
+}

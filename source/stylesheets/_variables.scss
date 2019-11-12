@@ -13,3 +13,6 @@ $speed: 150ms;
     transition: all $speed ease-out;
     // transition: opacity $speed ease-out, color $speed ease-out, border-color $speed ease-out, box-shadow $speed ease-out;
 }
+@mixin shadowStart {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.0);
+}
