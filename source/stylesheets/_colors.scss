@@ -5,11 +5,11 @@ body {
 a, a:link {
     // text-decoration: unset;
     display: inline-block;
-    transition: 
-        transform var(--speed) ease-out,
-        // text-decoration-color var(--speed) ease-out,
-        color var(--speed) ease-out
-    ;
+    // transition: 
+    //     transform var(--speed) ease-out,
+    //     // text-decoration-color var(--speed) ease-out,
+    //     color var(--speed) ease-out
+    // ;
     transform: translate3d(0,0,0);
     color: var(--link-color);
     // text-decoration: underline;

@@ -1,6 +1,6 @@
 
 a {
-    transition: color 150ms linear, border-color 150ms linear;
+    @include transitions;
 }
 
 a.link {

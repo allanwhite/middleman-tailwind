@@ -98,6 +98,9 @@ module.exports = {
       maxWidth: {
         '7xl': '96rem',
       },
+      borderRadius: {
+        lg: '1rem'
+      }
     }
   },
   variants: {},

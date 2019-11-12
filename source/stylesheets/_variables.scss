@@ -1,3 +1,4 @@
+$speed: 150ms;
 :root {
     --bg: white;
     --trans: rgba(0,0,0,0);
@@ -5,5 +6,10 @@
     --text-color-alt: var(--color-orange);
     --link-color: var(--color-orange);
     --link-hover: var(--color-orange-dark);
-    --speed: 150ms;
+    --speed: $speed;
+}
+
+@mixin transitions {
+    transition: all $speed ease-out;
+    // transition: opacity $speed ease-out, color $speed ease-out, border-color $speed ease-out, box-shadow $speed ease-out;
 }

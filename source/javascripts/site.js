@@ -58,6 +58,30 @@ var observer = lozad('.lozad', {
     loaded: function(el) {
         el.classList.add('loaded');
     },
-    rootMargin: '0% 0% 100%',
+    rootMargin: '100px 0px',
+    threshold: 0.1
 });
 observer.observe();
+
+
+// transition in selected elements
+
+const animObserverConfig = {
+  rootMargin: '100px 0',
+  threshold: [0.5, 0]
+};
+
+const contentObjects = document.querySelectorAll('.anim-in');
+observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.intersectionRatio > 0) {
+      entry.target.classList.add('animated');
+    } else {
+      entry.target.classList.remove('animated');
+    }
+  }, animObserverConfig);
+});
+
+contentObjects.forEach(contentObject => {
+  observer.observe(contentObject);
+});

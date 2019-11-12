@@ -24,6 +24,18 @@
     animation-name: animUp;
     animation-delay: 2.5s;
 }
+
+.anim-in {
+    transition: all $speed * 3 ease-out;
+    transition-delay: $speed;
+    opacity: 0;
+    transform: translate3d(-20px,0,0);
+    &.animated {
+        transform: translate3d(0,0,0);
+        opacity: 1;
+    }
+}
+
 @keyframes animSeries {
     0% { 
         opacity: 0;
