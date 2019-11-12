@@ -2,5 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 // Other Imports
+@import 'variables';
+@import 'colors';
+@import 'fonts';
+@import 'components/ui';
 @import 'theme';
-@import 'components/media-object';
+@import 'animations';
+// @import 'components/media-object';
+@import 'overrides';

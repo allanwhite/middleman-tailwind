@@ -2,7 +2,7 @@ name: 'R. Allan White | Full-stack designer'
 description: "I'm an interdisciplinary designer with 25 years experience in communication design, branding, video, event design, user experience design, and web development."
 host: 'https://allanwhite.design'
 keywords: 'design, UX, product design, front-end, web development, CSS, video, animation'
-thumbnail: 'twitter-share-card.png'
+thumbnail: 'twitter-share-card-orange.png'
 favicon: '_favicon.png'
 base_color: '#ffffff'
 repository: 'https://github.com/allanwhite/middleman-tailwind'

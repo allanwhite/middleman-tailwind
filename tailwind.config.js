@@ -25,7 +25,7 @@ module.exports = {
       aqua: {
         default: '#00F0E6',
         dark: '#00C4D0',
-        bright: '#0BFFF0',
+        light: '#0BFFF0',
       },
       blue: {
         default: '#2B3652',
@@ -47,7 +47,7 @@ module.exports = {
         'sans-serif',
       ],
       serif: [
-        '"IBM Plex Serif"',
+        '"Quadon"',
         'Georgia',
         'serif',
       ],
