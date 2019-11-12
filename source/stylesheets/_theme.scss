@@ -4,21 +4,6 @@ html {
 .z--10 {
     z-index: -10;
 }
-img {
-    max-width: 100%;
-}
-
-// .row {
-//     @apply flex flex-row items-stretch;
-// }
-
-// .max-w-48 {
-//     max-width: 12rem;
-// }
-
-// .max-w-64 {
-//     max-width: 16rem;
-// }
 
 p {
     @apply text-base leading-normal font-sans;
@@ -48,37 +33,9 @@ p {
     height: 1em;
     margin-top: -0.3em; // whyy
 }
-a {
-    transition: color 150ms linear, border-color 150ms linear;
-}
 
-a.link {
-    @apply text-base font-medium leading-none;
-    @screen md {
-        @apply text-lg;
-    }
-    &:hover {
-        @apply text-orange;
-    }
-}
-// a.button {
-//     transition: color 150ms linear;
-// }
 .line-length {
     max-width: 50em;
-}
-
-.h-plus {
-    height: 110%; // fallback
-    height: 105vh;
-}
-
-.bg-white{
-    @apply text-blue-dark;
-}
-
-.bg-orange, .bg-blue, .bg-blue-dark {
-    @apply text-white;
 }
 
 $card-gap: calc(0.5rem + 2vw);
@@ -93,19 +50,9 @@ $card-gap: calc(0.5rem + 2vw);
     overflow: none;
     left: -100%;
 }
-.duotone {
-    filter:  url(#duotone);
-}
 
 .pov {
     perspective: 750px;
-}
-.work-gallery {
-    // transform: rotateX(-3deg) rotateY(-18deg) rotateZ(-9deg);
-    // transform: rotateX(21deg) rotateY(-31deg) rotateZ(21deg) translate3d(0,-4px,91px);
-    // transform: rotateX(16deg) rotateY(-32deg) rotateZ(22deg) translate3d(-7vw, -434px, -18vw);
-    height: 102%;
-    transition: opacity 0.7s;
 }
 .masthead {
     transform: scale3d(1,1,1);
@@ -116,9 +63,16 @@ $card-gap: calc(0.5rem + 2vw);
     animation-iteration-count: infinite;
 }
 .masthead img {
-    width: 100%;
-    height: 100%;
+    width: 105%;
+    height: 105%;
     object-fit: cover;
+}
+.work-gallery {
+    // transform: rotateX(-3deg) rotateY(-18deg) rotateZ(-9deg);
+    // transform: rotateX(21deg) rotateY(-31deg) rotateZ(21deg) translate3d(0,-4px,91px);
+    // transform: rotateX(16deg) rotateY(-32deg) rotateZ(22deg) translate3d(-7vw, -434px, -18vw);
+    height: 102%;
+    transition: opacity 0.7s;
 }
 
 .work-gallery-item {
@@ -130,93 +84,4 @@ $card-gap: calc(0.5rem + 2vw);
     //         animation-delay: $t;
     //     }
     // }
-
-    .lozad {
-    //     transition: opacity 0.3s linear, transform 0.3s ease-in-out;
-    //     transition-delay: 0.5s;
-        opacity: 0.3;
-    //     transform: translate3d(0,0,-10px);
-    //     &.loaded {
-    //         transform: translate3d(0,0,0);
-    //         opacity: 1;
-    //     }
-    }
-    .lozad[data-loaded="true"], [data-loaded="true"] .lozad { 
-        animation-name: showLazyImg; 
-        animation-duration: 0.7s;
-        animation-fill-mode: forwards;
-        animation-delay: 0.5s;
-    } 
-}
-.waypoint {
-    animation: pulse 1.5s infinite;
-}
-
-@for $i from 1 through 4 { // add a small bit of delay for n children. Estimating \
-    $t: 0.25s * $i + 0.3s;
-    .anim-#{$i} { 
-        animation-delay: $t;
-        // transition-delay: $t;
-        // opacity: 0;
-    }
-}
-.anim-1, .anim-2, .anim-3, .anim-4 {
-    animation-name: animSeries;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-.anim-3 {
-    animation-name: animUp;
-}
-.anim-4 {
-    animation-name: animUp;
-    animation-delay: 2.5s;
-}
-@keyframes animSeries {
-    0% { 
-        opacity: 0;
-        transform: translate3d(20px,0,0);
-    }
-    100% { 
-        opacity: 1;
-        transform: translate3d(0,0,0);
-    }
-}
-@keyframes animUp {
-    0% { 
-        opacity: 0;
-        transform: translate3d(0,20px,0);
-    }
-    100% { 
-        opacity: 1;
-        transform: translate3d(0,0,0);
-    }
-}
-@keyframes showLazyImg {
-    0% { 
-        opacity: 0;
-        // transform: translate3d(20px,0,0);
-    }
-    100% { 
-        opacity: 1;
-        // transform: translate3d(0,0,0);
-    }
-}
-@keyframes bigPan {
-    $z: 1.2;
-    0%, 100% {
-        transform: scale3d(1,1,1);
-    }
-    50% {
-        transform: scale3d($z,$z,$z);
-    }
-}
-@keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.2;
-    }
 }

@@ -5,30 +5,30 @@
 - img_masthead = "/images/work/moodboard-2-angle-blue.jpg"
 - img_masthead_color = "/images/work/moodboard-2-angle-color.jpg"
 
-.flex.min-h-screen.w-full.bg-orange.text-white.justify-center.items-center.z--10.lozad.bg-no-repeat.bg-cover data-background-image="/images/work/moodboard-2-angle-preload.svg"
+section#top.flex.min-h-screen.w-full.bg-orange.justify-center.items-center.z--10.lozad.bg-no-repeat.bg-cover data-background-image="/images/work/moodboard-2-angle-preload.svg"
     header.z-10.pad class=""
         .flex class="flex-col items-start md:flex-row justify-start"
             = inline_svg "easel-logo.svg", class: "opacity-0 anim-3 logo inline-block h-32 md:h-48 md:mb-4 mr-8 w-auto"
             .title
                 h1 class="opacity-0 anim-1 title text-4xl mt-4 text-5xl-scale sm:text-6xl-scale font-normal font-serif leading-none tracking-tight" R. Allan White
                 h2.subhead.text-xl.mb-12 class="opacity-0 anim-2 sm:text-3xl-scale" Designer & Developer
-                a href="#work" title="More"
-                    = inline_svg "icon-angle-down-large.svg", class: "opacity-0 anim-4 h-10 md:h-24 waypoint fill-current"
-    .work-gallery.z-0.left-0.top-0.pov.overflow-hidden.absolute.h-full.w-full class=""
+                a.waypoint href="#work" title="More"
+                    = inline_svg "icon-angle-down-large.svg", class: "opacity-0 anim-4 h-10 md:h-24 fill-current"
+    .work-gallery.z-0.left-0.top-0.pov.overflow-hidden.absolute.h-screen.w-full class=""
         = partial "partials/masthead-picture", :locals => { :the_img => img_masthead }
-section#work.relative.w-full.bg-white.text-blue.pad.z-20 tabindex="-1"
+section#work.relative.w-full.bg-white.pad.z-20
     .max-w-6xl.flex.flex-col.justify-start.items-center.mx-auto class="md:flex-row"
         .w-full.px-0.mb-8 class="md:w-1/2 md:px-4 lg:px-8"
             p class="text-lg lg:text-2xl lg:leading-normal font-sans font-normal" style="max-width: 40em;" 
                 | I'm an interdisciplinary designer and developer with 25 years of experience. I've solved business problems in organizations of all sizes through communication design, branding, video, event design, user experience design, and web development.
         .w-full.px-0 class="md:w-1/2 md:px-4 lg:px-8"
-            h2.text-5xl.font-serif.font-bold.text-orange.mb-2 class="md:mb-6 lg:mb-8" Work
+            h2.text-5xl.font-serif.font-light.mb-2.theme-alt class="md:mb-6 lg:mb-8" Work
             - info_work.each do | category |
                 .mb-8
                     h3.text-xl.font-bold.subhead = category.title
                     p.line-length = category.desc
                     - if category.link
-                        a.font-medium.text-orange-dark class="hover:text-blue" href=category.url = category.link
+                        a.font-medium class="" href=category.url = category.link
 
 scss:
     footer {
@@ -37,32 +37,32 @@ scss:
             .image-tinted {opacity: 0; transition-delay: 0.3s;}
         }
     }
-footer.relative.w-full.bg-orange.text-white.z-0.pad
+footer.relative.w-full.bg-orange.z-0 class="p-0 md:p-12 lg:p-24"
     .max-w-6xl.flex.justify-start.mx-auto
-        .card.z-10.p-6.rounded-lg.shadow-sm.shadow-xl.relative.w-full class="md:w-auto bg-white md:p-10 lg:p-16"
+        .card.z-10.p-8.relative.w-full.bg-orange class="md:p-8 lg:bg-blue text-blue lg:rounded-lg md:w-auto lg:shadow-sm lg:shadow-xl lg:p-10 lg:p-16"
             img.rounded-full.lozad.mb-4 src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
-            h3.text-3xl.font-bold.font-serif.text-orange.leading-none class="md:text-5xl" Hire Allan.
+            h3.text-5xl.font-light.font-serif.leading-none.theme-alt.mb-2 class="" Hire Allan.
             p.italic.mb-8 Available for new opportunities in December 2019. 
-            a.button.whitespace-no-wrap.text-xs.mb-12.inline-block.px-3.py-1.border-2.border-orange.rounded.font-sans.font-medium class="md:px-4 md:py-2 md:text-base hover:text-orange hover:border-orange-light" title="Email Allan" href=("mailto:" + data.site.author.email)
+            a.button title="Email Allan" href=("mailto:" + data.site.author.email)
                 = inline_svg "icon-mail.svg", class: "icon-inline" 
                 = data.site.author.email
-            div class="flex flex-col md:flex-row"
+            div class="flex flex-col sm:flex-row"
                 ul.list-none.mr-4 class="mb-4 md:mb-0 md:mr-6 lg:mr-8"
                     - data.site.contact.each do | info |
                         li.mb-2.whitespace-no-wrap
                             a.link href=info.url title=info.action
-                                = inline_svg info.icon, class: "icon-inline mr-1 md:mr-2" 
+                                = inline_svg info.icon, class: "icon-inline mr-1 md:mr-2 fill-current" 
                                 = info.label
                 ul.list-none
                     - data.site.links.each do | info |
                         li.mb-2.whitespace-no-wrap
                             a.link href=info.url title=info.action
-                                = inline_svg info.icon, class: "icon-inline mr-1 md:mr-2" 
+                                = inline_svg info.icon, class: "icon-inline mr-1 md:mr-2 fill-current" 
                                 = info.label
-    .work-gallery.image-tinted.z-0.left-0.top-0.pov.overflow-hidden.absolute.h-full.w-full
+    .hidden.work-gallery.image-tinted.z-0.left-0.top-0.pov.overflow-hidden.absolute.w-full class="md:block md:h-screen"
         / img.lozad src="/images/work/moodboard-2-angle-preload.svg" data-src="/images/work/moodboard-2-angle-tint.jpg"
         = partial "partials/masthead-picture", :locals => { :the_img => img_masthead }
-    .work-gallery.image-bright.z-0.left-0.top-0.pov.overflow-hidden.absolute.h-full.w-full.opacity-0.hidden class="md:block"
+    .hidden.work-gallery.image-bright.z-0.left-0.top-0.pov.overflow-hidden.absolute.w-full.opacity-0 class="md:block md:h-screen"
         = partial "partials/masthead-picture", :locals => { :the_img => img_masthead_color }
 
 / img.w-full.h-4 src="/images/work/color-strip.jpg" alt="texture"

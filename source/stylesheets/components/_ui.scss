@@ -1,0 +1,25 @@
+
+a {
+    transition: color 150ms linear, border-color 150ms linear;
+}
+
+a.link {
+    @apply text-base font-medium leading-none;
+    @screen md {
+        @apply text-lg;
+    }
+    // &:hover {
+    //     @apply text-orange;
+    // }
+}
+
+.button {
+    @apply whitespace-no-wrap text-sm mb-10 inline-block px-4 py-2 border-2 rounded font-sans font-medium;
+    @screen md {
+        @apply px-4 py-2 text-base;
+        // &:hover {
+        //     @apply text-orange border-orange-light;
+        // }
+    }
+}
+

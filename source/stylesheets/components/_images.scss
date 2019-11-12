@@ -1,0 +1,19 @@
+img {
+    max-width: 100%;
+}
+.lozad {
+    //     transition: opacity 0.3s linear, transform 0.3s ease-in-out;
+    //     transition-delay: 0.5s;
+    opacity: 0.3;
+    //     transform: translate3d(0,0,-10px);
+    //     &.loaded {
+    //         transform: translate3d(0,0,0);
+    //         opacity: 1;
+    //     }
+}
+.lozad[data-loaded="true"], [data-loaded="true"] .lozad { 
+    animation-name: showLazyImg; 
+    animation-duration: 0.7s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
+} 
