@@ -37,11 +37,12 @@
     // transition-delay: $speed;
     opacity: 0;
     transform: translate3d(-20px,0,0);
-    &.animated {
-        transform: translate3d(0,0,0);
-        opacity: 1;
-    }
 }
+.anim-in.animated {
+    transform: translate3d(0,0,0);
+    opacity: 1;
+}
+
 
 @keyframes animSeries {
     0% { 
