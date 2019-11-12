@@ -24,17 +24,9 @@
     animation-name: animUp;
     animation-delay: 2.5s;
 }
-// .anim-list {
-//     @for $i from 1 through 8 { // add a small bit of delay for n children. Estimating 8
-//         $t: 0.05s * $i + 0.3s;
-//         &:nth-child(#{$i}) { 
-//             transition-delay: $t;
-//         }
-//     }
-// }
+/* purgecss start ignore */
 .anim-in {
-    transition: all $speed * 2 ease-out;
-    // transition-delay: $speed;
+    transition: all 150ms ease-out;
     opacity: 0;
     transform: translate3d(-20px,0,0);
 }
@@ -42,8 +34,7 @@
     transform: translate3d(0,0,0);
     opacity: 1;
 }
-
-
+/* purgecss end ignore */
 @keyframes animSeries {
     0% { 
         opacity: 0;

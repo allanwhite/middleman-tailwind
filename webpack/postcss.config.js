@@ -22,6 +22,7 @@ const PROD_PLUGINS = [
       __dirname + '/../source/**/*.erb',
       __dirname + '/../source/**/*.slim'
     ],
+    whitelist: ['animated', 'active', 'loaded'],
     extractors: [{
       extractor: TailwindExtractor,
       extensions: ['html', 'js', 'erb', 'html.erb', 'slim', 'html.slim']
