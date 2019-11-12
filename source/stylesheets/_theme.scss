@@ -68,6 +68,11 @@ a.link {
     max-width: 50em;
 }
 
+.h-plus {
+    height: 110%; // fallback
+    height: 105vh;
+}
+
 .bg-white{
     @apply text-blue-dark;
 }
