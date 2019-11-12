@@ -31,8 +31,8 @@ module.exports = {
   plugins: [
     plugins.MiniCssExtractPlugin,
     new CopyPlugin([
-      { from: './source/fonts', to: './.tmp/dist/fonts' },
-      { from: './source/fonts', to: './build/fonts' },
+      // { from: './source/fonts', to: './.tmp/dist/fonts' },
+      { from: 'source/fonts', to: 'build/fonts' }
     ]),
     // new BrowserSyncPlugin(
     //   // BrowserSync options

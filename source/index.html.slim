@@ -2,27 +2,27 @@
 - set_meta_tags title: data.site.name, full_title: false
 - info_work = data.about.info_work
 - work_thumbs = data.work_grid.samples
-- img_masthead = "/images/work/moodboard-2-angle-tint.jpg"
+- img_masthead = "/images/work/moodboard-2-angle-blue.jpg"
 - img_masthead_color = "/images/work/moodboard-2-angle-color.jpg"
 
-.flex.min-h-screen.w-full.bg-orange.text-white.justify-center.items-center.z--10
+.flex.min-h-screen.w-full.bg-orange.text-white.justify-center.items-center.z--10.lozad.bg-no-repeat.bg-cover data-background-image="/images/work/moodboard-2-angle-preload.svg"
     header.z-10.pad class=""
         .flex class="flex-col items-start md:flex-row justify-start"
-            = inline_svg "easel-logo.svg", class: "logo inline-block h-32 md:h-48 mb-4 mr-6 w-auto"
+            = inline_svg "easel-logo.svg", class: "opacity-0 anim-3 logo inline-block h-32 md:h-48 md:mb-4 mr-8 w-auto"
             .title
-                h1 class="title text-4xl mt-4 sm:text-6xl-scale font-normal lg:font-light font-serif leading-none tracking-tight" R. Allan White
-                h2.subhead.text-xl.mb-12 class="sm:text-4xl-scale" Full-stack designer
+                h1 class="opacity-0 anim-1 title text-4xl mt-4 text-5xl-scale sm:text-6xl-scale font-normal font-serif leading-none tracking-tight" R. Allan White
+                h2.subhead.text-xl.mb-12 class="opacity-0 anim-2 sm:text-3xl-scale" Designer & Developer
                 a href="#work" title="More"
-                    = inline_svg "icon-angle-down-large.svg", class: "h-16 md:h-24 waypoint fill-current"
+                    = inline_svg "icon-angle-down-large.svg", class: "opacity-0 anim-4 h-10 md:h-24 waypoint fill-current"
     .work-gallery.z-0.left-0.top-0.pov.overflow-hidden.absolute.h-full.w-full class=""
         = partial "partials/masthead-picture", :locals => { :the_img => img_masthead }
 section#work.relative.w-full.bg-gray-100.text-blue.pad.z-20 tabindex="-1"
     .max-w-6xl.flex.flex-col.justify-start.items-center.mx-auto class="md:flex-row"
         .w-full.px-0.mb-8 class="md:w-1/2 md:px-4 lg:px-8"
-            p class="text-lg lg:text-2xl lg:leading-loose font-serif font-light" style="max-width: 40em;" 
+            p class="text-lg lg:text-2xl lg:leading-normal font-sans font-normal" style="max-width: 40em;" 
                 | I'm an interdisciplinary designer and developer with 25 years of experience. I've solved business problems in organizations of all sizes through communication design, branding, video, event design, user experience design, and web development.
         .w-full.px-0 class="md:w-1/2 md:px-4 lg:px-8"
-            h2.text-5xl.font-bold.text-orange.mb-8 Work
+            h2.text-5xl.font-serif.font-bold.text-orange.mb-2 class="md:mb-6 lg:mb-8" Work
             - info_work.each do | category |
                 .mb-8
                     h3.text-xl.font-bold.subhead = category.title
@@ -41,9 +41,9 @@ footer.relative.w-full.bg-orange.text-white.z-0.pad
     .max-w-6xl.flex.justify-start.mx-auto
         .card.z-10.p-6.rounded-lg.shadow-sm.shadow-xl.relative.w-full class="md:w-auto bg-white md:p-10 lg:p-16"
             img.rounded-full.lozad.mb-4 src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
-            h3.text-3xl.font-bold.text-orange.leading-none class="md:text-5xl" Hire Allan.
+            h3.text-3xl.font-bold.font-serif.text-orange.leading-none class="md:text-5xl" Hire Allan.
             p.italic.mb-8 Available for new opportunities in December 2019. 
-            a.button.whitespace-no-wrap.text-xs.mb-12.inline-block.px-3.py-1.border-2.border-orange.rounded.font-mono class="md:px-4 md:py-2 md:text-base hover:text-orange hover:border-orange-light" title="Email Allan" href=("mailto:" + data.site.author.email)
+            a.button.whitespace-no-wrap.text-xs.mb-12.inline-block.px-3.py-1.border-2.border-orange.rounded.font-sans.font-medium class="md:px-4 md:py-2 md:text-base hover:text-orange hover:border-orange-light" title="Email Allan" href=("mailto:" + data.site.author.email)
                 = inline_svg "icon-mail.svg", class: "icon-inline" 
                 = data.site.author.email
             div class="flex flex-col md:flex-row"

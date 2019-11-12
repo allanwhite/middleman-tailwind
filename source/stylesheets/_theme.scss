@@ -107,7 +107,7 @@ $card-gap: calc(0.5rem + 2vw);
     transition: transform;
     transition-timing-function: ease-in-out;
     animation-name: bigPan; 
-    animation-duration: 80s;
+    animation-duration: 60s;
     animation-iteration-count: infinite;
 }
 .masthead img {
@@ -139,19 +139,63 @@ $card-gap: calc(0.5rem + 2vw);
     .lozad[data-loaded="true"], [data-loaded="true"] .lozad { 
         animation-name: showLazyImg; 
         animation-duration: 0.7s;
-        animation-fill-mode: both;
+        animation-fill-mode: forwards;
         animation-delay: 0.5s;
     } 
 }
 .waypoint {
     animation: pulse 1.5s infinite;
 }
-@keyframes showLazyImg {
-    from { 
-        opacity: 0;
+
+@for $i from 1 through 4 { // add a small bit of delay for n children. Estimating \
+    $t: 0.25s * $i + 0.3s;
+    .anim-#{$i} { 
+        animation-delay: $t;
+        // transition-delay: $t;
+        // opacity: 0;
     }
-    to { 
+}
+.anim-1, .anim-2, .anim-3, .anim-4 {
+    animation-name: animSeries;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.anim-3 {
+    animation-name: animUp;
+}
+.anim-4 {
+    animation-name: animUp;
+    animation-delay: 2.5s;
+}
+@keyframes animSeries {
+    0% { 
+        opacity: 0;
+        transform: translate3d(20px,0,0);
+    }
+    100% { 
         opacity: 1;
+        transform: translate3d(0,0,0);
+    }
+}
+@keyframes animUp {
+    0% { 
+        opacity: 0;
+        transform: translate3d(0,20px,0);
+    }
+    100% { 
+        opacity: 1;
+        transform: translate3d(0,0,0);
+    }
+}
+@keyframes showLazyImg {
+    0% { 
+        opacity: 0;
+        // transform: translate3d(20px,0,0);
+    }
+    100% { 
+        opacity: 1;
+        // transform: translate3d(0,0,0);
     }
 }
 @keyframes bigPan {
