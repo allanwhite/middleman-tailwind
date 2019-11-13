@@ -35,9 +35,10 @@ a.card-hover {
     }
     @include shadowStart;
     // @include transitions;
-    transition-duration: 100ms;
+    transition: all $speed * 2 ease-out;
     &:hover {
-        @apply shadow-xl shadow-2xl;
+        // @apply shadow-xl shadow-2xl;
+        box-shadow: 0 25px 50px -12px hsla(229, 68%, 40%, 0.32);
         background-color: white; //fallback
         background-color: var(--bg); // this should be provided by the parent container
         --link-color: var(--text-color);

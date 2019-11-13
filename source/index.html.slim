@@ -4,7 +4,7 @@
 - work_thumbs = data.work_grid.samples
 - img_masthead = "/images/work/moodboard-2-angle-blue.jpg"
 - img_masthead_color = "/images/work/moodboard-2-angle-color.jpg"
-
+= partial "partials/json-ld", :locals => { :type => "person" }
 section#top.flex.min-h-screen.w-full.bg-orange.justify-center.items-center.z--10.lozad.bg-no-repeat.bg-cover data-background-image="/images/work/moodboard-2-angle-preload.svg"
     header.z-10.pad class=""
         .flex class="flex-col items-start md:flex-row justify-start"
@@ -37,13 +37,13 @@ section#work.relative.w-full.bg-white.pad.z-20
 scss:
     footer {
         &:hover {
-            .image-bright {opacity: 1;}
-            .image-tinted {opacity: 0; transition-delay: 0.3s;}
+            .image-bright { opacity: 0.5; transition: opacity 1s linear; }
+            //.image-tinted {opacity: 0; transition-delay: 0.3s;}
         }
     }
 footer.relative.w-full.bg-orange.z-0 class="p-0 md:p-12 lg:p-24"
     .max-w-6xl.flex.justify-start.mx-auto
-        .card.z-10.p-8.relative.w-full.bg-orange.anim-in class="md:p-8 md:rounded-lg md:w-auto lg:shadow-sm lg:shadow-xl lg:p-10 lg:p-16"
+        .card.z-10.p-8.relative.w-full.bg-orange.anim-in class="md:p-8 md:rounded-lg md:w-auto lg:shadow-sm lg:shadow-xl lg:p-10 lg:p-16" style="transition-delay: 1s;"
             img.rounded-full.lozad.mb-4 src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
             h3.text-5xl.font-light.font-serif.leading-none.theme-alt.mb-2 class="" Hire Allan.
             p.italic.mb-8 Available for new opportunities in December 2019. 

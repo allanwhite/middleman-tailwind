@@ -1,0 +1,11 @@
+- if defined?(type) && type == "person"
+    javascript type='application/ld+json':
+        {
+            "@context": "http://www.schema.org",
+            "@type": "#{type}",
+            "name": "#{data.site.author.name}",
+            "jobTitle": "#{data.site.author.role}",
+            "url": "#{data.site.author.website}",
+            "email": "#{data.site.author.email}",
+        }
+//             "logo": "#{data.site.host}/images/logo-icon-256.png"
