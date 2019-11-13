@@ -17,15 +17,16 @@ p {
 }
 .pad {
     @apply p-4;
-    @screen sm {
-        @apply p-8;
-    }
-    @screen md {
-        @apply p-12;
-    }
-    @screen lg {
-        @apply p-24;
-    }
+    padding: calc(2rem + 3vw);
+    // @screen sm {
+    //     @apply p-8;
+    // }
+    // @screen md {
+    //     @apply p-12;
+    // }
+    // @screen lg {
+    //     @apply p-24;
+    // }
 }
 .icon-inline {
     @apply inline-block fill-current;
@@ -50,7 +51,12 @@ $card-gap: calc(0.5rem + 2vw);
     overflow: none;
     left: -100%;
 }
-
+@supports (backdrop-filter: blur(22px)) {
+    .bg-blur {
+        backdrop-filter: blur(22px);
+        background-color: hsla(221, 57%, 17%, 0.04); // slight tint
+    }
+}
 .pov {
     perspective: 750px;
 }

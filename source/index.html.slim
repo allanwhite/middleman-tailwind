@@ -6,14 +6,14 @@
 - img_masthead_color = "/images/work/moodboard-2-angle-color.jpg"
 = partial "partials/json-ld", :locals => { :type => "person" }
 section#top.flex.min-h-screen.w-full.bg-orange.justify-center.items-center.z--10.lozad.bg-no-repeat.bg-cover data-background-image="/images/work/moodboard-2-angle-preload.svg"
-    header.z-10.pad class=""
+    header.z-10.pad.bg-blur.rounded-lg class=""
         .flex class="flex-col items-start md:flex-row justify-start"
             = inline_svg "easel-logo.svg", class: "opacity-0 anim-3 logo inline-block h-32 md:h-48 md:mb-4 mr-8 w-auto"
             .title
                 h1 class="opacity-0 anim-1 title text-4xl mt-4 text-5xl-scale sm:text-6xl-scale font-normal font-serif leading-none tracking-tight" R. Allan White
                 h2.subhead.text-xl.mb-12 class="opacity-0 anim-2 sm:text-3xl-scale" Designer & Developer
-                a.waypoint href="#work" title="More"
-                    = inline_svg "icon-angle-down-large.svg", class: "opacity-0 anim-4 h-10 md:h-24 fill-current"
+    / a.waypoint href="#work" title="More"
+        = inline_svg "icon-angle-down-large.svg", class: "opacity-0 anim-4 h-10 md:h-24 fill-current"
     .work-gallery.z-0.left-0.top-0.pov.overflow-hidden.absolute.h-screen.w-full class=""
         = partial "partials/masthead-picture", :locals => { :the_img => img_masthead }
 section#work.relative.w-full.bg-white.pad.z-20
