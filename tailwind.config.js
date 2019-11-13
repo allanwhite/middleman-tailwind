@@ -71,9 +71,9 @@ module.exports = {
       '4xl': '2.25rem',
       '4xl-scale': 'calc(2vw + 1.375rem)',
       '5xl': '3rem',
-      '5xl-scale': 'calc(2vw + 2.5rem)',
+      '5xl-scale': 'calc(3vw + 2rem)',
       '6xl': '5rem',
-      '6xl-scale': 'calc(3vw + 3rem)',
+      '6xl-scale': 'calc(4vw + 2rem)',
     },
     fontWeight: {
       // hairline: '100',

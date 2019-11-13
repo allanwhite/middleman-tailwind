@@ -29,22 +29,25 @@ a.card-hover {
     color: var(--text-color);
 }
 .card-hover {
-    @apply rounded-lg p-4;
+    @apply rounded-lg mb-6;
     @screen md {
+        @apply p-6 mb-0;
+        &:hover {
+            // @apply shadow-xl shadow-2xl;
+            box-shadow: 0 25px 50px -12px hsla(229, 68%, 40%, 0.32);
+            background-color: white; //fallback
+            background-color: var(--bg); // this should be provided by the parent container
+            --link-color: var(--text-color);
+            --link-hover: var(--text-color);
+            .cta {
+                color: var(--color-orange);
+            }
+        }    
+    }
+    @screen lg {
         @apply p-8;
     }
     @include shadowStart;
     // @include transitions;
     transition: all $speed * 2 ease-out;
-    &:hover {
-        // @apply shadow-xl shadow-2xl;
-        box-shadow: 0 25px 50px -12px hsla(229, 68%, 40%, 0.32);
-        background-color: white; //fallback
-        background-color: var(--bg); // this should be provided by the parent container
-        --link-color: var(--text-color);
-        --link-hover: var(--text-color);
-        .cta {
-            color: var(--color-orange);
-        }
-    }
 }

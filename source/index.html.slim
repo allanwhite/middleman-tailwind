@@ -6,7 +6,7 @@
 - img_masthead_color = "/images/work/moodboard-2-angle-color.jpg"
 = partial "partials/json-ld", :locals => { :type => "person" }
 section#top.flex.min-h-screen.w-full.bg-orange.justify-center.items-center.z--10.lozad.bg-no-repeat.bg-cover data-background-image="/images/work/moodboard-2-angle-preload.svg"
-    header.z-10.pad.bg-blur.rounded-lg class=""
+    header.z-10.pad.bg-blur.rounded class="md:rounded-lg"
         .flex class="flex-col items-start md:flex-row justify-start"
             = inline_svg "easel-logo.svg", class: "opacity-0 anim-3 logo inline-block h-32 md:h-48 md:mb-4 mr-8 w-auto"
             .title
@@ -18,19 +18,19 @@ section#top.flex.min-h-screen.w-full.bg-orange.justify-center.items-center.z--10
         = partial "partials/masthead-picture", :locals => { :the_img => img_masthead }
 section#work.relative.w-full.bg-white.pad.z-20
     .max-w-6xl.flex.flex-col.justify-start.items-center.mx-auto class="md:flex-row"
-        .w-full.px-0.mb-8 class="md:w-1/2 md:px-4 lg:px-8"
+        .w-full.px-0.mb-8 class="md:w-1/3 lg:w-1/2 md:px-4 lg:px-8"
             p class="text-xl lg:text-2xl lg:leading-normal font-sans font-normal" style="max-width: 40em;" 
                 | I'm an interdisciplinary designer and developer with 25 years of experience. I've solved business problems in organizations of all sizes through communication design, branding, video, event design, user experience design, and web development.
-        .w-full.px-0.anim-list class="md:w-1/2 md:px-4 lg:px-8"
-            h2.text-5xl.font-serif.font-light.mb-2.theme-alt.ml-4 class="md:mb-6 lg:mb-8 md:ml-8" Work
+        .w-full.px-0.anim-list class="md:w-2/3 lg:w-1/2 md:px-4 lg:px-8"
+            h2.text-5xl-scale.font-serif.font-light.mb-2.theme-alt class="md:mb-6 lg:mb-8 md:ml-8" Work
             - info_work.each do | category |
                 - if category.link
-                    a.anim-in.card-hover href=category.url title=category.link
+                    a.card-hover href=category.url title=category.link
                         h3.text-xl.font-bold.subhead = category.title
                         p.line-length.mb-2 = category.desc
                         .cta.font-medium = category.link
                 - else
-                    .anim-in.card-hover
+                    .card-hover
                         h3.text-xl.font-bold.subhead = category.title
                         p.line-length = category.desc
 
@@ -41,9 +41,9 @@ scss:
             //.image-tinted {opacity: 0; transition-delay: 0.3s;}
         }
     }
-footer.relative.w-full.bg-orange.z-0 class="p-0 md:p-12 lg:p-24"
+footer.relative.w-full.bg-orange.z-0.pad
     .max-w-6xl.flex.justify-start.mx-auto
-        .card.z-10.p-8.relative.w-full.bg-orange.anim-in class="md:p-8 md:rounded-lg md:w-auto lg:shadow-sm lg:shadow-xl lg:p-10 lg:p-16" style="transition-delay: 1s;"
+        .card.z-10.p-0.relative.w-full.bg-orange.anim-in class="md:p-8 md:rounded-lg md:w-auto lg:shadow-sm lg:shadow-xl lg:p-10 lg:p-16" style="transition-delay: 1s;"
             img.rounded-full.lozad.mb-4 src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
             h3.text-5xl.font-light.font-serif.leading-none.theme-alt.mb-2 class="" Hire Allan.
             p.italic.mb-8 Available for new opportunities in December 2019. 
