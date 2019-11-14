@@ -73,5 +73,5 @@ links:
   -
     label: "Download my résumé"
     action: "Download Allan's Resume"
-    url: "/images/work/Allan White - Resume 2019 (full-stack designer).pdf"
+    url: "/images/work/Allan White - Resume 2019 (designer & developer).pdf"
     icon: icon-file-text-o.svg
