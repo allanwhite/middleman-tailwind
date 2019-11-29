@@ -19,18 +19,22 @@ page '/*.txt', layout: false
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
 set :url_root, @app.data.site.host
 
-activate :livereload
+activate :dato, live_reload: true # relies on middleman-dato gem
+# enable livereload on development
 
 configure :development do
   set      :debug_assets, true
+  # Activate pretty URLs
+  activate :directory_indexes
   activate :pry
   activate :images do |images|
     # Optimize images (default: false)
     images.optimize = false
     images.ignore_original = true
   end
-
+  activate :livereload
 end
+# activate :livereload
 
 configure :build do
   set      :asset_host, @app.data.site.host
@@ -50,6 +54,7 @@ configure :build do
   activate :robots, rules: [{ user_agent: '*', allow: %w[/] }],
                     sitemap: File.join(@app.data.site.host, 'sitemap.xml')
 end
+
 activate :meta_tags
 activate :inline_svg
 activate :external_pipeline,
@@ -82,3 +87,16 @@ set :favicons, [
     icon: 'favicon.ico'
   }
 ]
+
+# due to how middleman 4 collections work (http://bit.ly/2jHZTI9), 
+# always use `dato` inside a `.tap` method block, like this:
+dato.tap do |dato|
+  # iterate over the "Work post" records...
+  dato.works.each do |article|
+    # ...and create a page for each article starting from a template!
+    proxy "/work/#{article.slug}/index.html", "/templates/article.html", :locals => { :article => article }, :ignore => true
+  end
+end
+
+# tell Middleman to ignore the template
+# ignore "/templates/article.html.slim"
