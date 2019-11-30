@@ -1,2 +1,30 @@
-/ - article = locals[:item]
-h1.headline-1 = article.title
+scss:
+    :root {
+        //--bg: var(--bg-#{article.theme.class_name});
+    }
+
+main.relative.w-full.pad class="bg-#{article.theme.class_name}"
+    / - article = locals[:item]
+    header
+        h3.text-xl.font-bold.subhead Case Studies
+        h1.text-5xl.font-light.font-serif.leading-none.theme-alt.mb-2 = article.title
+        h4.text-lg.font-serif.font-regular.italic = (article.subheader.nil? ? nil : article.subheader )
+        / code = article.to_hash
+    - article.blocks.each do | block |
+        - if block.item_type.api_key == "image_caption"
+            section.relative.w-full.pad
+                code = block.item_type.api_key
+        - if block.item_type.api_key == "gallery_block"
+            section.relative.w-full.pad
+                code = block.item_type.api_key
+        - if block.item_type.api_key == "quote_large"
+            section.relative.w-full.pad
+                code = block.item_type.api_key
+        - if block.item_type.api_key == "text_block"
+            section.relative.w-full.pad
+                code = block.item_type.api_key
+                h3.text-lg.font-sans.font-bold = (block.block_title.nil? ? nil : block.block_title )
+                .text-lg.font-sans = Kramdown::Document.new(block.block_body).to_html
+        - if block.item_type.api_key == "video_block"
+            section.relative.w-full.pad
+                code = block.item_type.api_key
