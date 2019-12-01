@@ -10,21 +10,29 @@ main.relative.w-full.pad class="bg-#{article.theme.class_name}"
         h1.text-5xl.font-light.font-serif.leading-none.theme-alt.mb-2 = article.title
         h4.text-lg.font-serif.font-regular.italic = (article.subheader.nil? ? nil : article.subheader )
         / code = article.to_hash
-    - article.blocks.each do | block |
-        - if block.item_type.api_key == "image_caption"
+- article.blocks.each do | block |
+    - case block.item_type.api_key
+        - when "image_caption"
             section.relative.w-full.pad
                 code = block.item_type.api_key
-        - if block.item_type.api_key == "gallery_block"
+        - when "gallery_block"
+            section.relative.w-full
+                .pad
+                    code = block.item_type.api_key
+                    h3.text-lg.font-sans.font-bold = (block.gallery_title.nil? ? nil : block.gallery_title )
+                    .text-lg.font-sans = Kramdown::Document.new(block.desc).to_html
+                .gallery-container
+                    - block.gallery.each do | gallery_item |
+                        / img src=gallery_item.url alt="" /
+                        = partial "partials/gallery-picture", :locals => { :the_img => gallery_item, :classes => '' }
+        - when "quote_large"
             section.relative.w-full.pad
                 code = block.item_type.api_key
-        - if block.item_type.api_key == "quote_large"
-            section.relative.w-full.pad
-                code = block.item_type.api_key
-        - if block.item_type.api_key == "text_block"
+        - when "text_block"
             section.relative.w-full.pad
                 code = block.item_type.api_key
                 h3.text-lg.font-sans.font-bold = (block.block_title.nil? ? nil : block.block_title )
                 .text-lg.font-sans = Kramdown::Document.new(block.block_body).to_html
-        - if block.item_type.api_key == "video_block"
+        - when "video_block"
             section.relative.w-full.pad
                 code = block.item_type.api_key

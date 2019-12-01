@@ -1,0 +1,35 @@
+ruby:
+    unless defined?(the_img)
+        puts "⚠️ The gallery partial at #{current_page.url} requires an image!"
+    end
+    img_alt = the_img.title.nil? ? 'project image' : the_img.title
+    if the_img.custom_data.has_key?("style")
+        #puts "#{the_img.id} class is #{style}"
+        item_class = case the_img.custom_data["style"]
+            when "large" then "gallery-item-lg"
+            when "wide" then "gallery-item-horizontal"
+            when "tall" then "gallery-item-vertical"
+        end
+    else
+        item_class = ""
+    end
+    if defined?(classes)
+        classes = classes + " " + item_class
+    else
+        classes = item_class
+    end
+a.gallery-item href="" data-lightbox='project' class=(defined?(classes) ? classes : nil)
+    / p = the_img.custom_data.style
+    / code.text-xs = the_img.to_hash
+    /- if the_img.custom_data.has_key?("style")
+        p = the_img.custom_data["style"]
+    / p = classes
+    picture.lozad.object-cover data-alt=img_alt data-iesrc=the_img.url(w: 800, h: 600, fm: :jpg) style=("display: block; min-height: 1rem") 
+        source media="(min-width: 1438px)" srcset=the_img.url(w: 2400, fm: :jpg)
+        source media="(min-width: 1200px)" srcset=the_img.url(w: 2000, fm: :jpg)
+        source media="(min-width: 992px)"  srcset=the_img.url(w: 1800, fm: :jpg)
+        source media="(min-width: 576px)"  srcset=the_img.url(w: 1200, fm: :jpg)
+        source media="(min-width: 320px)"  srcset=the_img.url(w: 800, fm: :jpg)
+        noscript
+            img.object-cover src=the_img.url(w: 800, fm: :jpg) alt=img_alt
+
