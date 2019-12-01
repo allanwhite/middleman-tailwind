@@ -53,9 +53,12 @@
     //     column-count: 4;
     // }
 }
-.gallery-item {
+.gallery-item { // a.gallery-item typically a link
     margin-bottom: 1.5vw;
     display: inline-block;
     overflow: hidden;
+    &:hover {
+        transform: translate3d(0,0,0) !important; // cancel default link behavior
+    }
     // border-radius: 1vw;
 }

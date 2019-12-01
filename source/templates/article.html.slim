@@ -18,7 +18,7 @@ main.relative.w-full class="bg-#{article.theme.class_name}"
             - when "gallery_block"
                 section.content-block.block-gallery.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}")
                     - unless block.gallery_title.empty?
-                        h3.mx-auto.max-w-7xl.text-3xl.font-sans.font-regular.mb-3 = block.gallery_title
+                        h3.mx-auto.max-w-7xl.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.gallery_title
                     .gallery-container.mx-auto.max-w-7xl
                         - unless block.desc.empty?
                             .gallery-item.rounded-none
@@ -36,8 +36,27 @@ main.relative.w-full class="bg-#{article.theme.class_name}"
                     / code = block.item_type.api_key
                     .mx-auto.max-w-2xl
                         - unless block.block_title.empty?
-                            h3.text-3xl.font-sans.font-regular.mb-3 = block.block_title
+                            h3.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
                         .markdown.lead = Kramdown::Document.new(block.block_body).to_html
             - when "video_block"
-                section.content-block.block-video.relative.w-full.pad
-                    code = block.item_type.api_key
+                section.content-block.block-video.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}")
+                    .mx-auto.max-w-7xl.flex.justify-center.items-center class="flex-col lg:flex-row"
+                        - unless block.video_title.empty? || block.video_caption.empty?
+                            .w-full.mb-4 class="lg:w-1/3 lg:pr-2"
+                                - unless block.video_title.empty?
+                                    h3.text-2xl.font-sans.font-medium.leading-tight.mb-2 = block.video_title
+                                - unless block.video_caption.empty?
+                                    .markdown.lead.max-w-xl = Kramdown::Document.new(block.video_caption).to_html
+                        .w-full.mb-4 class="lg:w-2/3"
+                            - unless block.video_file.nil?
+                                video width="100%" autoplay=true loop="true" preload="metadata"
+                                    source src=block.video_file.url type="video/#{block.video_file.format}"
+                            - else
+                                - unless block.video.nil?
+                                    img src=block.video.thumbnail_url
+                                    - embed_url = "https://www.youtube.com/embed/" + block.video.provider_uid
+                                    / iframe allow=("accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture") allowfullscreen="" frameborder="0" height=block.video.height src=embed_url width=block.video.width
+
+
+                    
+                    / code = block.item_type.api_key
