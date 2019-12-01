@@ -5,3 +5,10 @@
     // height: -moz-fill-available;
     // height: fill-available;
 }
+.markdown {
+    &.lead {
+        p, ul, ol, li, dd, dt {
+            @apply text-lg leading-normal;
+        }
+    }
+}

@@ -99,7 +99,8 @@ module.exports = {
         '7xl': '96rem',
       },
       borderRadius: {
-        lg: '1rem'
+        lg: '1rem',
+        scale: '0.5vw'
       }
     }
   },

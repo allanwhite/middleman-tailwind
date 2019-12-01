@@ -18,7 +18,7 @@ ruby:
     else
         classes = item_class
     end
-a.gallery-item href="" data-lightbox='project' class=(defined?(classes) ? classes : nil)
+a.gallery-item.rounded-scale href="" data-lightbox='project' class=(defined?(classes) ? classes : nil)
     / p = the_img.custom_data.style
     / code.text-xs = the_img.to_hash
     /- if the_img.custom_data.has_key?("style")
