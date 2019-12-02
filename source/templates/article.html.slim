@@ -2,6 +2,8 @@ scss:
     :root {
         //--bg: var(--bg-#{article.theme.class_name});
     }
+- set_meta_tags title: "#{article.title} | Case Study", full_title: false
+= partial "partials/json-ld", :locals => { :type => "person" }
 - bg_theme = (article.theme.nil? ? nil : "bg-#{article.theme.class_name}")
 main.relative.w-full class=bg_theme
     / - article = locals[:item]
