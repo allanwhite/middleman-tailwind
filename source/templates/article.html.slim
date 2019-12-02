@@ -2,21 +2,26 @@ scss:
     :root {
         //--bg: var(--bg-#{article.theme.class_name});
     }
-
-main.relative.w-full class=(article.theme.nil? ? nil : "bg-#{article.theme.class_name}")
+- bg_theme = (article.theme.nil? ? nil : "bg-#{article.theme.class_name}")
+main.relative.w-full class=bg_theme
     / - article = locals[:item]
     header.mx-auto.max-w-7xl.pad
         h3.text-xl.font-bold.subhead Case Studies
         h1.text-3xl-scale.font-light.font-serif.leading-none.mb-2 = article.title
         h4.text-lg.font-serif.font-regular.italic = (article.subheader.nil? ? nil : article.subheader )
         / code = article.to_hash
+    / aside.toc
+        ul
+            - article.blocks.each do | block |
+                li
+                    a href="##{block.id}" = (block.title.empty? ? nil : block.title)
     - article.blocks.each do | block |
         - case block.item_type.api_key
             - when "image_caption"
-                section.content-block.block-image.relative.w-full.pad
+                section.content-block.block-image.relative.w-full.pad id=block.id
                     code = block.item_type.api_key
             - when "gallery_block"
-                section.content-block.block-gallery.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}")
+                section.content-block.block-gallery.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
                     - unless block.gallery_title.empty?
                         h3.mx-auto.max-w-7xl.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.gallery_title
                     .gallery-container.mx-auto.max-w-7xl
@@ -32,7 +37,7 @@ main.relative.w-full class=(article.theme.nil? ? nil : "bg-#{article.theme.class
                     / code = block.item_type.api_key
                     .text-4xl-scale.font-serif.font-light class=(block.quote_color.nil? ? nil : "text-#{block.quote_color.class_name}") = block.quote_body
             - when "text_block"
-                section.content-block.block-text.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}")
+                section.content-block.block-text.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
                     / code = block.item_type.api_key
                     - unless block.inline_image.nil?
                         .mx-auto.max-w-5xl.flex.justify-center.items-center class="flex-col lg:flex-row"
@@ -48,7 +53,7 @@ main.relative.w-full class=(article.theme.nil? ? nil : "bg-#{article.theme.class
                                 h3.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
                             .markdown.lead = Kramdown::Document.new(block.block_body).to_html
             - when "video_block"
-                section.content-block.block-video.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}")
+                section.content-block.block-video.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
                     .mx-auto.max-w-7xl.flex.justify-center.items-center class="flex-col lg:flex-row"
                         - unless block.video_title.empty? || block.video_caption.empty?
                             .w-full.mb-4 class="lg:w-1/3 lg:pr-2"
@@ -66,5 +71,10 @@ main.relative.w-full class=(article.theme.nil? ? nil : "bg-#{article.theme.class
                                     / iframe allow=("accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture") allowfullscreen="" frameborder="0" height=block.video.height src=embed_url width=block.video.width
 
 
-                    
-                    / code = block.item_type.api_key
+scss:
+    footer a {
+        --link-color: var(--color-blue);
+        --link-hover: var(--color-blue-dark);
+    }
+footer.relative.w-full.pad class=bg_theme
+    = partial "partials/footer-links"
