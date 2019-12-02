@@ -3,7 +3,7 @@ scss:
         //--bg: var(--bg-#{article.theme.class_name});
     }
 
-main.relative.w-full class="bg-#{article.theme.class_name}"
+main.relative.w-full class=(article.theme.nil? ? nil : "bg-#{article.theme.class_name}")
     / - article = locals[:item]
     header.mx-auto.max-w-7xl.pad
         h3.text-xl.font-bold.subhead Case Studies
