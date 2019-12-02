@@ -52,7 +52,7 @@ a.waypoint {
     --text-color: var(--color-white);
     --text-color-alt: var(--color-orange);
     --link-color: var(--color-orange);
-    --link-hover: var(--color-orange-dark);
+    --link-hover: var(--color-orange-light);
     color: var(--text-color);
     .theme-alt {
         color: var(--color-white);
@@ -60,9 +60,13 @@ a.waypoint {
 }
 .bg-blue {
     --bg: var(--color-blue);
+    // --link-color: var(--color-aqua);
+    // --link-hover: var(--color-aqua-light);
 }
 .bg-blue-dark {
     --bg: var(--color-blue-dark);
+    // --link-color: var(--color-aqua);
+    // --link-hover: var(--color-aqua-light);
 }
 .bg-white, .bg-gray-100, .bg-gray-200, .bg-gray-300, .bg-gray-400, .bg-gray-500 {
     --bg: var(--color-white);
