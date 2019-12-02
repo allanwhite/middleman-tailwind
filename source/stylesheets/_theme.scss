@@ -12,8 +12,19 @@ p {
     @apply font-sans font-medium leading-tight uppercase tracking-widest;
 }
 
+// .lead {
+//     @apply text-xl leading-normal font-serif font-light;
+// }
 .lead {
-    @apply text-xl leading-normal font-serif font-light;
+    // @apply text-xl leading-normal font-serif font-light;
+    @apply text-xl font-sans font-normal;
+    max-width: 40em;
+    @screen lg {
+        @apply text-2xl leading-normal;
+    }
+}
+.headline-2 {
+    @apply text-5xl-scale font-serif font-light mb-2 leading-none;
 }
 .pad {
     @apply p-4;
