@@ -12,7 +12,34 @@ a.link {
     //     @apply text-orange;
     // }
 }
+a.link-nudge {
+    transform: translate3d(0,0,0);
+    &:hover, &:focus {
+        transform: translate3d(3px,0,0);
+    }
+}
+@mixin icon-after {
+    opacity: 0.4;
+    display: inline-block;
+    width:  0.8em;
+    height: 0.8em;
+    margin-left: 0.2em;
+    // transform: translate3d(0px, 0.1em, 0); // slight correction of position
+    transition: transform $speed * 0.5 ease, opacity $speed * 0.5 ease;
+    // transition: transform $timing-default * 2 ease, opacity $timing-default * 2 ease;
+}
+.separator-arrow { 
+    &::after {
+        content: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 14'%3E%3Cpolygon fill='%23fff' points='5.665 1 4 2.645 9.408 8 4 13.355 5.665 15 12.75 8'/%3E%3C/svg%3E");
+        @include icon-after;
+    }
+}
 
+a.waypoint {
+    &:hover, &:focus {
+        transform: translate3d(0,3px,0);
+    }
+}
 .button {
     @apply whitespace-no-wrap text-sm mb-10 inline-block px-4 py-2 border-2 rounded font-sans font-medium;
     @screen md {

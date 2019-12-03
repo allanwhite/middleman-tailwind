@@ -10,7 +10,7 @@ a, a:link {
     //     // text-decoration-color var(--speed) ease-out,
     //     color var(--speed) ease-out
     // ;
-    transform: translate3d(0,0,0);
+    // transform: translate3d(0,0,0);
     color: var(--link-color);
     // text-decoration: underline;
     // text-underline-offset: 2px;
@@ -19,15 +19,11 @@ a, a:link {
     // text-decoration-color: var(--trans);
     &:hover, &:focus {
         color: var(--link-hover);
-        transform: translate3d(3px,0,0);
+        // transform: translate3d(3px,0,0);
         // text-decoration-color: var(--text-color-alt);
     }
 }
-a.waypoint {
-    &:hover, &:focus {
-        transform: translate3d(0,3px,0);
-    }
-}
+
 .button {
     color: var(--link-color);
     border-color: var(--link-color);
@@ -48,11 +44,11 @@ a.waypoint {
         color: var(--color-white);
     }    
 }
-.bg-blue, .bg-blue-dark {
+.bg-blue, .bg-blue-dark, .bg-gray-600, .bg-gray-700, .bg-gray-800, .bg-gray-900, .bg-black {
     --text-color: var(--color-white);
     --text-color-alt: var(--color-orange);
     --link-color: var(--color-orange);
-    --link-hover: var(--color-orange-dark);
+    --link-hover: var(--color-orange-light);
     color: var(--text-color);
     .theme-alt {
         color: var(--color-white);
@@ -60,11 +56,15 @@ a.waypoint {
 }
 .bg-blue {
     --bg: var(--color-blue);
+    // --link-color: var(--color-aqua);
+    // --link-hover: var(--color-aqua-light);
 }
 .bg-blue-dark {
     --bg: var(--color-blue-dark);
+    // --link-color: var(--color-aqua);
+    // --link-hover: var(--color-aqua-light);
 }
-.bg-white {
+.bg-white, .bg-gray-100, .bg-gray-200, .bg-gray-300, .bg-gray-400, .bg-gray-500 {
     --bg: var(--color-white);
     --text-color: var(--color-blue);
     --text-color-alt: var(--color-orange);
@@ -77,4 +77,18 @@ a.waypoint {
 }
 *[class^="bg-"] {
     color: var(--text-color);
+}
+.work {
+    .masthead {
+        --bg: var(--color-blue);
+        --text-color: var(--color-white);
+        --text-color-alt: var(--color-orange);
+        --link-color: var(--color-orange);
+        --link-hover: var(--color-orange-light);
+        color: var(--text-color);
+        nav a {
+            --link-color: var(--color-white);
+            --link-hover: var(--color-orange-light);    
+        }
+    }
 }

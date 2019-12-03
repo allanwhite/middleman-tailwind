@@ -12,8 +12,19 @@ p {
     @apply font-sans font-medium leading-tight uppercase tracking-widest;
 }
 
+// .lead {
+//     @apply text-xl leading-normal font-serif font-light;
+// }
 .lead {
-    @apply text-xl leading-normal font-serif font-light;
+    // @apply text-xl leading-normal font-serif font-light;
+    @apply text-xl font-sans font-normal;
+    max-width: 40em;
+    @screen lg {
+        @apply text-2xl leading-normal;
+    }
+}
+.headline-2 {
+    @apply text-5xl-scale font-serif font-light mb-2 leading-none;
 }
 .pad {
     @apply p-4;
@@ -36,7 +47,7 @@ p {
 }
 
 .line-length {
-    max-width: 50em;
+    max-width: 66ch;
 }
 
 $card-gap: calc(0.5rem + 2vw);
@@ -60,7 +71,7 @@ $card-gap: calc(0.5rem + 2vw);
 .pov {
     perspective: 750px;
 }
-.masthead {
+.zoom-ease {
     transform: scale3d(1,1,1);
     @include transitions;
     transition-timing-function: ease-in-out;
@@ -68,7 +79,7 @@ $card-gap: calc(0.5rem + 2vw);
     animation-duration: 60s;
     animation-iteration-count: infinite;
 }
-.masthead img {
+.zoom-ease img {
     width: 105%;
     height: 105%;
     object-fit: cover;

@@ -1,0 +1,64 @@
+// .gallery-container > a {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     font-size: 2em;
+// }
+
+// .gallery-container {
+//     display: grid;
+//     grid-gap: calc(1rem + 1vw);
+//     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+//     grid-auto-rows: 240px;
+//     grid-auto-flow: dense;
+// }
+// // a.gallery-item typically a link
+// .gallery-item {
+//     overflow: hidden;
+//     border-radius: 1vw;
+//     & > img, & > picture {
+//         width: 100%;
+//         height: 100%;
+//         object-fit: cover;
+//         // box-shadow: 0 2px 16px var(--shadow); 
+//     }
+// }
+// .gallery-item-horizontal {
+//     grid-row: span 2;
+//     grid-column: span 3;
+// }
+  
+// .gallery-item-vertical {
+//     grid-row: span 3;
+//     grid-column: span 2;
+// }
+  
+// .gallery-item-lg {
+//     grid-column: span 3;
+//     grid-row: span 3;
+// }
+
+.gallery-container {
+    // $gap: calc(1rem + 1vw);
+    column-gap: 2vw;
+    column-fill: initial;
+    // @apply mx-auto max-w-7xl;
+    @screen md {
+        column-count: 2;
+    }
+    @screen lg {
+        column-count: 3;
+    }
+    // @screen xl {
+    //     column-count: 4;
+    // }
+}
+.gallery-item { // a.gallery-item typically a link
+    margin-bottom: 1.5vw;
+    display: inline-block;
+    overflow: hidden;
+    // &:hover {
+    //     transform: translate3d(0,0,0) !important; // cancel default link behavior
+    // }
+    // border-radius: 1vw;
+}

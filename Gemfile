@@ -13,6 +13,7 @@ gem 'middleman-minify-html'
 gem 'middleman-favicon-maker'
 gem 'middleman-robots'
 gem 'middleman-meta-tags', git: 'https://github.com/gabrielecanepa/middleman-meta-tags'
+gem 'middleman-dato'
 
 # slim templates | slim-lang.org
 gem 'slim'

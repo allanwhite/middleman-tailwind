@@ -1,0 +1,111 @@
+---
+layout: layout
+ogType: article
+page_classes: "work"
+---
+
+scss:
+    :root {
+        //--bg: var(--bg-#{article.theme.class_name});
+    }
+    .masthead {
+        background-color: var(--bg);
+    }
+    footer a {
+        --link-color: var(--color-blue);
+        --link-hover: var(--color-blue-dark);
+    }
+
+- set_meta_tags title: "#{article.title} | Case Study", full_title: false
+= partial "partials/json-ld", :locals => { :type => "person" }
+- bg_theme = (article.theme.nil? ? nil : "bg-#{article.theme.class_name}")
+
+main.relative.w-full class=bg_theme
+    / - article = locals[:item]
+    header.masthead.flex class="flex-col md:flex-row"
+        .w-full.pad class="md:w-2/3"
+            nav class="flex flex-row justify-start items-center mb-4"
+                a href="/" title="Home"
+                    = inline_svg "easel-logo.svg", class: "logo inline-block h-12 mr-4 w-auto"
+                a.separator-arrow.subhead.text-lg.mr-2 href="/#work" title="Work" Work
+                span.subhead.text-lg UX
+            / h3.text-xl.font-bold.subhead Case Studies
+            h1.text-4xl-scale.font-regular.font-serif.leading-none.mb-4 = article.title
+            h4.text-lg.font-serif.font-light.italic.mb-12 = (article.subheader.nil? ? nil : article.subheader )
+            - unless article.intro.nil?
+                .lead.line-length
+                    = Kramdown::Document.new(article.intro).to_html
+            aside.toc.mt-12 class=""
+                h3.text-lg.font-serif Table of Contents
+                ul
+                    - article.blocks.each do | block |
+                        / li = block.try(:block_title).nil?
+                        - if defined?(block.block_title)
+                            li
+                                a href="##{block.id}" title="Jump to section" = block.block_title
+
+        - unless article.cover_image.nil?
+            .w-full.bg-cover.lozad class="h-64 md:w-1/3 xl:w-1/2 md:h-auto order-1 md:order-2" data-background-image=(article.cover_image.url(w: 1200, fm: :jpg))
+                / = partial "partials/inline-picture", :locals => { :the_img => article.cover_image, :classes => 'w-full h-full object-cover' }
+        / code = article.to_hash
+    - article.blocks.each do | block |
+        - case block.item_type.api_key
+            - when "image_caption"
+                section.content-block.block-image.relative.max-w-7xl.pad id=block.id
+                    figure
+                        = partial "partials/inline-picture", :locals => { :the_img => block.inline_image, :classes => '' }
+                        - unless caption.nil?
+                            figcaption = caption
+            - when "gallery_block"
+                section.content-block.block-gallery.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
+                    - unless block.block_title.empty?
+                        h3.mx-auto.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
+                    .gallery-container.mx-auto
+                        - unless block.desc.empty?
+                            .gallery-item.rounded-none
+                                //- code = block.item_type.api_key
+                                .text-lg.font-sans.mb-3.pr-3.pb-2 = Kramdown::Document.new(block.desc).to_html
+                        - block.gallery.each do | gallery_item |
+                            img.lozad.zoomable.gallery-item.rounded-scale src=gallery_item.url(w: 1000, blur: 320, auto: :compress) data-src=gallery_item.url(w: 1000, auto: :compress) data-zoom-src=gallery_item.url(w: 2400, auto: :compress) alt="" /
+                            / = partial "partials/gallery-picture", :locals => { :the_img => gallery_item, :classes => '' }
+            - when "quote_large"
+                aside.content-block.block-quote.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
+                    / code = block.item_type.api_key
+                    .text-4xl-scale.font-serif.font-light class=(block.quote_color.nil? ? nil : "text-#{block.quote_color.class_name}") = block.quote_body
+            - when "text_block"
+                section.content-block.block-text.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
+                    / code = block.item_type.api_key
+                    - unless block.inline_image.nil?
+                        .mx-auto.max-w-5xl.flex.justify-center.items-center class="flex-col lg:flex-row"
+                            .w-full.mb-4.pb-2 class="lg:w-1/2 lg:pr-12"
+                                - unless block.block_title.empty?
+                                    h3.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
+                                .markdown.lead = Kramdown::Document.new(block.block_body).to_html
+                            .w-full.mb-4 class="lg:w-1/2"
+                                = partial "partials/inline-picture", :locals => { :the_img => block.inline_image, :classes => '' }
+                    - else
+                        .mx-auto.max-w-2xl
+                            - unless block.block_title.empty?
+                                h3.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
+                            .markdown.lead = Kramdown::Document.new(block.block_body).to_html
+            - when "video_block"
+                section.content-block.block-video.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
+                    .mx-auto.max-w-7xl.flex.justify-center.items-center class="flex-col lg:flex-row"
+                        - unless block.block_title.empty? || block.video_caption.empty?
+                            .w-full.mb-4 class="lg:w-1/3 lg:pr-2"
+                                - unless block.block_title.empty?
+                                    h3.text-2xl.font-sans.font-medium.leading-tight.mb-2 = block.block_title
+                                - unless block.video_caption.empty?
+                                    .markdown.lead.max-w-xl = Kramdown::Document.new(block.video_caption).to_html
+                        .w-full.mb-4 class="lg:w-2/3"
+                            - unless block.video_file.nil?
+                                = partial "partials/video-file", :locals => { :video_file => block.video_file, :classes => '', :attr => '' }
+                            - else
+                                - unless block.video.nil?
+                                    img src=block.video.thumbnail_url
+                                    - embed_url = "https://www.youtube.com/embed/" + block.video.provider_uid
+                                    / iframe allow=("accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture") allowfullscreen="" frameborder="0" height=block.video.height src=embed_url width=block.video.width
+
+
+footer.relative.w-full.pad class=bg_theme
+    = partial "partials/footer-links"
