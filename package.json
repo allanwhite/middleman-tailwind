@@ -23,6 +23,7 @@
     "eslint": "^5.15.1",
     "eslint-loader": "^2.1.2",
     "lozad": "^1.14.0",
+    "medium-zoom": "^1.0.4",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "postcss": "^7.0.14",
@@ -35,5 +36,6 @@
     "tailwindcss": "^1.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3"
-  }
+  },
+  "dependencies": {}
 }
