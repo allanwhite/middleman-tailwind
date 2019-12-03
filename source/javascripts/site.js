@@ -8,13 +8,30 @@
 
 import lozad from 'lozad';
 import mediumZoom from 'medium-zoom';
-if ($(window).width() >= 991) { // desktop only
+function makeZoomable() {
   mediumZoom('.zoomable', {
     margin: 12,
     // scrollOffset: 0,
     background: 'rgba(25, 18, 25, .7)',
   });
 }
+makeZoomable();
+// this isn't working for some reason
+// var mq = window.matchMedia('@media all and (min-width: 800px)');
+// if(mq.matches) {
+//   makeZoomable();
+//   console.log("the width of browser is more then 800px");
+// } else {
+//   console.log("the width of browser is less then 800px");
+// }
+// mq.addListener(function(changed) {
+//   if(changed.matches) {
+//     makeZoomable();
+//     console.log("changed: the width of browser is more then 800px");
+//   } else {
+//     console.log("changed: the width of browser is less then 800px");
+//   }
+// });
 // /**
 //  * Class representing lazy load behavior, based on lozad library
 //  * @class LazyLoad

@@ -23,7 +23,7 @@ a, a:link {
         // text-decoration-color: var(--text-color-alt);
     }
 }
-
+/*! purgecss start ignore */
 .button {
     color: var(--link-color);
     border-color: var(--link-color);
@@ -92,3 +92,4 @@ a, a:link {
         }
     }
 }
+/*! purgecss end ignore */
