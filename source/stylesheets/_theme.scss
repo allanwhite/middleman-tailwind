@@ -71,6 +71,9 @@ $card-gap: calc(0.5rem + 2vw);
 .pov {
     perspective: 750px;
 }
+
+// article/work stuff
+
 .zoom-ease {
     transform: scale3d(1,1,1);
     @include transitions;
@@ -102,7 +105,13 @@ $card-gap: calc(0.5rem + 2vw);
     //     }
     // }
 }
-
+// .work {
+//     main & {
+//         a {
+//             border-bottom: 1px solid var(--link-color);
+//         }
+//     }
+// }
 .shadow-start {
     @include shadowStart;
 }
