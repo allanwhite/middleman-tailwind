@@ -8,11 +8,13 @@
 
 import lozad from 'lozad';
 import mediumZoom from 'medium-zoom';
-mediumZoom('.zoomable', {
-  margin: 48,
-  // scrollOffset: 0,
-  background: 'rgba(25, 18, 25, .7)',
-});
+if ($(window).width() >= 991) { // desktop only
+  mediumZoom('.zoomable', {
+    margin: 12,
+    // scrollOffset: 0,
+    background: 'rgba(25, 18, 25, .7)',
+  });
+}
 // /**
 //  * Class representing lazy load behavior, based on lozad library
 //  * @class LazyLoad
