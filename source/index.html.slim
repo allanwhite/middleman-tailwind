@@ -5,6 +5,7 @@
 - img_masthead = "/images/work/moodboard-2-angle-blue.jpg"
 - img_masthead_color = "/images/work/moodboard-2-angle-color.jpg"
 = partial "partials/json-ld", :locals => { :type => "person" }
+- page_classes = "home"
 section#top.flex.flex-col.min-h-screen.w-full.bg-orange.justify-center.items-center.z--10.lozad.bg-no-repeat.bg-cover data-background-image="/images/work/moodboard-2-angle-preload.svg"
     header.z-10.pad.bg-blur.rounded.mb-8 class="md:rounded-lg md:mb-16 lg:mb-20"
         .flex class="flex-col items-start md:flex-row justify-start"
@@ -14,7 +15,7 @@ section#top.flex.flex-col.min-h-screen.w-full.bg-orange.justify-center.items-cen
                 h2.subhead.text-xl.mb-12 class="opacity-0 anim-2 sm:text-3xl-scale" Designer & Developer
     a.waypoint.z-10 href="#about" title="More"
         = inline_svg "icon-angle-down-large.svg", class: "h-10 md:h-24 fill-current anim-4 opacity-0"
-    .work-gallery.z-0.left-0.top-0.pov.overflow-hidden.absolute.h-screen.w-full class=""
+    .zoom-ease.work-gallery.z-0.left-0.top-0.pov.overflow-hidden.absolute.h-screen.w-full class=""
         = partial "partials/masthead-picture", :locals => { :the_img => img_masthead }
 
 / section#about.relative.w-full.bg-white.pad.z-20
@@ -71,10 +72,10 @@ footer.relative.w-full.bg-orange.z-0.pad
                             a.link href=info.url title=info.action
                                 = inline_svg info.icon, class: "icon-inline mr-1 md:mr-2 fill-current" 
                                 = info.label
-    .hidden.work-gallery.image-tinted.z-0.left-0.top-0.pov.overflow-hidden.absolute.w-full class="md:block md:h-screen"
+    .zoom-ease.hidden.work-gallery.image-tinted.z-0.left-0.top-0.pov.overflow-hidden.absolute.w-full class="md:block md:h-screen"
         / img.lozad src="/images/work/moodboard-2-angle-preload.svg" data-src="/images/work/moodboard-2-angle-tint.jpg"
         = partial "partials/masthead-picture", :locals => { :the_img => img_masthead }
-    .hidden.work-gallery.image-bright.z-0.left-0.top-0.pov.overflow-hidden.absolute.w-full.opacity-0 class="md:block md:h-screen"
+    .zoom-ease.hidden.work-gallery.image-bright.z-0.left-0.top-0.pov.overflow-hidden.absolute.w-full.opacity-0 class="md:block md:h-screen"
         = partial "partials/masthead-picture", :locals => { :the_img => img_masthead_color }
 
 / img.w-full.h-4 src="/images/work/color-strip.jpg" alt="texture"

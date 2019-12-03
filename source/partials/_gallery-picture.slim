@@ -24,12 +24,12 @@ a.gallery-item.rounded-scale href="" data-lightbox='project' class=(defined?(cla
     /- if the_img.custom_data.has_key?("style")
         p = the_img.custom_data["style"]
     / p = classes
-    picture.lozad.object-cover data-alt=img_alt data-iesrc=the_img.url(w: 800, h: 600, fm: :jpg) style=("display: block; min-height: 1rem") 
-        source media="(min-width: 1438px)" srcset=the_img.url(w: 2400, fm: :jpg)
-        source media="(min-width: 1200px)" srcset=the_img.url(w: 2000, fm: :jpg)
-        source media="(min-width: 992px)"  srcset=the_img.url(w: 1800, fm: :jpg)
-        source media="(min-width: 576px)"  srcset=the_img.url(w: 1200, fm: :jpg)
-        source media="(min-width: 320px)"  srcset=the_img.url(w: 800, fm: :jpg)
+    picture.lozad.object-cover data-alt=img_alt data-iesrc=the_img.url(w: 800, h: 600, auto: :compress) style=("display: block; min-height: 1rem") 
+        source media="(min-width: 1438px)" srcset=the_img.url(w: 1600, auto: :compress)
+        source media="(min-width: 1200px)" srcset=the_img.url(w: 1200, auto: :compress)
+        source media="(min-width: 992px)"  srcset=the_img.url(w: 1000, auto: :compress)
+        source media="(min-width: 576px)"  srcset=the_img.url(w: 800, auto: :compress)
+        source media="(min-width: 320px)"  srcset=the_img.url(w: 640, auto: :compress)
         noscript
-            img.object-cover src=the_img.url(w: 800, fm: :jpg) alt=img_alt
+            img.object-cover src=the_img.url(w: 800, auto: :compress) alt=img_alt
 

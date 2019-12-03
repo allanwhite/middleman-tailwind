@@ -71,7 +71,7 @@ $card-gap: calc(0.5rem + 2vw);
 .pov {
     perspective: 750px;
 }
-.masthead {
+.zoom-ease {
     transform: scale3d(1,1,1);
     @include transitions;
     transition-timing-function: ease-in-out;
@@ -79,7 +79,7 @@ $card-gap: calc(0.5rem + 2vw);
     animation-duration: 60s;
     animation-iteration-count: infinite;
 }
-.masthead img {
+.zoom-ease img {
     width: 105%;
     height: 105%;
     object-fit: cover;
