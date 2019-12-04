@@ -52,6 +52,7 @@ a.waypoint {
         color: var(--bg);
         background-color: var(--link-color);
         &:hover {
+            color: var(--bg);
             background-color: var(--link-hover);
         }
     }
