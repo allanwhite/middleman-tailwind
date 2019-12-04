@@ -101,7 +101,7 @@ observer = new IntersectionObserver((entries) => {
     if (entry.intersectionRatio > 0) {
       entry.target.classList.add('animated');
     } else {
-      entry.target.classList.remove('animated');
+      // entry.target.classList.remove('animated');
     }
   }, animObserverConfig);
 });
