@@ -8,11 +8,11 @@
 .markdown {
     &.lead {
         p, ul, ol, li, dd, dt {
-            @apply text-lg leading-normal mb-4;
+            @apply text-lg leading-tight mb-2;
         }
     }
     p, ul, ol, li, dd, dt {
-        @apply leading-normal mb-2;
+        @apply leading-tight mb-2;
     }
     ul, ol {
         list-style: disc;

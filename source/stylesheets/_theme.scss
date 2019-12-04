@@ -29,15 +29,9 @@ p {
 .pad {
     @apply p-4;
     padding: calc(0.6rem + 5vw);
-    // @screen sm {
-    //     @apply p-8;
-    // }
-    // @screen md {
-    //     @apply p-12;
-    // }
-    // @screen lg {
-    //     @apply p-24;
-    // }
+    &-y-xl {
+        padding: calc(1rem + 7vw) calc(0.6rem + 5vw);
+    }
 }
 .icon-inline {
     @apply inline-block fill-current;
@@ -47,7 +41,7 @@ p {
 }
 
 .line-length {
-    max-width: 66ch;
+    max-width: 52ch;
 }
 
 $card-gap: calc(0.5rem + 2vw);

@@ -5,12 +5,12 @@ page_classes: "work"
 ---
 
 scss:
-    :root {
-        //--bg: var(--bg-#{article.theme.class_name});
-    }
-    .masthead {
-        background-color: var(--bg);
-    }
+    //:root {
+    //    //--bg: var(--bg-#{article.theme.class_name});
+    //}
+    //.masthead, footer {
+    //    background-color: var(--bg);
+    //}
     //footer a {
     //    --link-color: var(--color-blue);
     //    --link-hover: var(--color-blue-dark);
@@ -73,7 +73,7 @@ main.relative.w-full class=bg_theme
                             img.lozad.zoomable.gallery-item.rounded-scale src=gallery_item.url(w: 1000, blur: 320, auto: :compress) data-src=gallery_item.url(w: 1000, auto: :compress) data-zoom-src=gallery_item.url(w: 2400, auto: :compress) alt="" /
                             / = partial "partials/gallery-picture", :locals => { :the_img => gallery_item, :classes => '' }
             - when "quote_large"
-                aside.content-block.block-quote.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
+                aside.content-block.block-quote.relative.w-full.pad-y-xl class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
                     / code = block.item_type.api_key
                     .text-4xl-scale.font-serif.font-light class=(block.quote_color.nil? ? nil : "text-#{block.quote_color.class_name}") = block.quote_body
             - when "text_block"
@@ -110,8 +110,8 @@ main.relative.w-full class=bg_theme
                                     - embed_url = "https://www.youtube.com/embed/" + block.video.provider_uid
                                     .div class="embed-responsive aspect-ratio-16/9"
                                         iframe.embed-responsive-item allow=("accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture") allowfullscreen="" frameborder="0" height=block.video.height src=embed_url width=block.video.width
-
-section.cta.mx-auto.text-center.bg-orange.pad
+// .lozad.bg-cover data-background-image="#{article.cover_image.url}?w=1800&h=900&auto=compress&gam=80&exp=-2&sat=0&duotone=2B3652,FF6746&duotone-alpha=100&blur=50&fit=crop&crop=edges"
+section.cta.mx-auto.text-center.pad
     = partial "partials/cta"
-footer.relative.w-full.pad class=bg_theme
+footer.relative.w-full.pad
     = partial "partials/footer-links"

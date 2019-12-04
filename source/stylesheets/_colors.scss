@@ -79,8 +79,9 @@ a, a:link {
     color: var(--text-color);
 }
 .work {
-    .masthead {
+    .masthead, footer {
         --bg: var(--color-blue-dark);
+        background-color: var(--bg);
         --text-color: var(--color-white);
         --text-color-alt: var(--color-orange);
         --link-color: var(--color-orange);
