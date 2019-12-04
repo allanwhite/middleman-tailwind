@@ -23,8 +23,8 @@ const PROD_PLUGINS = [
       __dirname + '/../source/**/*.slim'
     ],
     whitelist: ['animated', 'active', 'loaded'],
-    whitelistPatterns: [/^bg-/],
-    whitelistPatternsChildren: [/^bg-/],
+    whitelistPatterns: [/^bg-/, /^text-/],
+    // whitelistPatternsChildren: [/^bg-/],
     extractors: [{
       extractor: TailwindExtractor,
       extensions: ['html', 'js', 'erb', 'html.erb', 'slim', 'html.slim']
