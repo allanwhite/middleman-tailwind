@@ -43,18 +43,18 @@
     column-gap: 2vw;
     column-fill: initial;
     // @apply mx-auto max-w-7xl;
-    @screen md {
+    @screen lg {
         column-count: 2;
     }
-    @screen lg {
+    @screen xl {
         column-count: 3;
     }
-    // @screen xl {
+    // @screen xxl {
     //     column-count: 4;
     // }
 }
 .gallery-item { // a.gallery-item typically a link
-    margin-bottom: 1.5vw;
+    margin-bottom: calc(1rem + 1vw);
     display: inline-block;
     overflow: hidden;
     // &:hover {

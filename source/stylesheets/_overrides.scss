@@ -8,7 +8,31 @@
 .markdown {
     &.lead {
         p, ul, ol, li, dd, dt {
-            @apply text-lg leading-normal;
+            @apply text-lg leading-normal mb-4;
         }
     }
+    p, ul, ol, li, dd, dt {
+        @apply leading-normal mb-2;
+    }
+    ul, ol {
+        list-style: disc;
+        @apply text-base ml-6;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-medium mt-4;
+        margin-bottom: 0.3em;
+    }
+    h1, h2 {
+        @apply text-2xl;
+    }
+    h3, h4 {
+        @apply text-lg;
+    }
+    h4 {
+        @apply tracking-wider uppercase;
+    }
+}
+
+.calendly-overlay .calendly-popup {
+    max-height: 1024px;
 }

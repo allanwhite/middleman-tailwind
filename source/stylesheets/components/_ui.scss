@@ -41,12 +41,19 @@ a.waypoint {
     }
 }
 .button {
-    @apply whitespace-no-wrap text-sm mb-10 inline-block px-4 py-2 border-2 rounded font-sans font-medium;
+    @apply whitespace-no-wrap text-sm mb-10 inline-block px-4 py-2 border-2 rounded font-sans font-medium cursor-pointer;
     @screen md {
         @apply px-4 py-2 text-base;
         // &:hover {
         //     @apply text-orange border-orange-light;
         // }
+    }
+    &.button-solid {
+        color: var(--bg);
+        background-color: var(--link-color);
+        &:hover {
+            background-color: var(--link-hover);
+        }
     }
 }
 .cta {

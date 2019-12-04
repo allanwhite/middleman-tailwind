@@ -21,7 +21,7 @@ module.exports = {
       orange: {
         default: '#FF6746',
         dark: '#E23B16',
-        light: '#FF9779'
+        light: '#FFC67C'
       },
       aqua: {
         default: '#00F0E6',

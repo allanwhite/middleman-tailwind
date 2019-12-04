@@ -11,10 +11,10 @@ scss:
     .masthead {
         background-color: var(--bg);
     }
-    footer a {
-        --link-color: var(--color-blue);
-        --link-hover: var(--color-blue-dark);
-    }
+    //footer a {
+    //    --link-color: var(--color-blue);
+    //    --link-hover: var(--color-blue-dark);
+    //}
 
 - set_meta_tags title: "#{article.title} | Case Study", full_title: false
 = partial "partials/json-ld", :locals => { :type => "person" }
@@ -53,9 +53,13 @@ main.relative.w-full class=bg_theme
             - when "image_caption"
                 section.content-block.block-image.relative.max-w-7xl.pad id=block.id
                     figure
-                        = partial "partials/inline-picture", :locals => { :the_img => block.inline_image, :classes => '' }
-                        - unless caption.nil?
-                            figcaption = caption
+                        = partial "partials/inline-picture", :locals => { :the_img => block.image, :classes => '' }
+                        - unless block.caption.nil?
+                            figcaption.mt-8
+                                - unless block.block_title.empty?
+                                    h3.mx-auto.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
+                                .markdown.line-length
+                                    = Kramdown::Document.new(block.caption).to_html
             - when "gallery_block"
                 section.content-block.block-gallery.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
                     - unless block.block_title.empty?
@@ -64,7 +68,7 @@ main.relative.w-full class=bg_theme
                         - unless block.desc.empty?
                             .gallery-item.rounded-none
                                 //- code = block.item_type.api_key
-                                .text-lg.font-sans.mb-3.pr-3.pb-2 = Kramdown::Document.new(block.desc).to_html
+                                .text-lg.font-sans.mb-3.pr-3.pb-2.markdown = Kramdown::Document.new(block.desc).to_html
                         - block.gallery.each do | gallery_item |
                             img.lozad.zoomable.gallery-item.rounded-scale src=gallery_item.url(w: 1000, blur: 320, auto: :compress) data-src=gallery_item.url(w: 1000, auto: :compress) data-zoom-src=gallery_item.url(w: 2400, auto: :compress) alt="" /
                             / = partial "partials/gallery-picture", :locals => { :the_img => gallery_item, :classes => '' }
@@ -92,7 +96,7 @@ main.relative.w-full class=bg_theme
                 section.content-block.block-video.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
                     .mx-auto.max-w-7xl.flex.justify-center.items-center class="flex-col lg:flex-row"
                         - unless block.block_title.empty? || block.video_caption.empty?
-                            .w-full.mb-4 class="lg:w-1/3 lg:pr-2"
+                            .w-full.mb-4 class="lg:w-1/3 lg:pr-8"
                                 - unless block.block_title.empty?
                                     h3.text-2xl.font-sans.font-medium.leading-tight.mb-2 = block.block_title
                                 - unless block.video_caption.empty?
@@ -102,10 +106,12 @@ main.relative.w-full class=bg_theme
                                 = partial "partials/video-file", :locals => { :video_file => block.video_file, :classes => '', :attr => '' }
                             - else
                                 - unless block.video.nil?
-                                    img src=block.video.thumbnail_url
+                                    / img src=block.video.thumbnail_url
                                     - embed_url = "https://www.youtube.com/embed/" + block.video.provider_uid
-                                    / iframe allow=("accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture") allowfullscreen="" frameborder="0" height=block.video.height src=embed_url width=block.video.width
+                                    .div class="embed-responsive aspect-ratio-16/9"
+                                        iframe.embed-responsive-item allow=("accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture") allowfullscreen="" frameborder="0" height=block.video.height src=embed_url width=block.video.width
 
-
+section.cta.mx-auto.text-center.bg-orange.pad
+    = partial "partials/cta"
 footer.relative.w-full.pad class=bg_theme
     = partial "partials/footer-links"

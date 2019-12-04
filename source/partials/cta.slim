@@ -1,0 +1,11 @@
+link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"
+script src="https://assets.calendly.com/assets/external/widget.js" defer=true type="text/javascript"
+h3.text-3xl-scale.font-serif.font-light.anim-in Want to know more?
+.flex.flex-col.p-6.justify-center.align-center class="md:flex-row"
+    a.button.anim-in class="mr-0 md:mr-6" style="transition-delay: 0.2s;" title="Email Allan" href=("mailto:" + data.site.author.email)
+        = inline_svg "icon-mail.svg", class: "icon-inline" 
+        = data.site.author.email
+    a.button.button-solid.anim-in href="" title="Book a meeting with Allan" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/allanwhite/30min'});return false;" style="transition-delay: 0.4s;"
+        = inline_svg "icon-date.svg", class: "icon-inline" 
+        | Book a meeting
+/ <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/allanwhite/30min'});return false;">Book a meeting</a>
