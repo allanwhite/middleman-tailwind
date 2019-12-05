@@ -16,7 +16,7 @@ scss:
     //    --link-hover: var(--color-blue-dark);
     //}
 
-- set_meta_tags title: "#{article.title} | Case Study", full_title: false, pull_image: article.seo_settings.image.url
+- set_meta_tags title: "#{article.title} | Case Study", full_title: false, pull_image: 'foo.jpg'
 = partial "partials/json-ld", :locals => { :type => "person" }
 - bg_theme = (article.theme.nil? ? nil : "bg-#{article.theme.class_name}")
 
@@ -50,7 +50,7 @@ main.relative.w-full class=bg_theme
             .w-full.bg-cover.lozad class="h-64 md:w-1/3 xl:w-1/2 md:h-auto order-1 md:order-2" data-background-image=(article.cover_image.url(w: 1200, fm: :jpg))
                 / = partial "partials/inline-picture", :locals => { :the_img => article.cover_image, :classes => 'w-full h-full object-cover' }
         / code = article.to_hash
-    - article.blocks.each do | block |
+    / - article.blocks.each do | block |
         - case block.item_type.api_key
             - when "image_caption"
                 section.content-block.block-image.relative.max-w-7xl.mx-auto.pad id=block.id
