@@ -16,7 +16,7 @@ scss:
     //    --link-hover: var(--color-blue-dark);
     //}
 
-- set_meta_tags title: "#{article.title} | Case Study", full_title: false
+- set_meta_tags title: "#{article.title} | Case Study", full_title: false, pull_image: article.seo_settings.image.url
 = partial "partials/json-ld", :locals => { :type => "person" }
 - bg_theme = (article.theme.nil? ? nil : "bg-#{article.theme.class_name}")
 
@@ -33,7 +33,7 @@ main.relative.w-full class=bg_theme
             h1.text-4xl-scale.font-regular.font-serif.leading-none.mb-4 = article.title
             h4.text-lg.font-serif.font-light.italic.mb-12 = (article.subheader.nil? ? nil : article.subheader )
             - unless article.intro.nil?
-                .lead.line-length
+                .lead.line-length.markdown
                     = Kramdown::Document.new(article.intro).to_html
             aside.toc.mt-12 class=""
                 h3.text-lg.font-serif Table of Contents
@@ -51,11 +51,11 @@ main.relative.w-full class=bg_theme
     - article.blocks.each do | block |
         - case block.item_type.api_key
             - when "image_caption"
-                section.content-block.block-image.relative.max-w-7xl.pad id=block.id
+                section.content-block.block-image.relative.max-w-7xl.mx-auto.pad id=block.id
                     figure
                         = partial "partials/inline-picture", :locals => { :the_img => block.image, :classes => '' }
                         - unless block.caption.nil?
-                            figcaption.mt-8
+                            figcaption.mt-12
                                 - unless block.block_title.empty?
                                     h3.mx-auto.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
                                 .markdown.line-length

@@ -6,14 +6,14 @@
 - img_masthead_color = "/images/work/moodboard-2-angle-color.jpg"
 = partial "partials/json-ld", :locals => { :type => "person" }
 - page_classes = "home"
-section#top.flex.flex-col.min-h-screen.w-full.bg-orange.justify-center.items-center.z--10.lozad.bg-no-repeat.bg-cover data-background-image="/images/work/moodboard-2-angle-preload.svg"
-    header.z-10.pad.bg-blur.rounded.mb-8 class="md:rounded-lg md:mb-16 lg:mb-20"
-        .flex class="flex-col items-start md:flex-row justify-start"
+section#top.flex.flex-col.min-h-66.w-full.bg-orange.justify-center.items-center.z--10.lozad.bg-no-repeat.bg-cover data-background-image="/images/work/moodboard-2-angle-preload.svg"
+    header.z-10.pad-y-xl.bg-blur.rounded class="md:rounded-lg md:mb-16 lg:mb-20"
+        .flex class="flex-col justify-center items-center md:flex-row md:items-start md:justify-start"
             = inline_svg "easel-logo.svg", class: "opacity-0 anim-3 logo inline-block h-32 md:h-48 md:mb-4 mr-8 w-auto"
             .title
                 h1 class="opacity-0 anim-1 title text-4xl mt-4 text-5xl-scale sm:text-6xl-scale font-normal font-serif leading-none tracking-tight" R. Allan White
-                h2.subhead.text-xl.mb-12 class="opacity-0 anim-2 sm:text-3xl-scale" Designer & Developer
-    a.waypoint.z-10 href="#about" title="More"
+                h2.subhead.text-xl class="opacity-0 anim-2 sm:text-3xl-scale" Designer & Developer
+    / a.waypoint.z-10 href="#work" title="More"
         = inline_svg "icon-angle-down-large.svg", class: "h-10 md:h-24 fill-current anim-4 opacity-0"
     .zoom-ease.work-gallery.z-0.left-0.top-0.pov.overflow-hidden.absolute.h-screen.w-full class=""
         = partial "partials/masthead-picture", :locals => { :the_img => img_masthead }
@@ -43,17 +43,18 @@ section#work.relative.w-full.bg-white.pad.z-20
                         p.line-length = category.desc
 
 section#recent.relative.z-20.w-full.bg-gray-200.pad
-    div class="text-lg font-bold subhead md:ml-6 text-gray-500" Recent
-    h2.font-serif.font-light.text-4xl-scale.leading-none.mb-2.theme-alt class="md:mb-6 md:ml-6" Case Studies
-    .flex.flex-col.justify-start.items-start class="md:flex-row"
-    - dato.works.each do | work |
-        a.card-hover class="w-full lg:w-1/2" href="/work/#{work.slug}" title=work.title
-            .flex.flex-row.justify-start.items-start class="sm:items-center"
-                - unless work.cover_image.nil?
-                    img.lozad.rounded.mr-3 class="md:mr-4 w-1/4" src=work.cover_image.url(w: 300, h: 300, blur:200, fit: :crop, crop: :edges, auto: :compress) data-src=work.cover_image.url(w: 300, h: 300, fit: :crop, crop: :edges, auto: :compress)
-                div class="w-3/4"
-                    h3.text-base.font-sans.font-medium.leading-tight.mb-2 class="md:leading-snug md:text-xl" = work.title
-                    h4.text-sm.font-sans.font-light.leading-tight.italic class="md:leading-snug md:text-lg" = (work.subheader.nil? ? nil : work.subheader )
+    .max-w-7xl.mx-auto
+        div class="text-lg font-bold subhead md:ml-6 text-gray-500" Recent
+        h2.font-serif.font-light.text-4xl-scale.leading-none.mb-2.theme-alt class="md:mb-6 md:ml-6" Case Studies
+        .flex.flex-col.justify-start.items-start class="md:flex-row"
+            - dato.works.each do | work |
+                a.card-hover class="w-full lg:w-1/2 max-w-2xl" href="/work/#{work.slug}" title=work.title
+                    .flex.flex-row.justify-start.items-start class="sm:items-center"
+                        - unless work.cover_image.nil?
+                            img.lozad.rounded.mr-3 class="md:mr-4 w-1/4" src=work.cover_image.url(w: 300, h: 300, blur:200, fit: :crop, crop: :edges, auto: :compress) data-src=work.cover_image.url(w: 300, h: 300, fit: :crop, crop: :edges, auto: :compress)
+                        div class="w-3/4"
+                            h3.text-base.font-sans.font-medium.leading-tight.mb-2 class="md:leading-snug md:text-xl" = work.title
+                            h4.text-sm.font-sans.font-light.leading-tight.italic class="md:leading-snug md:text-lg" = (work.subheader.nil? ? nil : work.subheader )
 
 scss:
     footer {
@@ -63,7 +64,7 @@ scss:
         }
     }
 footer.relative.w-full.bg-orange.z-0.pad
-    .max-w-6xl.flex.justify-start.mx-auto
+    .max-w-7xl.flex.justify-start.mx-auto
         .card.z-10.p-0.relative.w-full.bg-orange.anim-in class="md:p-8 md:rounded-lg md:w-auto lg:shadow-sm lg:shadow-xl lg:p-10 lg:p-16" style="transition-delay: 1s;"
             img.rounded-full.lozad.mb-4 src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
             h3.text-5xl.font-light.font-serif.leading-none.theme-alt.mb-2 class="" Hire Allan.
@@ -105,3 +106,10 @@ footer.relative.w-full.bg-orange.z-0.pad
             h4.font-normal.font-serif.italic.text-3xl Let's Talk.
         .img
             img src="images/loader-disc.svg" alt="photo" class="max-w-48" /
+
+// imgix versions of the key image:
+/ bright:  https://www.datocms-assets.com/10166/1575509123-moodboard-2-angle-a.png?w=2400&h=2400&bg=31457c&auto=compress&sat=0&duotone=280e86,FF6746&duotone-alpha=100&blur=0&fm=jpg
+/ orange:  https://www.datocms-assets.com/10166/1575509123-moodboard-2-angle-a.png?w=2400&h=2400&bg=f76539&auto=compress&fm=jpg
+/ blur:    https://www.datocms-assets.com/10166/1575509123-moodboard-2-angle-a.png?w=2400&h=2400&bg=31457c&auto=compress&gam=-5&exp=-5&duotone=280e86,f76539&duotone-alpha=80&blur=100&fm=jpg
+/ muted:   https://www.datocms-assets.com/10166/1575509123-moodboard-2-angle-a.png?w=2400&h=2400&bg=31457c&auto=compress&gam=-5&exp=-5&duotone=0d358a,f76539&duotone-alpha=80&blur=0&fm=jpg
+/ orig:    https://www.datocms-assets.com/10166/1575509123-moodboard-2-angle-a.png?w=2400&h=2400&auto=compress

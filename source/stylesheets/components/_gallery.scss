@@ -43,7 +43,7 @@
     column-gap: 2vw;
     column-fill: initial;
     // @apply mx-auto max-w-7xl;
-    @screen lg {
+    @screen md {
         column-count: 2;
     }
     @screen xl {

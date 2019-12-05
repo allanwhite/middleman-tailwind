@@ -1,0 +1,29 @@
+.markdown {
+    &.lead {
+        p, ul, ol, li, dd, dt {
+            @apply text-lg mb-4 font-light;
+            line-height: 1.6; // leading-snug not coming thru for some reason
+        }
+    }
+    p, ul, ol, li, dd, dt {
+        @apply mb-4;
+        line-height: 1.4;
+    }
+    ul, ol {
+        list-style: disc;
+        @apply text-base ml-6;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-medium mt-4;
+        margin-bottom: 0.3em;
+    }
+    h1, h2 {
+        @apply text-2xl;
+    }
+    h3, h4 {
+        @apply text-lg;
+    }
+    h4 {
+        @apply tracking-wider uppercase;
+    }
+}

@@ -5,32 +5,9 @@
     // height: -moz-fill-available;
     // height: fill-available;
 }
-.markdown {
-    &.lead {
-        p, ul, ol, li, dd, dt {
-            @apply text-lg leading-tight mb-2;
-        }
-    }
-    p, ul, ol, li, dd, dt {
-        @apply leading-tight mb-2;
-    }
-    ul, ol {
-        list-style: disc;
-        @apply text-base ml-6;
-    }
-    h1, h2, h3, h4, h5, h6 {
-        @apply font-medium mt-4;
-        margin-bottom: 0.3em;
-    }
-    h1, h2 {
-        @apply text-2xl;
-    }
-    h3, h4 {
-        @apply text-lg;
-    }
-    h4 {
-        @apply tracking-wider uppercase;
-    }
+.min-h-66 {
+    min-height: 640px;
+    min-height: 66vh;
 }
 
 .calendly-overlay .calendly-popup {
