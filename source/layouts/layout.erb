@@ -1,8 +1,10 @@
 <!doctype html>
 <html lang="en-us">
   <head>
-    <%= auto_display_meta_tags %>
-    <%= auto_display_favicon_tags if build? %>
+    <%#= auto_display_meta_tags %>
+    <%#= auto_display_favicon_tags if build? %>
+    <%= yield_content :head %>
+    <%= dato_favicon_meta_tags %>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

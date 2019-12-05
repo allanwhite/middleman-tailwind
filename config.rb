@@ -19,7 +19,7 @@ page '/*.txt', layout: false
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
 set :url_root, @app.data.site.host
 
-activate :dato, live_reload: true # relies on middleman-dato gem
+activate :dato, preview: true, live_reload: true # relies on middleman-dato gem
 # enable livereload on development
 
 configure :development do
