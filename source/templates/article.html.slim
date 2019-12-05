@@ -22,8 +22,8 @@ scss:
 
 main.relative.w-full class=bg_theme
     / - article = locals[:item]
-    header.masthead.flex class="flex-col md:flex-row"
-        .w-full.pad class="md:w-2/3"
+    header.masthead.pad class=""
+        .w-full
             nav class="flex flex-row justify-start items-center mb-4"
                 a href="/" title="Home"
                     = inline_svg "easel-logo.svg", class: "logo inline-block h-12 mr-4 w-auto"
@@ -32,19 +32,21 @@ main.relative.w-full class=bg_theme
             / h3.text-xl.font-bold.subhead Case Studies
             h1.text-4xl-scale.font-regular.font-serif.leading-none.mb-4 = article.title
             h4.text-lg.font-serif.font-light.italic.mb-12 = (article.subheader.nil? ? nil : article.subheader )
+        .max-w-6xl class="flex flex-col lg:flex-row"
             - unless article.intro.nil?
-                .lead.line-length.markdown
-                    = Kramdown::Document.new(article.intro).to_html
-            aside.toc.mt-12 class=""
-                h3.text-lg.font-serif Table of Contents
-                ul
-                    - article.blocks.each do | block |
-                        / li = block.try(:block_title).nil?
-                        - if defined?(block.block_title)
-                            li
-                                a href="##{block.id}" title="Jump to section" = block.block_title
-
-        - unless article.cover_image.nil?
+                .w-full class="lg:w-3/4"
+                    .lead.markdown.pr-0 class="lg:pr-6"
+                        = Kramdown::Document.new(article.intro).to_html
+            .w-full class="lg:w-1/4"
+                details
+                    summary.toc.text-lg.font-serif.opacity-75.mb-4 class="hover:opacity-100" Table of Contents
+                    ul.ml-5
+                        - article.blocks.each do | block |
+                            / li = block.try(:block_title).nil?
+                            - if defined?(block.block_title)
+                                li.mb-2
+                                    a href="##{block.id}" title="Jump to section" = block.block_title
+        / - unless article.cover_image.nil?
             .w-full.bg-cover.lozad class="h-64 md:w-1/3 xl:w-1/2 md:h-auto order-1 md:order-2" data-background-image=(article.cover_image.url(w: 1200, fm: :jpg))
                 / = partial "partials/inline-picture", :locals => { :the_img => article.cover_image, :classes => 'w-full h-full object-cover' }
         / code = article.to_hash
