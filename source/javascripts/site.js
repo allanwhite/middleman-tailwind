@@ -16,6 +16,8 @@ function makeZoomable() {
   });
 }
 makeZoomable();
+// for image view templates (such as showing caption when zoomed) see https://github.com/francoischalifour/medium-zoom/blob/master/docs/template.md
+
 // this isn't working for some reason
 // var mq = window.matchMedia('@media all and (min-width: 800px)');
 // if(mq.matches) {
