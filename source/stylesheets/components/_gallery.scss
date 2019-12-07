@@ -43,19 +43,30 @@
     column-gap: 2vw;
     column-fill: initial;
     // @apply mx-auto max-w-7xl;
+}
+.gallery-cols-2 {
+    @screen md {
+        column-count: 2;
+    }
+    @screen xl {
+        column-count: 2;
+    }
+}
+.gallery-cols-3 {
     @screen md {
         column-count: 2;
     }
     @screen xl {
         column-count: 3;
     }
-    // @screen xxl {
-    //     column-count: 4;
-    // }
+}
+.gallery-item-span {
+    column-span: all;
+    display: block;
 }
 .gallery-item { // a.gallery-item typically a link
     margin-bottom: calc(1rem + 1vw);
-    display: inline-block;
+    // display: inline-block;
     overflow: hidden;
     // &:hover {
     //     transform: translate3d(0,0,0) !important; // cancel default link behavior

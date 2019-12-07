@@ -59,6 +59,11 @@ module.exports = {
         'Liberation Mono',
         'monospace',
       ],
+      cond: [
+        '"IBM Plex Sans Condensed"',
+        'system-ui',
+        'sans-serif',
+      ],
     },
     fontSize: {
       xs: '0.75rem',

@@ -32,9 +32,8 @@ main.relative.w-full class=bg_theme
             nav class="flex flex-row justify-start items-center mb-4"
                 a href="/" title="Home"
                     = inline_svg "easel-logo.svg", class: "logo inline-block h-12 mr-4 w-auto"
-                a.separator-arrow.subhead.text-lg.mr-2 href="/#work" title="Work" Work
-                span.subhead.text-lg UX
-            / h3.text-xl.font-bold.subhead Case Studies
+                a.subhead.text-lg.mr-2 href="/#work" title="Work" Work
+            / h3.text-xl.font-bold.subhead.separator-arrow Case Studies
             h1.text-4xl-scale.font-regular.font-serif.leading-none.mb-4 = article.title
             h4.text-lg.font-serif.font-light.italic.mb-12 = (article.subheader.nil? ? nil : article.subheader )
         .max-w-6xl class="flex flex-col lg:flex-row"
@@ -43,8 +42,12 @@ main.relative.w-full class=bg_theme
                     .lead.markdown.pr-0 class="lg:pr-6"
                         = Kramdown::Document.new(article.intro).to_html
             .w-full class="lg:w-1/4"
+                - unless article.types.nil?
+                    .mb-4
+                        - article.types.each do | work_type |
+                            span.pill.mr-2 = work_type.title 
                 details
-                    summary.toc.text-lg.font-serif.opacity-75.mb-4 class="hover:opacity-100" Table of Contents
+                    summary.toc.text-lg.font-serif.mb-4.tracking-wide Table of Contents
                     ul.ml-5
                         - article.blocks.each do | block |
                             / li = block.try(:block_title).nil?
@@ -64,18 +67,22 @@ main.relative.w-full class=bg_theme
                         - unless block.caption.nil?
                             figcaption.mt-12
                                 - unless block.block_title.empty?
-                                    h3.mx-auto.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
+                                    h3.mx-auto.text-3xl-scale.font-sans.font-medium.leading-tight.mb-3 = block.block_title
                                 .markdown.line-length
                                     = Kramdown::Document.new(block.caption).to_html
             - when "gallery_block"
                 section.content-block.block-gallery.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
                     - unless block.block_title.empty?
-                        h3.mx-auto.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
-                    .gallery-container.mx-auto
+                        h3.mx-auto.text-3xl-scale.font-sans.font-medium.leading-tight.mb-5 = block.block_title
+                    /- block.gallery.each_with_index do | gallery_item, c |
+                        - col_span = (c < 2 ? "gallery-item-span" : nil)
+
+                    .gallery-container.mx-auto class=(block.gallery.count < 4 ? "gallery-cols-2" : "gallery-cols-3")
                         - unless block.desc.empty?
-                            .gallery-item.rounded-none
+                            .gallery-item.rounded-none class=(block.gallery.count < 4 ? "gallery-item-span" : nil)
+                                / p = block.gallery.count
                                 //- code = block.item_type.api_key
-                                .text-lg.font-sans.mb-3.pr-3.pb-2.markdown = Kramdown::Document.new(block.desc).to_html
+                                .text-lg.font-sans.mb-3.pr-3.pb-2.markdown.max-w-3xl = Kramdown::Document.new(block.desc).to_html
                         - block.gallery.each do | gallery_item |
                             figure.gallery-item
                                 img.lozad.zoomable.rounded-scale src=gallery_item.url(w: 1000, blur: 320, auto: :compress) data-src=gallery_item.url(w: 1000, auto: :compress) data-zoom-src=gallery_item.url(w: 2400, auto: :compress) alt="" /

@@ -86,3 +86,13 @@ a.card-hover {
     // @include transitions;
     transition: all $speed * 2 ease-out;
 }
+details {
+    transition: color $speed;
+    color: var(--link-color);
+    &:hover {
+        color: var(--link-hover);
+    }
+    &[open] {
+        color: var(--text-color);
+    }
+}

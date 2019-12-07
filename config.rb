@@ -24,6 +24,8 @@ activate :dato, preview: true, live_reload: true # relies on middleman-dato gem
 
 configure :development do
   set      :debug_assets, true
+  config[:host] = 'http://localhost:3000'
+  config[:host_label] = 'dev'
   # Activate pretty URLs
   activate :directory_indexes
   activate :pry
