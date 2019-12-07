@@ -45,7 +45,7 @@ main.relative.w-full class=bg_theme
                 - unless article.types.nil?
                     .mb-4
                         - article.types.each do | work_type |
-                            span.pill.mr-2 = work_type.title 
+                            span.pill.mr-2.opacity-75 = work_type.title 
                 details
                     summary.toc.text-lg.font-serif.mb-4.tracking-wide Table of Contents
                     ul.ml-5
@@ -67,7 +67,7 @@ main.relative.w-full class=bg_theme
                         - unless block.caption.nil?
                             figcaption.mt-12
                                 - unless block.block_title.empty?
-                                    h3.mx-auto.text-3xl-scale.font-sans.font-medium.leading-tight.mb-3 = block.block_title
+                                    h3.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
                                 .markdown.line-length
                                     = Kramdown::Document.new(block.caption).to_html
             - when "gallery_block"

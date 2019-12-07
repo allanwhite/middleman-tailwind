@@ -11,15 +11,6 @@ p {
 .subhead {
     @apply font-sans font-medium leading-tight uppercase tracking-widest;
 }
-.pill {
-    @apply font-cond text-xs py-1 px-2 inline-block mb-2 leading-tight uppercase tracking-widest border;
-    color: var(--link-color);
-    &:hover {
-        color: var(--link-hover);
-        border-color: var(--link-hover);
-    }
-    border-color: var(--link-color);
-}
 // .lead {
 //     @apply text-xl leading-normal font-serif font-light;
 // }

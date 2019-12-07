@@ -96,3 +96,12 @@ details {
         color: var(--text-color);
     }
 }
+.pill {
+    @apply font-cond text-xs py-1 px-2 inline-block mb-2 leading-tight uppercase tracking-widest border;
+    color: var(--text-color);
+    &:hover {
+        color: var(--link-hover);
+        border-color: var(--link-hover);
+    }
+    border-color: var(--text-color);
+}
