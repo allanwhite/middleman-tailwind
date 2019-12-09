@@ -106,7 +106,7 @@ module.exports = {
       },
       borderRadius: {
         lg: '1rem',
-        scale: '0.5vw'
+        scale: '0.4vw'
       },
       leading: {
         snug: '1.5'

@@ -60,6 +60,17 @@
         column-count: 3;
     }
 }
+.gallery-cols-4 {
+    @screen md {
+        column-count: 2;
+    }
+    @screen lg {
+        column-count: 3;
+    }
+    @screen xl {
+        column-count: 4;
+    }
+}
 .gallery-item-span {
     column-span: all;
     display: block;

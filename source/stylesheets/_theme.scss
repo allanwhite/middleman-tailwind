@@ -26,6 +26,11 @@ p {
 .headline-2 {
     @apply text-5xl-scale font-serif font-light mb-2 leading-none;
 }
+.section-header {
+    font-size: 2.5rem;
+    font-size: calc(2.2vw + 2rem);
+    @apply font-serif font-light leading-none;
+}
 .pad {
     @apply p-4;
     padding: calc(0.6rem + 5vw);
