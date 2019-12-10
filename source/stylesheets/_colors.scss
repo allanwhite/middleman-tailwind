@@ -92,6 +92,11 @@ a, a:link {
             --link-hover: var(--color-orange-light);    
         }
     }
+    .toc-link {
+        color: var(--text-color);
+        border-color: var(--text-color-alt);
+        @apply border-b p-1;
+    }
 }
 /*! purgecss end ignore */
 

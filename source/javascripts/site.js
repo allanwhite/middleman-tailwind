@@ -111,3 +111,18 @@ observer = new IntersectionObserver((entries) => {
 contentObjects.forEach(contentObject => {
   observer.observe(contentObject);
 });
+
+// const navObjects = document.querySelectorAll('.sticky');
+// observer = new IntersectionObserver((entries) => {
+//   entries.forEach(entry => {
+//     if (entry.intersectionRatio > 0) {
+//       entry.target.classList.add('stuck');
+//     } else {
+//       // entry.target.classList.remove('animated');
+//     }
+//   }, animObserverConfig);
+// });
+
+// navObjects.forEach(navObjects => {
+//   observer.observe(navObjects);
+// });

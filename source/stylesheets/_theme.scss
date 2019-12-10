@@ -67,6 +67,12 @@ $card-gap: calc(0.5rem + 2vw);
         background-color: hsla(221, 57%, 17%, 0.04); // slight tint
     }
 }
+@supports (backdrop-filter: blur(14px)) {
+    .bg-blur-light {
+        backdrop-filter: blur(14px);
+        background-color: hsla(0, 0%, 100%, 0.9); // slight tint
+    }
+}
 .pov {
     perspective: 750px;
 }
