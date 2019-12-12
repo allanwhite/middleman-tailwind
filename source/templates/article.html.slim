@@ -59,105 +59,17 @@ main.relative.w-full class=bg_theme id="top"
                 / = partial "partials/inline-picture", :locals => { :the_img => a
     //- mobile version
     details.toc.sticky.top-0.left-0.bg-blur-light.pt-3.px-2.pb-1.z-20.shadow-lg.outline-none class="lg:hidden"
-        / = inline_svg "easel-logo.svg", class: "icon-inline mr-1"
         summary.toc-title.text-lg.font-serif.mb-2.tracking-wide.leading-tight.text-blue.outline-none title="Table of Contents"
-            / = inline_svg "icon-list.svg", class: "icon-inline mr-1"
-            / div class="subhead font-cond text-sm mb-0 opacity-75" Case Study
             = article.title
         ul.ml-5.toc-list
-            / li.mb-3.leading-tight.font-serif.text-lg class="lg:hidden"
-                a.toc-link href="#top" title="Top" = article.title
             - article.blocks.each do | block |
-                / li = block.try(:block_title).nil?
                 - if defined?(block.block_title)
                     li.mb-3.leading-tight
                         a.toc-link href="##{block.id}" title="Jump to section" = block.block_title
 
     - article.blocks.each do | block |
-        - case block.item_type.api_key
-            - when "section_header"
-                section.content-block.block-section-header.pad style="padding-bottom: 0;" id=block.id
-                    h3.section-header = block.title
-            - when "image_caption"
-                section.content-block.block-image.relative.max-w-7xl.mx-auto.pad id=block.id
-                    figure
-                        = partial "partials/inline-picture", :locals => { :the_img => block.image, :classes => '' }
-                        - unless block.caption.nil?
-                            figcaption.mt-12
-                                - unless block.block_title.empty?
-                                    h3.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
-                                .markdown.line-length
-                                    = Kramdown::Document.new(block.caption).to_html
-            - when "gallery_block"
-                section.content-block.block-gallery.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
-                    - unless block.block_title.empty?
-                        h3.mx-auto.text-3xl-scale.font-sans.font-medium.leading-tight.mb-3 class="lg:mb-8" = block.block_title
-                    
-                    ruby:
-                        case block.gallery.count
-                            when 0..3
-                                columns = "gallery-cols-2"
-                                colspan = "gallery-item-span"
-                            when 4..9
-                                columns = "gallery-cols-3"
-                                colspan = nil
-                            when 10..99
-                                columns = "gallery-cols-4"
-                                colspan = "gallery-item-span"
-                        end
-                    
-                    .gallery-container.mx-auto class=columns
-                        - unless block.desc.empty?
-                            .gallery-item.rounded-none class=colspan
-                                / p = block.gallery.count
-                                //- code = block.item_type.api_key
-                                .text-lg.font-sans.font-light.mb-3.pr-3.pb-2.markdown.max-w-3xl = Kramdown::Document.new(block.desc).to_html
-                        - block.gallery.each do | gallery_item |
-                            figure.gallery-item
-                                img.lozad.zoomable.rounded-scale src=gallery_item.url(w: 1000, blur: 320, auto: :compress) data-src=gallery_item.url(w: 1000, auto: :compress) data-zoom-src=gallery_item.url(w: 2400, auto: :compress) alt="" width=gallery_item.width height=gallery_item.height /
-                                - unless gallery_item.nil? && gallery_item.empty?
-                                    figcaption class="px-1 py-3 font-sans font-light italic leading-tight" = gallery_item.title
-                            / = partial "partials/gallery-picture", :locals => { :the_img => gallery_item, :classes => '' }
-            - when "quote_large"
-                aside.content-block.block-quote.relative.w-full.pad-y-xl class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
-                    / code = block.item_type.api_key
-                    .text-4xl-scale.font-serif.font-light class=(block.quote_color.nil? ? nil : "text-#{block.quote_color.class_name}") = block.quote_body
-            - when "text_block"
-                section.content-block.block-text.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
-                    / code = block.item_type.api_key
-                    - unless block.inline_image.nil?
-                        .mx-auto.max-w-5xl.flex.justify-center.items-center class="flex-col lg:flex-row"
-                            .w-full.mb-4.pb-2 class="lg:w-1/2 lg:pr-12"
-                                - unless block.block_title.empty?
-                                    h3.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
-                                .markdown.lead.font-light = Kramdown::Document.new(block.block_body).to_html
-                            .w-full.mb-4 class="lg:w-1/2"
-                                = partial "partials/inline-picture", :locals => { :the_img => block.inline_image, :classes => '' }
-                    - else
-                        .mx-auto.max-w-2xl
-                            - unless block.block_title.empty?
-                                h3.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
-                            .markdown.lead = Kramdown::Document.new(block.block_body).to_html
-            - when "video_block"
-                section.content-block.block-video.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
-                    .mx-auto.max-w-7xl.flex.justify-center.items-center class="flex-col lg:flex-row"
-                        - if block.block_title.present? || block.video_caption.present?
-                            .w-full.mb-4 class="lg:w-1/3 lg:pr-8"
-                                - unless block.block_title.empty?
-                                    h3.text-2xl.font-sans.font-medium.leading-tight.mb-2 = block.block_title
-                                - unless block.video_caption.empty?
-                                    .markdown.lead.max-w-xl.font-light = Kramdown::Document.new(block.video_caption).to_html
-                        .w-full.mb-4 class="lg:w-2/3"
-                            - unless block.video_file.nil?
-                                = partial "partials/video-file", :locals => { :video_file => block.video_file, :classes => '', :attr => '' }
-                            - else
-                                - unless block.video.nil?
-                                    / img src=block.video.thumbnail_url
-                                    - embed_url = "https://www.youtube.com/embed/" + block.video.provider_uid
-                                    .div class="embed-responsive aspect-ratio-16/9"
-                                        iframe.embed-responsive-item allow=("accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture") allowfullscreen="" frameborder="0" height=block.video.height src=embed_url width=block.video.width
-                                - unless block.media_embed.nil?
-                                    = Kramdown::Document.new(block.media_embed).to_html
+        = partial "partials/blocks", :locals => { :block => block }
+
 // .lozad.bg-cover data-background-image="#{article.cover_image.url}?w=1800&h=900&auto=compress&gam=80&exp=-2&sat=0&duotone=2B3652,FF6746&duotone-alpha=100&blur=50&fit=crop&crop=edges"
 section.cta-section.mx-auto.text-center.pad class=bg_theme
     = partial "partials/cta", :locals => { :current_entry => article.id }
