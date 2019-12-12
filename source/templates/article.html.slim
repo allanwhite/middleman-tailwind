@@ -19,7 +19,7 @@ scss:
 - set_meta_tags title: "#{article.title} | Case Study", full_title: false, pull_image: 'foo.jpg'
 = partial "partials/json-ld", :locals => { :type => "person" }
 - bg_theme = (article.theme.nil? ? nil : "bg-#{article.theme.class_name}")
-
+- entry_id = article.id
 - content_for(:head) do
     = dato_meta_tags(article)
 / .pad.bg-orange.text-sm
@@ -57,7 +57,9 @@ main.relative.w-full class=bg_theme id="top"
         / - unless article.cover_image.nil?
             .w-full.bg-cover.lozad class="h-64 md:w-1/3 xl:w-1/2 md:h-auto order-1 md:order-2" data-background-image=(article.cover_image.url(w: 1200, fm: :jpg))
                 / = partial "partials/inline-picture", :locals => { :the_img => a
+    //- mobile version
     details.toc.sticky.top-0.left-0.bg-blur-light.pt-3.px-2.pb-1.z-20.shadow-lg.outline-none class="lg:hidden"
+        / = inline_svg "easel-logo.svg", class: "icon-inline mr-1"
         summary.toc-title.text-lg.font-serif.mb-2.tracking-wide.leading-tight.text-blue.outline-none title="Table of Contents"
             / = inline_svg "icon-list.svg", class: "icon-inline mr-1"
             / div class="subhead font-cond text-sm mb-0 opacity-75" Case Study
@@ -109,12 +111,12 @@ main.relative.w-full class=bg_theme id="top"
                             .gallery-item.rounded-none class=colspan
                                 / p = block.gallery.count
                                 //- code = block.item_type.api_key
-                                .text-lg.font-sans.mb-3.pr-3.pb-2.markdown.max-w-3xl = Kramdown::Document.new(block.desc).to_html
+                                .text-lg.font-sans.font-light.mb-3.pr-3.pb-2.markdown.max-w-3xl = Kramdown::Document.new(block.desc).to_html
                         - block.gallery.each do | gallery_item |
                             figure.gallery-item
-                                img.lozad.zoomable.rounded-scale src=gallery_item.url(w: 1000, blur: 320, auto: :compress) data-src=gallery_item.url(w: 1000, auto: :compress) data-zoom-src=gallery_item.url(w: 2400, auto: :compress) alt="" /
+                                img.lozad.zoomable.rounded-scale src=gallery_item.url(w: 1000, blur: 320, auto: :compress) data-src=gallery_item.url(w: 1000, auto: :compress) data-zoom-src=gallery_item.url(w: 2400, auto: :compress) alt="" width=gallery_item.width height=gallery_item.height /
                                 - unless gallery_item.nil? && gallery_item.empty?
-                                    figcaption class="px-1 py-3 font-sans italic leading-tight" = gallery_item.title
+                                    figcaption class="px-1 py-3 font-sans font-light italic leading-tight" = gallery_item.title
                             / = partial "partials/gallery-picture", :locals => { :the_img => gallery_item, :classes => '' }
             - when "quote_large"
                 aside.content-block.block-quote.relative.w-full.pad-y-xl class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
@@ -128,7 +130,7 @@ main.relative.w-full class=bg_theme id="top"
                             .w-full.mb-4.pb-2 class="lg:w-1/2 lg:pr-12"
                                 - unless block.block_title.empty?
                                     h3.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
-                                .markdown.lead = Kramdown::Document.new(block.block_body).to_html
+                                .markdown.lead.font-light = Kramdown::Document.new(block.block_body).to_html
                             .w-full.mb-4 class="lg:w-1/2"
                                 = partial "partials/inline-picture", :locals => { :the_img => block.inline_image, :classes => '' }
                     - else
@@ -144,7 +146,7 @@ main.relative.w-full class=bg_theme id="top"
                                 - unless block.block_title.empty?
                                     h3.text-2xl.font-sans.font-medium.leading-tight.mb-2 = block.block_title
                                 - unless block.video_caption.empty?
-                                    .markdown.lead.max-w-xl = Kramdown::Document.new(block.video_caption).to_html
+                                    .markdown.lead.max-w-xl.font-light = Kramdown::Document.new(block.video_caption).to_html
                         .w-full.mb-4 class="lg:w-2/3"
                             - unless block.video_file.nil?
                                 = partial "partials/video-file", :locals => { :video_file => block.video_file, :classes => '', :attr => '' }
@@ -158,6 +160,22 @@ main.relative.w-full class=bg_theme id="top"
                                     = Kramdown::Document.new(block.media_embed).to_html
 // .lozad.bg-cover data-background-image="#{article.cover_image.url}?w=1800&h=900&auto=compress&gam=80&exp=-2&sat=0&duotone=2B3652,FF6746&duotone-alpha=100&blur=50&fit=crop&crop=edges"
 section.cta-section.mx-auto.text-center.pad class=bg_theme
-    = partial "partials/cta"
+    = partial "partials/cta", :locals => { :current_entry => article.id }
+section#recent.relative.z-20.w-full.pad class=bg_theme
+    .max-w-7xl.mx-auto
+        div class="text-lg font-bold subhead md:ml-6 text-gray-500" Recent
+        h2.font-serif.font-light.text-4xl-scale.leading-none.mb-2.theme-alt class="md:mb-6 md:ml-6" Case Studies
+        .flex.flex-col.justify-start.items-start class="md:flex-row flex-wrap"
+            / = partial "partials/recent-work-list"
+    - dato.works.each do | work |
+        - if entry_id != work.id
+            a.card-hover.project-card.project-card-compact class="w-full lg:w-1/2 xxl:w-1/3 max-w-2xl" href="/work/#{work.slug}" title=work.title
+                .flex.flex-row.justify-start.items-start class="sm:items-center"
+                    - unless work.cover_image.nil?
+                        img.lozad.rounded.mr-3 class="md:mr-4 w-1/4" src=work.cover_image.url(w: 300, h: 300, blur:200, fit: :crop, crop: :edges, auto: :compress) data-src=work.cover_image.url(w: 300, h: 300, fit: :crop, crop: :edges, auto: :compress)
+                    div class="w-3/4"
+                        h3.text-base.font-sans.font-medium.leading-tight.mb-2 class="md:leading-snug md:text-xl" = work.title
+                        h4.text-sm.font-sans.font-light.leading-tight.italic class="md:leading-snug md:text-lg" = (work.subheader.nil? ? nil : work.subheader )
+
 footer.relative.w-full.pad
     = partial "partials/footer-links"

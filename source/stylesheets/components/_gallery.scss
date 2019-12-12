@@ -83,6 +83,9 @@
     //     transform: translate3d(0,0,0) !important; // cancel default link behavior
     // }
     // border-radius: 1vw;
+    -webkit-column-break-inside: avoid; /* Chrome, Safari */
+    page-break-inside: avoid;           /* Theoretically FF 20+ */
+    break-inside: avoid-column;
 }
 .medium-zoom-overlay { // webkit
     backdrop-filter: blur(10px);

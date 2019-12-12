@@ -47,15 +47,7 @@ section#recent.relative.z-20.w-full.bg-gray-200.pad
         div class="text-lg font-bold subhead md:ml-6 text-gray-500" Recent
         h2.font-serif.font-light.text-4xl-scale.leading-none.mb-2.theme-alt class="md:mb-6 md:ml-6" Case Studies
         .flex.flex-col.justify-start.items-start class="md:flex-row flex-wrap"
-            - dato.works.each do | work |
-                a.card-hover class="w-full lg:w-1/2 xxl:w-1/3 max-w-2xl" href="/work/#{work.slug}" title=work.title
-                    .flex.flex-row.justify-start.items-start class="sm:items-center"
-                        - unless work.cover_image.nil?
-                            img.lozad.rounded.mr-3 class="md:mr-4 w-1/4" src=work.cover_image.url(w: 300, h: 300, blur:200, fit: :crop, crop: :edges, auto: :compress) data-src=work.cover_image.url(w: 300, h: 300, fit: :crop, crop: :edges, auto: :compress)
-                        div class="w-3/4"
-                            h3.text-base.font-sans.font-medium.leading-tight.mb-2 class="md:leading-snug md:text-xl" = work.title
-                            h4.text-sm.font-sans.font-light.leading-tight.italic class="md:leading-snug md:text-lg" = (work.subheader.nil? ? nil : work.subheader )
-
+            = partial "partials/recent-work-list"
 scss:
     footer {
         &:hover {

@@ -7,7 +7,7 @@
     }
     p, ul, ol, li, dd, dt {
         @apply mb-4;
-        line-height: 1.4;
+        line-height: 1.6;
     }
     ul, ol {
         list-style: disc;
@@ -28,5 +28,6 @@
     }
     a {
         @include links-underlined;
+        @apply font-medium;
     }
 }

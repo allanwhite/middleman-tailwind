@@ -2,9 +2,10 @@ img {
     max-width: 100%;
 }
 .lozad {
-    //     transition: opacity 0.3s linear, transform 0.3s ease-in-out;
+    transition: all 0.4s ease-in-out;
     //     transition-delay: 0.5s;
     opacity: 0;
+
     //     transform: translate3d(0,0,-10px);
     //     &.loaded {
     //         transform: translate3d(0,0,0);

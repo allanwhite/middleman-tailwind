@@ -1,14 +1,21 @@
 $speed: 150ms;
 // :root {
-//     --bg: white;
-//     --trans: rgba(0,0,0,0);
-//     --text-color: var(--color-blue);
-//     --text-color-alt: var(--color-orange);
-//     --link-color: var(--color-orange);
-//     --link-hover: var(--color-orange-dark);
-//     --speed: $speed;
+//     --a: 0.3;
+//     --white-a: rgba(var(--color-white), var(--a));
+//     --black-a: rgba(var(--color-black), var(--a));
+// //     --bg: white;
+// //     --trans: rgba(0,0,0,0);
+// //     --text-color: var(--color-blue);
+// //     --text-color-alt: var(--color-orange);
+// //     --link-color: var(--color-orange);
+// //     --link-hover: var(--color-orange-dark);
+// //     --speed: $speed;
 // }
-
+:root {
+    --a: 0.3;
+    --white-a: rgba(255,255,255, 0.5);
+    --black-a: rgba(0,0,0, 0.5);
+}
 @mixin transitions {
     transition: all $speed ease-out;
     // transition: opacity $speed ease-out, color $speed ease-out, border-color $speed ease-out, box-shadow $speed ease-out;

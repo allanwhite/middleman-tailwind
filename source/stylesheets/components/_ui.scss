@@ -70,8 +70,8 @@ a.card-hover {
         &:hover {
             // @apply shadow-xl shadow-2xl;
             box-shadow: 0 25px 50px -12px hsla(229, 68%, 40%, 0.32);
-            background-color: white; //fallback
-            background-color: var(--bg); // this should be provided by the parent container
+            // background-color: white; //fallback
+            background-color: var(--bg-active); // this should be provided by the parent container
             --link-color: var(--text-color);
             --link-hover: var(--text-color);
             .cta {
