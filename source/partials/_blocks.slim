@@ -40,7 +40,7 @@
                     figure.gallery-item
                         img.lozad.zoomable.rounded-scale src=gallery_item.url(w: 1000, blur: 320, auto: :compress) data-src=gallery_item.url(w: 1000, auto: :compress) data-zoom-src=gallery_item.url(w: 2400, auto: :compress) alt="" width=gallery_item.width height=gallery_item.height /
                         - unless gallery_item.nil? && gallery_item.empty?
-                            figcaption class="px-1 py-3 font-sans font-light italic leading-tight" = gallery_item.title
+                            figcaption class="px-1 py-3 font-sans font-light italic leading-tight line-length" = gallery_item.title
                     / = partial "partials/gallery-picture", :locals => { :the_img => gallery_item, :classes => '' }
     - when "quote_large"
         aside.content-block.block-quote.relative.w-full.pad-y-xl class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id

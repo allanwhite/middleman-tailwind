@@ -33,12 +33,12 @@ section#work.relative.w-full.bg-white.pad.z-20
             h2.headline-2.theme-alt class="md:mb-2 md:ml-8" Work
             - info_work.each do | category |
                 - if category.link
-                    a.card-hover href=category.url title=category.link
+                    a.card-hover.pad-sm href=category.url title=category.link
                         h3.text-xl.font-bold.subhead = category.title
                         p.line-length.mb-2 = category.desc
                         .cta.font-medium = category.link
                 - else
-                    .card-hover
+                    .card-hover.pad-sm
                         h3.text-xl.font-bold.subhead = category.title
                         p.line-length = category.desc
 
@@ -57,7 +57,7 @@ scss:
     }
 footer.relative.w-full.bg-orange.z-0.pad
     .max-w-7xl.flex.justify-start.mx-auto
-        .card.z-10.p-0.relative.w-full.bg-orange.anim-in class="md:p-8 md:rounded-lg md:w-auto lg:shadow-sm lg:shadow-xl lg:p-10 lg:p-16" style="transition-delay: 1s;"
+        .card.pad-sm.z-10.p-0.relative.w-full.bg-orange.anim-in class="md:p-8 md:rounded-lg md:w-auto lg:shadow-sm lg:shadow-xl lg:p-10 lg:p-16" style="transition-delay: 1s;"
             img.rounded-full.lozad.mb-4 src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
             h3.text-5xl.font-light.font-serif.leading-none.theme-alt.mb-2 class="" Hire Allan.
             p.italic.mb-8 Available for new opportunities in December 2019. 

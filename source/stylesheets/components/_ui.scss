@@ -66,7 +66,7 @@ a.card-hover {
 .card-hover {
     @apply rounded-lg mb-6;
     @screen md {
-        @apply p-6 mb-0;
+        // @apply p-6 mb-0;
         &:hover {
             // @apply shadow-xl shadow-2xl;
             box-shadow: 0 25px 50px -12px hsla(229, 68%, 40%, 0.32);
@@ -80,12 +80,15 @@ a.card-hover {
         }    
     }
     @screen lg {
-        @apply p-8;
+        // @apply p-8;
     }
     @include shadowStart;
     // @include transitions;
     transition: all $speed * 2 ease-out;
 }
+// .project-card {
+//     padding: 0;
+// }
 details {
     transition: color $speed;
     color: var(--link-color);

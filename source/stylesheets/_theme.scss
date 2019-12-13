@@ -34,6 +34,9 @@ p {
 .pad {
     @apply p-4;
     padding: calc(0.6rem + 5vw);
+    &-sm {
+        padding: calc(0.6rem + 1vw);
+    }
     &-y-xl {
         padding: calc(1rem + 7vw) calc(0.6rem + 5vw);
     }
