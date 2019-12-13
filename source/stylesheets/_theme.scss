@@ -25,6 +25,11 @@ p {
 
 .headline-2 {
     @apply text-5xl-scale font-serif font-light mb-2 leading-none;
+    color: var(--text-color-alt);
+}
+.headline-3 {
+    @apply text-4xl-scale font-serif font-light mb-2 leading-none;
+    color: var(--text-color-alt);
 }
 .section-header {
     font-size: 2.5rem;

@@ -1,30 +1,39 @@
+// for basic card grid
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(6, minmax(200px, 1fr));
-    grid-gap: calc(.5rem + 2vw);
+    grid-gap: calc(1rem + 1vw);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-auto-rows: 1fr;
     grid-auto-flow: dense;
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-    grid-template-areas: "profile title title" "sidebar content content" "......  footer  footer";
 }
 
-.sidebar {
-    grid-area: sidebar;
-}
+// .grid-container {
+//     display: grid;
+//     grid-template-columns: repeat(6, minmax(200px, 1fr));
+//     grid-gap: calc(.5rem + 2vw);
+//     grid-auto-flow: dense;
+//     grid-column-gap: 20px;
+//     grid-row-gap: 20px;
+//     grid-template-areas: "profile title title" "sidebar content content" "......  footer  footer";
+// }
 
-.content {
-    grid-area: content;
-}
+// .sidebar {
+//     grid-area: sidebar;
+// }
 
-.header {
-    &-profile {
-        grid-area: profile;
-    }
-    &-title {
-        grid-area: title;
-    }
-}
+// .content {
+//     grid-area: content;
+// }
 
-.footer {
-    grid-area: footer;
-}
+// .header {
+//     &-profile {
+//         grid-area: profile;
+//     }
+//     &-title {
+//         grid-area: title;
+//     }
+// }
+
+// .footer {
+//     grid-area: footer;
+// }

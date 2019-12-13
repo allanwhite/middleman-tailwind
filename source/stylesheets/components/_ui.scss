@@ -41,7 +41,7 @@ a.waypoint {
     }
 }
 .button {
-    @apply whitespace-no-wrap text-sm mb-10 inline-block px-4 py-2 border-2 rounded font-sans font-medium cursor-pointer;
+    @apply whitespace-no-wrap text-sm inline-block px-4 py-2 border-2 rounded font-sans font-medium cursor-pointer;
     @screen md {
         @apply px-4 py-2 text-base;
         // &:hover {
@@ -57,25 +57,28 @@ a.waypoint {
         }
     }
 }
-.cta {
+.cta, .card-meta {
     @include transitions;
 }
 a.card-hover {
     color: var(--text-color);
 }
 .card-hover {
-    @apply rounded-lg mb-6;
+    @apply rounded-lg;
     @screen md {
         // @apply p-6 mb-0;
         &:hover {
             // @apply shadow-xl shadow-2xl;
             box-shadow: 0 25px 50px -12px hsla(229, 68%, 40%, 0.32);
             // background-color: white; //fallback
-            background-color: var(--bg-active); // this should be provided by the parent container
+            // background-color: var(--bg-active); // this should be provided by the parent container
             --link-color: var(--text-color);
             --link-hover: var(--text-color);
             .cta {
                 color: var(--color-orange);
+            }
+            .card-meta {
+                opacity: 1;
             }
         }    
     }
@@ -86,8 +89,13 @@ a.card-hover {
     // @include transitions;
     transition: all $speed * 2 ease-out;
 }
-// .project-card {
-//     padding: 0;
+// .project-card-full {
+//     .feature-image {
+//         @apply rounded;
+//     }
+//     &:hover > .feature-image {
+//         border-radius: 0;
+//     }
 // }
 details {
     transition: color $speed;

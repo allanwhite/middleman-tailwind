@@ -75,7 +75,7 @@ module.exports = {
       '3xl': '1.875rem',
       '3xl-scale': 'calc(1.5vw + 1.125rem)',
       '4xl': '2.25rem',
-      '4xl-scale': 'calc(2vw + 1.375rem)',
+      '4xl-scale': 'calc(1.5vw + 2rem)',
       '5xl': '3rem',
       '5xl-scale': 'calc(3vw + 2rem)',
       '6xl': '5rem',
@@ -105,7 +105,7 @@ module.exports = {
         '7xl': '96rem',
       },
       borderRadius: {
-        lg: '1rem',
+        lg: '0.75rem',
         scale: '0.4vw'
       },
       leading: {
