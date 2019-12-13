@@ -1,8 +1,12 @@
 .markdown {
     &.lead {
         p, ul, ol, li, dd, dt {
-            @apply text-xl mb-4 font-light;
+            @apply text-lg mb-4 font-light;
             line-height: 1.6; // leading-snug not coming thru for some reason
+            @screen lg {
+                @apply text-xl;
+            }
+
         }
     }
     p, ul, ol, li, dd, dt {

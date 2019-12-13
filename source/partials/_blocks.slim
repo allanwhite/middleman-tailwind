@@ -13,35 +13,36 @@
                         .markdown.line-length
                             = Kramdown::Document.new(block.caption).to_html
     - when "gallery_block"
-        section.content-block.block-gallery.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
-            - unless block.block_title.empty?
-                h3.mx-auto.text-3xl-scale.font-sans.font-medium.leading-tight.mb-3 class="lg:mb-8" = block.block_title
-            
-            ruby:
-                case block.gallery.count
-                    when 0..3
-                        columns = "gallery-cols-2"
-                        colspan = "gallery-item-span"
-                    when 4..9
-                        columns = "gallery-cols-3"
-                        colspan = nil
-                    when 10..99
-                        columns = "gallery-cols-4"
-                        colspan = "gallery-item-span"
-                end
-            
-            .gallery-container.mx-auto class=columns
-                - unless block.desc.empty?
-                    .gallery-item.rounded-none class=colspan
-                        / p = block.gallery.count
-                        //- code = block.item_type.api_key
-                        .text-lg.font-sans.font-light.mb-3.pr-3.pb-2.markdown.max-w-3xl = Kramdown::Document.new(block.desc).to_html
-                - block.gallery.each do | gallery_item |
-                    figure.gallery-item
-                        img.lozad.zoomable.rounded-scale src=gallery_item.url(w: 1000, blur: 320, auto: :compress) data-src=gallery_item.url(w: 1000, auto: :compress) data-zoom-src=gallery_item.url(w: 2400, auto: :compress) alt="" width=gallery_item.width height=gallery_item.height /
-                        - unless gallery_item.nil? && gallery_item.empty?
-                            figcaption class="px-1 py-3 font-sans font-light italic leading-tight line-length" = gallery_item.title
-                    / = partial "partials/gallery-picture", :locals => { :the_img => gallery_item, :classes => '' }
+        section.content-block.relative class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
+            .w-full.pad.flex.flex-col class="md:flex-row flex-wrap"
+                - unless block.block_title.empty?
+                    .w-full class="md:w-1/2 lg:w-1/3"
+                        .sticky.sticky-desc class="md:pr-4 lg:pr-8"
+                            h3.text-3xl-scale.font-sans.font-medium.leading-tight.mb-3 class="lg:mb-8" = block.block_title
+                            - unless block.desc.empty?
+                                .lead.font-sans.font-light.mb-3.pr-3.pb-2.markdown = Kramdown::Document.new(block.desc).to_html
+                .w-full class="md:w-1/2 lg:w-2/3"
+                    .block-gallery
+                        ruby:
+                            case block.gallery.count
+                                when 0..12
+                                    columns = "gallery-cols-2"
+                                    colspan = "gallery-item-span"
+                                when 13..99
+                                    columns = "gallery-cols-3"
+                                    colspan = nil
+                                #when 10..99
+                                #    columns = "gallery-cols-4"
+                                #    colspan = "gallery-item-span"
+                            end
+                        
+                        .gallery-container.mx-auto class=columns
+                            - block.gallery.each do | gallery_item |
+                                figure.gallery-item
+                                    img.lozad.zoomable.rounded-scale src=gallery_item.url(w: 1000, blur: 320, auto: :compress) data-src=gallery_item.url(w: 1000, auto: :compress) data-zoom-src=gallery_item.url(w: 2400, auto: :compress) alt="" width=gallery_item.width height=gallery_item.height /
+                                    - unless gallery_item.nil? && gallery_item.empty?
+                                        figcaption class="px-1 py-3 font-sans font-light italic leading-tight line-length" = gallery_item.title
+                                / = partial "partials/gallery-picture", :locals => { :the_img => gallery_item, :classes => '' }
     - when "quote_large"
         aside.content-block.block-quote.relative.w-full.pad-y-xl class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
             / code = block.item_type.api_key
