@@ -4,7 +4,7 @@ a.card-hover.project-card.project-card-full.p-0.bg-white.overflow-hidden class="
             img.feature-image.lozad class="" src=work.cover_image.url(w: 640, blur:200, auto: :compress) data-src=work.cover_image.url(w: 800, auto: :compress) alt=work.title
         div class="p-6 self-stretch"
             / h3.text-base.font-sans.font-medium.leading-tight.mb-2 class="md:leading-snug md:text-xl" = work.title
-            h4.text-base.font-sans.font-light.leading-tight class="md:leading-snug md:text-lg" = (work.subheader.nil? ? nil : work.subheader )
+            h4.text-base.font-sans.leading-tight class="md:leading-snug md:text-lg" = (work.subheader.nil? ? nil : work.subheader )
             - if work.types.present?
                 .card-meta.opacity-50.mt-3
                     - work.types[0...3].each do | work_type |

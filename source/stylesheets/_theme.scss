@@ -38,13 +38,16 @@ p {
 }
 .pad {
     @apply p-4;
-    padding: calc(0.6rem + 5vw);
+    padding: calc(0.8rem + 5vw);
     &-sm {
         padding: calc(0.6rem + 1vw);
     }
     &-y-xl {
         padding: calc(1rem + 7vw) calc(0.6rem + 5vw);
     }
+}
+.top-4 {
+    top: 1.5rem;
 }
 .icon-inline {
     @apply inline-block fill-current;
@@ -87,6 +90,12 @@ $card-gap: calc(0.5rem + 2vw);
 
 // article/work stuff
 
+.sticky-desc {
+    top: 4rem;
+    @screen lg {
+        top: 2rem;
+    }
+}
 .zoom-ease {
     transform: scale3d(1,1,1);
     @include transitions;
