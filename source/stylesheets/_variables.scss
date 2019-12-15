@@ -26,5 +26,5 @@ $speed: 150ms;
 @mixin links-underlined {
     text-decoration: underline;
     text-decoration-skip-ink: auto;
-    text-decoration-style: dotted;
+    text-decoration-style: solid;
 }

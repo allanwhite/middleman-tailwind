@@ -18,18 +18,20 @@ ruby:
     else
         classes = item_class
     end
-.rounded-scale.overflow-hidden href="" class=(defined?(classes) ? classes : nil)
+
+figure class=(defined?(classes) ? classes : nil)
     / p = the_img.custom_data.style
     / code.text-xs = the_img.to_hash
     /- if the_img.custom_data.has_key?("style")
         p = the_img.custom_data["style"]
     / p = classes
-    picture.lozad.object-cover data-alt=img_alt data-iesrc=the_img.url(w: 800, h: 600, fm: :jpg) style=("display: block; min-height: 1rem") 
+    // https://apoorv.pro/lozad.js/#example-with-picture-tag
+    picture.lozad.zoomable.rounded-scale.overflow-hidden data-alt=img_alt data-iesrc=the_img.url(w: 800, h: 600, fm: :jpg) style=("display: block; min-height: 1rem") width=the_img.width height=the_img.height 
         source media="(min-width: 1438px)" srcset=the_img.url(w: 2400, fm: :jpg)
         source media="(min-width: 1200px)" srcset=the_img.url(w: 1600, fm: :jpg)
         source media="(min-width: 992px)"  srcset=the_img.url(w: 1200, fm: :jpg)
         source media="(min-width: 576px)"  srcset=the_img.url(w: 800, fm: :jpg)
         source media="(min-width: 320px)"  srcset=the_img.url(w: 640, fm: :jpg)
-        noscript
-            img.object-cover src=the_img.url(w: 800, fm: :jpg) alt=img_alt
+        / noscript
+        /     img src=the_img.url(w: 800, fm: :jpg) alt=img_alt
 

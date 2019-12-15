@@ -42,6 +42,10 @@ main.relative.w-full class=bg_theme id="top"
                     .lead.markdown.pr-0 class="lg:pr-6"
                         = Kramdown::Document.new(article.intro).to_html
             .w-full class="lg:w-1/3"
+                - if article.demo_link.present?
+                    a.button.mb-8 href=article.demo_link title="View live project in a new window" target="_blank"
+                        = inline_svg "icon-links-alt.svg", class: "icon-inline mr-2"
+                        | View Project
                 - unless article.types.nil?
                     .mb-4
                         - article.types.each do | work_type |
