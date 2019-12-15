@@ -28,20 +28,19 @@ scss:
 main.relative.w-full class=bg_theme id="top"
     / - article = locals[:item]
     header.masthead.pad class=""
-        .w-full
+        .max-w-7xl.mx-auto
             nav class="flex flex-row justify-start items-center mb-4"
                 a href="/" title="Home"
                     = inline_svg "easel-logo.svg", class: "logo inline-block h-12 mr-4 w-auto"
                 a.subhead.text-lg.mr-2 href="/#recent" title="Work" Work
             / h3.text-xl.font-bold.subhead.separator-arrow Case Studies
             h1.text-4xl-scale.font-regular.font-serif.leading-none.mb-4 = article.title
-            h4.text-lg.font-serif.font-light.italic.mb-12 = (article.subheader.nil? ? nil : article.subheader )
-        .max-w-7xl class="flex flex-col lg:flex-row"
-            - unless article.intro.nil?
-                .w-full class="lg:w-2/3"
-                    .lead.markdown.pr-0 class="lg:pr-6"
-                        = Kramdown::Document.new(article.intro).to_html
-            .w-full class="lg:w-1/3"
+            h4.text-xl.font-serif.font-light.italic.mb-12 = (article.subheader.nil? ? nil : article.subheader )
+        .max-w-7xl.mx-auto.flex.flex-col class="lg:flex-row"
+            div class="w-full lg:w-2/3"
+                .lead.markdown.pr-0 class="lg:pr-6"
+                    = Kramdown::Document.new(article.intro).to_html
+            aside class="w-full lg:w-1/3"
                 - if article.demo_link.present?
                     a.button.mb-8 href=article.demo_link title="View live project in a new window" target="_blank"
                         = inline_svg "icon-links-alt.svg", class: "icon-inline mr-2"
