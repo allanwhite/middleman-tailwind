@@ -41,9 +41,12 @@ main.bg-gray-100.pad.z-20.relative
             .w-full.px-0 class="md:w-2/3 xl:w-1/2"
                 h2.headline-3.theme-alt class="" About
                 img.rounded-full.lozad.mb-4.float-right.ml-3 src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
-                p class="text-xl lg:text-2xl lg:leading-normal font-sans font-normal mb-3" style="max-width: 40em;" 
+                p class="text-lg lg:text-2xl lg:leading-normal font-sans font-normal mb-3" style="max-width: 50em;" 
                     | I'm an interdisciplinary designer and developer with 25 years of experience, living near Portland, Oregon. I've solved business problems in organizations of all sizes through communication design, branding, video, event design, product & user experience design, and web development.
-                a.button.anim-in.text-sm class="mr-0 md:mr-6" style="transition-delay: 0.2s;" title="Email Allan" href="#contact"
+                p class="text-lg lg:text-2xl lg:leading-normal font-sans font-normal mb-6" style="max-width: 50em;" 
+                    | Currently, I am a Senior Sales Engineer for <a href="https://contentful.com/" title="Contentful, Gmbh">Contentful</a>. 
+
+                / a.button.anim-in.text-sm class="mr-0 md:mr-6" style="transition-delay: 0.2s;" title="Email Allan" href="#contact"
                     | Let's talk
                     = inline_svg "icon-chevron-down.svg", class: "icon-inline ml-1" 
 
@@ -72,11 +75,11 @@ main.bg-gray-100.pad.z-20.relative
                             p.line-length = category.desc
 
 footer#contact.relative.w-full.bg-orange.z-0.pad
-    .max-w-7xl.flex.justify-start.mx-auto
+    .max-w-6xl.flex.justify-start.mx-auto
         .card.pad-sm.z-10.p-0.relative.w-full.bg-orange.anim-in class="md:p-8 md:rounded-lg md:w-auto lg:shadow-sm lg:shadow-xl lg:p-10 lg:p-16" style="transition-delay: 1s;"
             img.rounded-full.lozad.mb-4 src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
-            h3.text-5xl.font-light.font-serif.leading-none.theme-alt.mb-2 class="" Let's talk.
-            p.italic.mb-8 Available for new opportunities in January 2020. 
+            h3.text-5xl.font-light.font-serif.leading-none.theme-alt.mb-6 class="" Let's talk.
+            / p.italic.mb-8 Available for new opportunities in January 2020. 
             a.button.mb-8 title="Email Allan" href=("mailto:" + data.site.author.email)
                 = inline_svg "icon-mail.svg", class: "icon-inline" 
                 = data.site.author.email
