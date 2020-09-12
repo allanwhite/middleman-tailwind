@@ -2,6 +2,15 @@
     - when "section_header"
         section.content-block.block-section-header.pad style="padding-bottom: 0;" id=block.id
             h3.section-header = block.title
+    - when "dialogue_block"
+        section.content-block.block-text.relative.max-w-7xl.p-4.mx-auto.flex-col.flex class="md:flex-row lg:p-8" id=block.id
+            div class="w-full md:w-1/3 lg:w-1/3 xl:w-2/5 md:pr-4 lg:pr-8 xl:pr-12"
+                - unless block.question.empty?
+                    .question.markdown.font-serif.italic.font-light.pb-6 = Kramdown::Document.new(block.question).to_html
+            - unless block.response.empty?
+                div class="w-full md:w-2/3 lg:w-2/3 xl:w-3/5"
+                    .response.markdown.font-serif.font-light.pb-6 = Kramdown::Document.new(block.response).to_html
+
     - when "image_caption"
         section.content-block.block-image.relative.mx-auto.pad class="" id=block.id
             figure class="flex flex-col xxl:flex-row xxl:items-center xxl:justify-between"
