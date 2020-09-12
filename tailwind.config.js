@@ -52,6 +52,11 @@ module.exports = {
         'Georgia',
         'serif',
       ],
+      book: [
+        '"IBM Plex Serif"',
+        'Georgia',
+        'serif',
+      ],
       mono: [
         '"IBM Plex Mono"',
         'Monaco',
