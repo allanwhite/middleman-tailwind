@@ -1,0 +1,4 @@
+- if defined?(block.block_title)
+    - unless block.block_title.empty?
+        li.mb-3.leading-tight
+            a class=(classes.nil? ? nil : classes) href="##{block.id}" title="Jump to section" = block.block_title

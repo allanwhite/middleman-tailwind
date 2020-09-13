@@ -35,18 +35,3 @@
         @apply font-medium;
     }
 }
-.blog {
-    .markdown {
-        p, ul, ol, li, dd, dt {
-            @apply text-xl mb-4 font-light font-book;
-            line-height: 1.8; // leading-snug not coming thru for some reason
-            @screen lg {
-                @apply text-2xl;
-            }
-
-        }
-    }
-    .font-serif {
-        @apply font-book; 
-    }
-}
