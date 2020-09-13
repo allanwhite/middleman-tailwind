@@ -7,7 +7,12 @@
 = partial "partials/json-ld", :locals => { :type => "person" }
 - page_classes = "blog"
 
+- sorted_posts = dato.blogs.to_a.sort_by{ | post | post['pub_date'] }.reverse!
+
 scss:
+    html {
+        --bg: var(--bg-gray-100);
+    }
     .mb-scale {
         margin-bottom: calc(1rem + 5vw);
     }
@@ -18,15 +23,25 @@ scss:
         }
     }
 
-
-section#top.w-full.mb-scale
-    .max-w-6xl.mx-auto.mb-8
-        div class="text-lg font-bold subhead md:ml-8 text-gray-500" Recent
-        h2.headline-3.mb-8 class="md:ml-6" Blog
-    .grid-container
-        - dato.blogs.each do | blog |
+main.relative.w-full.pad class="bg-gray-100" id="top"
+    / - post = locals[:item]
+    header.masthead.pad-longform.pad-y-xl class="" style="padding-bottom: 1rem;"
+        .max-w-7xl.mx-auto
+            nav class="flex flex-row justify-start items-center mb-4"
+                a href="/" title="Home"
+                    = inline_svg "easel-logo.svg", class: "logo inline-block h-12 mr-4 w-auto"
+                
+                a.subhead.text-lg.mr-4 href="/#recent" title="Work" Work
+                .subhead.text-lg.mr-4 href="/blog" title="Blog" Blog
+            h1.text-4xl-scale.font-book.mb-12 Personal Blog
+    / section#top.w-full.mb-scale
+    /     .max-w-6xl.mx-auto.mb-8
+    /         div class="text-lg font-bold subhead md:ml-8 text-gray-500" Recent
+    /         h2.headline-3.mb-8 class="md:ml-6" Blog
+    .grid-container.max-w-7xl.mx-auto
+        - sorted_posts.each do | blog |
             = partial "partials/card-post", :locals => { :post => blog }
 
 
-footer.relative.w-full.pad
-    = partial "partials/footer-links"
+    footer.relative.w-full.pad
+        = partial "partials/footer-links"

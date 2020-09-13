@@ -11,6 +11,9 @@ scss:
     .mb-scale {
         margin-bottom: calc(1rem + 5vw);
     }
+    .headline-3 {
+        color: black;
+    }
     footer {
         &:hover {
             .image-bright { opacity: 0.5; transition: opacity 1s linear; }
@@ -37,14 +40,25 @@ section#top.relative.overflow-hidden.flex.flex-col.min-h-66.w-full.bg-orange.jus
             p.lead I'm Allan White, an interdisciplinary designer and developer with 25 years of experience, living near Portland, Oregon. I've solved business problems in organizations of all sizes through communication design, branding, video, event design, product & user experience design, and web development.
 main.bg-gray-100.pad.z-20.relative
     section#about.w-full.mb-scale
-        .max-w-6xl.flex.flex-col.justify-end.items-center.mx-auto class="md:flex-row"
-            .w-full.px-0 class="md:w-2/3 xl:w-1/2"
-                h2.headline-3.theme-alt class="" About
+        .max-w-6xl.flex.flex-col.justify-start.items-center.mx-auto class="md:flex-row lg:p-8"
+            .w-full class="lg:w-1/2"
+                // h2.headline-3.theme-alt class="" About
                 img.rounded-full.lozad.mb-4.float-right.ml-3 src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
                 p class="text-lg lg:text-2xl lg:leading-normal font-sans font-normal mb-3" style="max-width: 50em;" 
                     | I'm an interdisciplinary designer and developer with 25 years of experience, living near Portland, Oregon. I've solved business problems in organizations of all sizes through communication design, branding, video, event design, product & user experience design, and web development.
                 p class="text-lg lg:text-2xl lg:leading-normal font-sans font-normal mb-6" style="max-width: 50em;" 
                     | Currently, I am an Enterprise Solutions Engineer for <a href="https://contentful.com/" title="Contentful, Gmbh">Contentful</a>. 
+            .w-full class="lg:w-1/2 md:pl-12 lg:pl-20"
+                div class="text-lg font-bold subhead text-gray-500" Recent
+                h2.headline-3.pb-6 class="lg:pb-8" Writing
+                - sorted_posts = dato.blogs.to_a.sort_by{ | post | post['pub_date'] }.reverse!
+                ul.no-bullet
+                    - sorted_posts[0...3].each do | blog |
+                        li.mb-4
+                            a href="/blog/#{blog.slug}" title=blog.title
+                                //= partial "partials/card-post", :locals => { :post => blog }
+                                h3.text-xl.font-book.font-medium.leading-tight.mb-0 class="md:leading-snug md:text-xl" = blog.title
+                            / p.text-sm.font-sans.font-light class="md:leading-snug md:text-lg" = (blog.subheader.nil? ? nil : blog.subheader)
 
                 / a.button.anim-in.text-sm class="mr-0 md:mr-6" style="transition-delay: 0.2s;" title="Email Allan" href="#contact"
                     | Let's talk
@@ -52,7 +66,7 @@ main.bg-gray-100.pad.z-20.relative
 
     section#recent.w-full.mb-scale
         .max-w-6xl.mx-auto.mb-8
-            div class="text-lg font-bold subhead md:ml-8 text-gray-500" Recent
+            div class="text-lg font-bold subhead md:ml-8 text-gray-500" Work
             h2.headline-3.mb-8 class="md:ml-6" Case Studies
         .grid-container
             - dato.works.each do | work |

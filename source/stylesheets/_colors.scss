@@ -96,12 +96,10 @@ a, a:link {
         }
     }
 }
-.work, .blog {
-    .toc-link {
-        color: var(--color-blue); // bg is always white...
-        border-color: var(--text-color-alt);
-        @apply border-b p-1;
-    }
+.toc-link {
+    color: var(--color-blue); // bg is always white...
+    border-color: var(--text-color-alt);
+    @apply border-b p-1;
 }
 /*! purgecss end ignore */
 
