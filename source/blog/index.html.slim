@@ -24,57 +24,9 @@ section#top.w-full.mb-scale
         div class="text-lg font-bold subhead md:ml-8 text-gray-500" Recent
         h2.headline-3.mb-8 class="md:ml-6" Blog
     .grid-container
-        - dato.blogs.each do | post |
-            = partial "partials/card-post", :locals => { :post => post }
+        - dato.blogs.each do | blog |
+            = partial "partials/card-post", :locals => { :post => blog }
 
 
-footer#contact.relative.w-full.bg-orange.z-0.pad
-    .max-w-6xl.flex.justify-start.mx-auto
-        .card.pad-sm.z-10.p-0.relative.w-full.bg-orange.anim-in class="md:p-8 md:rounded-lg md:w-auto lg:shadow-sm lg:shadow-xl lg:p-10 lg:p-16" style="transition-delay: 1s;"
-            img.rounded-full.lozad.mb-4 src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
-            h3.text-5xl.font-light.font-serif.leading-none.theme-alt.mb-6 class="" Let's talk.
-            / p.italic.mb-8 Available for new opportunities in January 2020. 
-            a.button.mb-8 title="Email Allan" href=("mailto:" + data.site.author.email)
-                = inline_svg "icon-mail.svg", class: "icon-inline" 
-                = data.site.author.email
-            div class="flex flex-col sm:flex-row"
-                ul.list-none.mr-4 class="mb-4 md:mb-0 md:mr-6 lg:mr-8"
-                    - data.site.contact.each do | info |
-                        li.mb-2.whitespace-no-wrap
-                            a.link href=info.url title=info.action
-                                = inline_svg info.icon, class: "icon-inline mr-1 md:mr-2 fill-current" 
-                                = info.label
-                ul.list-none
-                    - data.site.links.each do | info |
-                        li.mb-2.whitespace-no-wrap
-                            a.link href=info.url title=info.action
-                                = inline_svg info.icon, class: "icon-inline mr-1 md:mr-2 fill-current" 
-                                = info.label
-    .zoom-ease.hidden.work-gallery.image-tinted.z-0.left-0.top-0.pov.overflow-hidden.absolute.w-full class="md:block md:h-screen"
-        / img.lozad src="/images/work/moodboard-2-angle-preload.svg" data-src="/images/work/moodboard-2-angle-tint.jpg"
-        = partial "partials/masthead-picture", :locals => { :the_img => img_masthead }
-    .zoom-ease.hidden.work-gallery.image-bright.z-0.left-0.top-0.pov.overflow-hidden.absolute.w-full.opacity-0 class="md:block md:h-screen"
-        = partial "partials/masthead-picture", :locals => { :the_img => img_masthead_color }
-
-/ img.w-full.h-4 src="/images/work/color-strip.jpg" alt="texture"
-/src=data.site.img.rect 
-/ style="max-width: calc(7rem + 41vw);"
-/ .flex.w-full.bg-orange
-    div class="flex flex-col md:flex-row"
-        div class="md:w-1/6"
-        /= link_to 'Read Documentation', 'https://middlemanapp.com/basics/templating_language/', class: 'text-grey-dark', target: '_blank'
-        /= link_to 'Testing Second Page', 'second-page', class: 'text-grey-dark'
-        div class="w-full md:w-2/3 max-w-md"
-            p Currently, I work as a communication designer for <a href="https://datica.com" title="Datica.com">Datica Health</a>, where I design their brand, collateral, and build their website. I occasionally write at Medium.com. Check out my <a href="https://behance.net/allanwhite/">portfolio</a> and case studies, and see how I code at <a href="https://codepen.io/allanwhite/pens/public/">Codepen</a> and <a href="https://github.com/allanwhite" title="Github Profile">Github</a>.
-        div class="md:w-auto"
-            = inline_svg "easel-logo.svg", class: "logo inline-block h-24 w-auto fill-current"
-            h4.font-normal.font-serif.italic.text-3xl Let's Talk.
-        .img
-            img src="images/loader-disc.svg" alt="photo" class="max-w-48" /
-
-// imgix versions of the key image:
-/ bright:  https://www.datocms-assets.com/10166/1575509123-moodboard-2-angle-a.png?w=2400&h=2400&bg=31457c&auto=compress&sat=0&duotone=280e86,FF6746&duotone-alpha=100&blur=0&fm=jpg
-/ orange:  https://www.datocms-assets.com/10166/1575509123-moodboard-2-angle-a.png?w=2400&h=2400&bg=f76539&auto=compress&fm=jpg
-/ blur:    https://www.datocms-assets.com/10166/1575509123-moodboard-2-angle-a.png?w=2400&h=2400&bg=31457c&auto=compress&gam=-5&exp=-5&duotone=280e86,f76539&duotone-alpha=80&blur=100&fm=jpg
-/ muted:   https://www.datocms-assets.com/10166/1575509123-moodboard-2-angle-a.png?w=2400&h=2400&bg=31457c&auto=compress&gam=-5&exp=-5&duotone=0d358a,f76539&duotone-alpha=80&blur=0&fm=jpg
-/ orig:    https://www.datocms-assets.com/10166/1575509123-moodboard-2-angle-a.png?w=2400&h=2400&auto=compress
+footer.relative.w-full.pad
+    = partial "partials/footer-links"

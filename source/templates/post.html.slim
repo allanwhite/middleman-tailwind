@@ -5,13 +5,13 @@ page_classes: "blog"
 # custom_css: "blog.css"
 ---
 
-scss:
-    //:root {
-    //    //--bg: var(--bg-#{post.theme.class_name});
-    //}
-    //.masthead, footer {
-    //    background-color: var(--bg);
-    //}
+//scss:
+    :root {
+       --bg: var(--bg);
+    }
+    .masthead, footer {
+        background-color: var(--bg);
+    }
     //footer a {
     //    --link-color: var(--color-blue);
     //    --link-hover: var(--color-blue-dark);
@@ -26,7 +26,7 @@ scss:
 / .pad.bg-orange.text-sm
     pre = post.seo_settings.to_hash
     / img src=post.seo_settings.image.url(w: 1000, auto: :compress)
-main.relative.w-full class=bg_theme id="top"
+main.relative.w-full.pb-16 class=bg_theme id="top"
     / - post = locals[:item]
     header.masthead.pad-longform.pad-y-xl class="" style="padding-bottom: 1rem;"
         .max-w-7xl.mx-auto
@@ -37,13 +37,13 @@ main.relative.w-full class=bg_theme id="top"
             / h3.text-xl.font-bold.subhead.separator-arrow Case Studies
             h1.text-3xl-scale.font-regular.font-serif.leading-none.mb-4 = post.title
             h4.text-2xl.font-sans.font-light.italic.mb-12 = (post.subheader.nil? ? nil : post.subheader )
-        .max-w-7xl.mx-auto.flex.flex-col class="lg:flex-row"
-            - unless post.intro.empty?
-                div class="w-full lg:w-2/3"
+        .max-w-7xl.mx-auto.flex.flex-col class="lg:flex-row lg:flex-row-reverse"
+            div class="w-full lg:w-2/3 xl:w-3/5"
+                - unless post.intro.empty?
                     .lead.markdown.pr-0 class="lg:pr-6"
                         = Kramdown::Document.new(post.intro).to_html
-            aside class="w-full lg:w-1/3"
-                h4.mb-4.text-base = post.updated_at.strftime('%B %-d, %Y')
+            aside class="w-full lg:w-1/3 xl:w-2/5"
+                h4.mb-4.text-xl.font-bold = post.updated_at.strftime('%B %-d, %Y')
                 //- if post.ext_link.present?
                     a.button.mb-8 href=post.ext_link title="View live project in a new window" target="_blank"
                         = inline_svg "icon-links-alt.svg", class: "icon-inline mr-2"
@@ -53,10 +53,10 @@ main.relative.w-full class=bg_theme id="top"
                         - post.tags.each do | tag |
                             span.pill.mr-2.opacity-75 = tag.title 
                 details.toc.hidden class="lg:block"
-                    summary.toc-title.text-lg.font-serif.mb-4.tracking-wide Table of Contents
+                    summary.toc-title.text-xl.font-sans.font-bold.mb-4.tracking-wide Table of Contents
                     ul.ml-5.toc-list.text-sm
                         - post.blocks.each do | block |
-                            = partial "partials/page-toc", :locals => { :block => block, :classes => "" } 
+                            = partial "partials/page-toc", :locals => { :block => block, :classes => "toc-link" } 
         - unless post.cover_image.nil?
             .w-full.bg-cover.lozad class="h-64 md:w-1/3 xl:w-1/2 md:h-auto order-1 md:order-2" data-background-image=(post.cover_image.url(w: 1200, fm: :jpg))
                 / = partial "partials/inline-picture", :locals => { :the_img => a
@@ -75,7 +75,7 @@ main.relative.w-full class=bg_theme id="top"
 section.cta-section.mx-auto.text-center.pad class=bg_theme
     = partial "partials/cta", :locals => { :current_entry => post.id }
 
-section#recent.relative.z-20.w-full.pad class=bg_theme
+//section#recent.relative.z-20.w-full.pad class=bg_theme
     .max-w-7xl.mx-auto
         div class="text-lg font-bold subhead md:ml-6 text-gray-500" Recent
         h2.font-serif.font-light.text-4xl-scale.leading-none.mb-2.theme-alt class="md:mb-6 md:ml-6" Case Studies
@@ -84,5 +84,5 @@ section#recent.relative.z-20.w-full.pad class=bg_theme
                 - if entry_id != work.id
                     = partial "partials/card-work", :locals => { :work => work }
 
-footer.relative.w-full.pad
+footer.relative.w-full.pad class=bg_theme
     = partial "partials/footer-links"
