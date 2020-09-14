@@ -95,11 +95,14 @@ a, a:link {
             --link-hover: var(--color-orange-light);    
         }
     }
-    .toc-link {
-        color: var(--color-blue); // bg is always white...
-        border-color: var(--text-color-alt);
-        @apply border-b p-1;
+}
+a.toc-link, a.toc-link:visited {
+    color: var(--color-black);
+    @screen lg {
+        color: var(--text-color);
     }
+    border-color: var(--text-color-alt);
+    @apply border-b p-1;
 }
 /*! purgecss end ignore */
 

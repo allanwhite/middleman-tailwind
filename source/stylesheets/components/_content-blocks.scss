@@ -1,3 +1,10 @@
 .content-block + .content-block {
     // padding-bottom: 0;
 }
+.block-image {
+    .block-image-center {
+        .markdown p {
+            @apply font-sans text-base;
+        }
+    }
+}

@@ -92,11 +92,16 @@ set :favicons, [
 
 # due to how middleman 4 collections work (http://bit.ly/2jHZTI9), 
 # always use `dato` inside a `.tap` method block, like this:
+
 dato.tap do |dato|
   # iterate over the "Work post" records...
   dato.works.each do |article|
     # ...and create a page for each article starting from a template!
     proxy "/work/#{article.slug}/index.html", "/templates/article.html", :locals => { :article => article }, :ignore => true
+  end
+  dato.blogs.each do |blog|
+    # ...and create a page for each post starting from a template!
+    proxy "/blog/#{blog.slug}/index.html", "/templates/post.html", :locals => { :post => blog }, :ignore => true
   end
 end
 

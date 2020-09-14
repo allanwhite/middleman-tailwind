@@ -1,17 +1,60 @@
 - case block.item_type.api_key
+    /- when "meta_json"
+        - unless block.meta_json.empty?
     - when "section_header"
-        section.content-block.block-section-header.pad style="padding-bottom: 0;" id=block.id
+        section.content-block.block-section-header.pad style="padding-bottom: 0;" class=(block.classes.nil? ? "pb-0" : block.classes) id=block.id
             h3.section-header = block.title
-    - when "image_caption"
-        section.content-block.block-image.relative.mx-auto.pad class="" id=block.id
-            figure class="flex flex-col xxl:flex-row xxl:items-center xxl:justify-between"
-                - unless block.caption.nil?
-                    figcaption class="mt-12 xxl:w-1/3 xxl:pr-6 mt-0 mb-4"
+    - when "writing_block"
+        section.content-block.block-dialogue.pad-longform id=block.id
+            - case block.layout
+                - when "centered"
+                    .w-full.mx-auto class="xl:max-w-4xl"
                         - unless block.block_title.empty?
-                            h3.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
-                        .markdown.line-length
-                            = Kramdown::Document.new(block.caption).to_html
-                = partial "partials/inline-picture", :locals => { :the_img => block.image, :classes => 'xxl:w-2/3' }
+                            h3.text-2xl-scale.font-sans.font-medium.leading-tight.mb-8.mt-4 = block.block_title
+                            - unless block.aside.empty?
+                                .aside.markdown.italic.font-light = Kramdown::Document.new(block.aside).to_html
+                            - unless block.block_image.nil?
+                                = partial "partials/inline-picture", :locals => { :the_img => block.block_image, :classes => 'mb-6 xl:mb-12' }
+                            - unless block.block_body.empty?
+                                .block-body.markdown.font-light = Kramdown::Document.new(block.block_body).to_html
+                - else
+                    - unless block.block_title.empty?
+                        .flex.justify-end.mt-12
+                            div class="self-end w-full md:w-2/3 lg:w-2/3 xl:w-3/5"
+                                h3.text-2xl-scale.font-sans.font-medium.leading-tight.mb-8.mt-4 = block.block_title
+
+                    .flex-col.flex class="md:flex-row"
+                        aside class="w-full md:w-1/3 lg:w-1/3 xl:w-2/5 md:pr-8 lg:pr-12 xl:pr-16"
+                            .sticky.sticky-desc.mb-6
+                                - unless block.aside.empty?
+                                    .aside.markdown.italic.font-light = Kramdown::Document.new(block.aside).to_html
+                                - unless block.block_image.nil?
+                                    = partial "partials/inline-picture", :locals => { :the_img => block.block_image, :classes => 'mb-6 xl:mb-12' }
+                        - unless block.block_body.empty?
+                            div class="w-full md:w-2/3 lg:w-2/3 xl:w-3/5"
+                                .block-body.markdown.font-light = Kramdown::Document.new(block.block_body).to_html
+
+    - when "image_caption"
+        section.content-block.block-image.relative.mx-auto.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
+            - case block.image_layout
+                - when "center"
+                    figure class="block-image-center max-w-7xl mx-auto text-center"
+                        = partial "partials/inline-picture", :locals => { :the_img => block.image, :classes => '' }
+                        - unless block.caption.nil?
+                            figcaption class="mt-12 max-w-3xl mt-0 mb-4 mx-auto"
+                                - unless block.block_title.empty?
+                                    h3.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
+                                .markdown
+                                    = Kramdown::Document.new(block.caption).to_html
+                - else
+                    figure class="flex flex-col xxl:flex-row xxl:items-center xxl:justify-between"
+                        figcaption class="mt-12 xxl:w-1/3 xxl:pr-6 mt-0 mb-4"
+                            - unless block.block_title.empty?
+                                h3.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
+                            .markdown.line-length
+                                = Kramdown::Document.new(block.caption).to_html
+                        = partial "partials/inline-picture", :locals => { :the_img => block.image, :classes => 'xxl:w-2/3' }
+
     - when "gallery_block"
         section.content-block.relative class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
             .w-full.pad.flex.flex-col class="md:flex-row flex-wrap"
