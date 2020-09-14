@@ -42,8 +42,8 @@ main.relative.w-full.pad class="bg-gray-100" id="top"
     .grid-container.max-w-7xl.mx-auto
         - sorted_posts.each do | blog |
             = partial "partials/card-post", :locals => { :post => blog }
-        .project-card.project-card-full.bg-blue-dark.rounded-lg.overflow-hidden.flex.flex-col.justify-center.text-center
-            h3.text-3xl.font-book.text-white Elsewhere
+        .project-card.project-card-full.bg-blue.italic.rounded-lg.overflow-hidden.flex.flex-col.justify-center.text-center
+            h3.text-4xl.font-book.font-light.text-white Elsewhere
         - sorted_links.each do | link |
             = partial "partials/card-post", :locals => { :post => link, :external => true }
         
