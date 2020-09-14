@@ -89,7 +89,7 @@
     - when "quote_large"
         aside.content-block.block-quote.relative.w-full.pad-y-xl class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
             / code = block.item_type.api_key
-            .text-4xl-scale.font-serif.font-light class=(block.quote_color.nil? ? nil : "text-#{block.quote_color.class_name}") = block.quote_body
+            div class=(block.quote_color.nil? ? nil : "text-#{block.quote_color.class_name}") = Kramdown::Document.new(block.quote_body).to_html
     - when "text_block"
         section.content-block.block-text.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
             / code = block.item_type.api_key
