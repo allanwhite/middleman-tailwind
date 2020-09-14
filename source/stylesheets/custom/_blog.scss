@@ -24,4 +24,9 @@
             @apply px-20;
         }
     }
+    .block-quote {
+        p {
+            @apply font-book font-light leading-relaxed opacity-75;
+        }
+    }
 }

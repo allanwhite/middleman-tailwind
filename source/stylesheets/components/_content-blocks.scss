@@ -8,3 +8,8 @@
         }
     }
 }
+.block-quote { // necessary when using markdown
+    p {
+        @apply text-4xl-scale font-serif font-light;
+    }
+}

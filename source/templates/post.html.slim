@@ -16,11 +16,14 @@ page_classes: "blog"
     //    --link-color: var(--color-blue);
     //    --link-hover: var(--color-blue-dark);
     //}
-
+/ - post = locals[:post]
 - set_meta_tags title: "#{post.title} | Blog", full_title: false, pull_image: 'foo.jpg'
 = partial "partials/json-ld", :locals => { :type => "person" }
 - bg_theme = (post.theme.nil? ? nil : "bg-#{post.theme.class_name}")
 - entry_id = post.id
+- unless post.canonical_source.empty?
+    - current_page.data.canonical_source = post.canonical_source
+
 - content_for(:head) do
     = dato_meta_tags(post)
 / .pad.bg-orange.text-sm
@@ -40,6 +43,8 @@ main.relative.w-full.pb-16 class=bg_theme id="top"
             h4.text-2xl.font-sans.font-light.italic.mb-12 = (post.subheader.nil? ? nil : post.subheader )
         .max-w-7xl.mx-auto.flex.flex-col class="lg:flex-row lg:flex-row-reverse"
             div class="w-full lg:w-2/3 xl:w-3/5"
+                figure.rounded-lg.overflow-hidden.mb-6
+                    img.feature-image.lozad.object-fit class="w-auto" src=post.cover_image.url(w: 480, h: 240, blur:200, auto: :compress) data-src=post.cover_image.url(w: 960, h: 480, crop: :edges, fit: :crop, auto: :compress) alt=post.title
                 - unless post.intro.empty?
                     .lead.markdown.pr-0 class="lg:pr-6"
                         = Kramdown::Document.new(post.intro).to_html

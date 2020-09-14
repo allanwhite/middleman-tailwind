@@ -51,14 +51,14 @@ contact:
 
 links:
   -
-    label: "Behance Portfolio"
+    label: "Work"
     action: "See Allan's work at Behance"
-    url: "https://behance.net/allanwhite"
-    icon: icon-behance.svg
+    url: "/#recent"
+    icon: icon-eyeball.svg
   -
-    label: "Dev.to Blog"
+    label: "Blog"
     action: "Read Allan's Writing at his blog"
-    url: "https://dev.to/allanwhite"
+    url: "/blog"
     icon: icon-pencil.svg
   -
     label: "Github"

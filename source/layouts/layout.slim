@@ -9,6 +9,8 @@ html lang="en-us"
         meta charset="utf-8" /
         meta content="ie=edge" http-equiv="x-ua-compatible" /
         meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /
+        - if current_page.data.canonical_source
+            link rel="canonical" href=current_page.data.canonical_source
         = stylesheet_link_tag "site"
         script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js" type="text/javascript" 
     body class=page_classes 
