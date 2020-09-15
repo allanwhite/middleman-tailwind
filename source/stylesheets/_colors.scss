@@ -66,7 +66,7 @@ a, a:link {
     // --link-color: var(--color-aqua);
     // --link-hover: var(--color-aqua-light);
 }
-.bg-white, .bg-gray-100, .bg-gray-200, .bg-gray-300, .bg-gray-400, .bg-gray-500 {
+.bg-white, .bg-gray-100, .bg-gray-200, .bg-gray-300, .bg-gray-400, .bg-gray-500, .bg-tan, .bg-aqua-pale {
     --bg: var(--color-white);
     --bg-active: var(--white-a);
     --text-color: var(--color-blue);
@@ -76,6 +76,16 @@ a, a:link {
     color: var(--text-color);
     .theme-alt {
         color: var(--text-color-alt);
+    }
+}
+.bg-tan, .bg-aqua-pale {
+    --text-color: var(--color-black);
+    --text-color-alt: var(--color-orange-light);
+    --link-color: var(--color-orange-dark);
+    --link-hover: var(--color-orange);
+    color: var(--text-color);
+    a {
+        border-color: var(--text-color-alt);
     }
 }
 *[class^="bg-"] {

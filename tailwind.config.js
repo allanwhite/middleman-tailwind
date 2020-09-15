@@ -21,17 +21,22 @@ module.exports = {
       orange: {
         default: '#FF6746',
         dark: '#E23B16',
-        light: '#FF9779'
+        light: '#FF9779',
+        verydark: '#62372A',
       },
       aqua: {
         default: '#00F0E6',
         dark: '#00C4D0',
         light: '#0BFFF0',
+        pale: '#D6FFFC',
       },
       blue: {
         default: '#2B3652',
         dark: '#252b39',
         light: '#4077B6',
+      },
+      tan: {
+        default: '#FFF8EB',
       }
     },
     screens: {

@@ -34,4 +34,13 @@
         @include links-underlined;
         @apply font-medium;
     }
+    table {
+        @apply w-auto mb-8 font-sans text-left;
+        thead {
+            @apply border-b;
+        }
+        td {
+            @apply pb-1 pr-2;
+        }
+    }
 }

@@ -1,12 +1,20 @@
 .blog {
     .markdown {
-        p, ul, ol, li, dd, dt {
-            @apply text-xl mb-6 font-light font-book;
+        p, ol, li, dd, dt {
+            @apply text-xl mb-3 font-normal font-book;
             line-height: 1.8; // leading-snug not coming thru for some reason
             @screen lg {
-                @apply text-2xl;
+                @apply text-xl;
             }
-
+        }
+        ul {
+            @apply mb-8
+        }
+        p {
+            @apply mb-6;
+        }
+        .aside p {
+            @apply font-light;
         }
     }
     .font-serif {
