@@ -22,3 +22,15 @@
         a.button.anim-in style="transition-delay: 1.5s;" title="Email Allan" href=("mailto:" + data.site.author.email)
             = inline_svg "icon-mail.svg", class: "icon-inline" 
             = data.site.author.email
+
+javascript:
+    // Close TOC when tapped
+    /* eslint-disable */
+    function openToc() {
+        document.getElementById("articleToc").open = true;
+    }
+
+    function closeToc() {
+        document.getElementById("articleToc").open = false;
+    }
+    /* eslint-enable */
