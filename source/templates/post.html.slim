@@ -72,7 +72,7 @@ main.relative.w-full.pb-16 class=bg_theme id="top"
                                     a href=post.canonical_source target="_blank" title="Listen to the original source, this is included here only for usability."
                                         | Original Source
                                         = inline_svg "icon-link-external.svg", class: "icon-inline ml-1 fill-current" 
-                        audio.max-w-2xl controls=true preload="metadata" style="width: 100%;"
+                        audio.lozad.max-w-2xl controls=true preload="metadata" style="width: 100%;"
                             source src=post.audio.url type="audio/mpeg"
                             | Your browser does not support the audio element.
         / - unless post.cover_image.nil?
