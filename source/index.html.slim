@@ -1,11 +1,13 @@
 /- set_meta_tags title: data.site.name + " | " + data.site.description, full_title: false
-- set_meta_tags title: data.site.name, full_title: false
+/ - set_meta_tags title: data.site.name, full_title: true, pull_image: data.site.thumbnail
 - info_work = data.about.info_work
 - work_thumbs = data.work_grid.samples
 - img_masthead = "/images/work/moodboard-2-angle-blue.jpg"
 - img_masthead_color = "/images/work/moodboard-2-angle-color.jpg"
 = partial "partials/json-ld", :locals => { :type => "person" }
 - page_classes = "home"
+- content_for(:head) do
+    = dato_meta_tags(dato.home)
 
 scss:
     .mb-scale {

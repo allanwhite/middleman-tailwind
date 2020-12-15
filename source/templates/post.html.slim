@@ -17,7 +17,7 @@ page_classes: "blog"
     //    --link-hover: var(--color-blue-dark);
     //}
 / - post = locals[:post]
-- set_meta_tags title: "#{post.title} | Blog", full_title: false, pull_image: 'foo.jpg'
+- set_meta_tags title: "#{post.title} | Blog", full_title: false
 = partial "partials/json-ld", :locals => { :type => "person" }
 - bg_theme = (post.theme.nil? ? nil : "bg-#{post.theme.class_name}")
 - entry_id = post.id
