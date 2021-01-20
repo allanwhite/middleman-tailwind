@@ -24,6 +24,8 @@ page_classes: "blog"
 - unless post.canonical_source.empty?
     - current_page.data.canonical_source = post.canonical_source
 
+- sorted_blog_posts = dato.blogs.to_a.sort_by{ | blog_post | blog_post['pub_date'] }.reverse!
+
 - content_for(:head) do
     = dato_meta_tags(post)
 / .pad.bg-orange.text-sm
@@ -88,6 +90,13 @@ main.relative.w-full.pb-16 class=bg_theme id="top"
 
     - post.blocks.each do | block |
         = partial "partials/blocks", :locals => { :block => block }
+
+section.cta-section.mx-auto.text-center.pad class=bg_theme
+    .w-full class="max-w-xl"
+        div class="text-lg font-bold subhead"
+        | Read Next
+        - sorted_blog_posts[1...2].each do | blog_post |
+            = partial "partials/card-post", :locals => { :post => blog_post }
 
 // .lozad.bg-cover data-background-image="#{post.cover_image.url}?w=1800&h=900&auto=compress&gam=80&exp=-2&sat=0&duotone=2B3652,FF6746&duotone-alpha=100&blur=50&fit=crop&crop=edges"
 section.cta-section.mx-auto.text-center.pad class=bg_theme
