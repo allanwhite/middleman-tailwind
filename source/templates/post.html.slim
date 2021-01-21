@@ -21,6 +21,7 @@ page_classes: "blog"
 = partial "partials/json-ld", :locals => { :type => "person" }
 - bg_theme = (post.theme.nil? ? nil : "bg-#{post.theme.class_name}")
 - entry_id = post.id
+- this_post = locals[:item]
 - unless post.canonical_source.empty?
     - current_page.data.canonical_source = post.canonical_source
 
@@ -91,17 +92,17 @@ main.relative.w-full.pb-16 class=bg_theme id="top"
     - post.blocks.each do | block |
         = partial "partials/blocks", :locals => { :block => block }
 
-section.cta-section.mx-auto.text-center.pad class=bg_theme
-    .w-full class="max-w-xl"
-        div class="text-lg font-bold subhead"
-        | Read Next
-        - sorted_blog_posts[1...2].each do | blog_post |
-            = partial "partials/card-post", :locals => { :post => blog_post }
+/ section.cta-section.mx-auto.text-center.pad class=bg_theme
+    .w-full class="max-w-2xl mx-auto"
+        div class="text-xl uppercase tracking-wider font-bold opacity-75" Read Next
+        / - sorted_blog_posts[1..1].each do | blog_post |
+            = partial "partials/card-post-compact", :locals => { :post => blog_post }
 
 // .lozad.bg-cover data-background-image="#{post.cover_image.url}?w=1800&h=900&auto=compress&gam=80&exp=-2&sat=0&duotone=2B3652,FF6746&duotone-alpha=100&blur=50&fit=crop&crop=edges"
 section.cta-section.mx-auto.text-center.pad class=bg_theme
-    = partial "partials/cta", :locals => { :current_entry => post.id }
-
+    / = partial "partials/cta", :locals => { :current_entry => post.id }
+    h3.text-3xl-scale.font-serif.font-bold.italic.anim-in 
+        a style="transition-delay: 0.5s;" href="/blog/" title="Back to the blog list" More Blog. 
 //section#recent.relative.z-20.w-full.pad class=bg_theme
     .max-w-7xl.mx-auto
         div class="text-lg font-bold subhead md:ml-6 text-gray-500" Recent
