@@ -11,7 +11,8 @@ a, a:link {
     //     color var(--speed) ease-out
     // ;
     // transform: translate3d(0,0,0);
-    color: var(--link-color);
+    // color: var(--link-color);
+    color: inherit;
     // text-decoration: underline;
     // text-underline-offset: 2px;
     // text-decoration-thickness: 0.1em;

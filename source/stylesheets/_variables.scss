@@ -27,4 +27,7 @@ $speed: 150ms;
     text-decoration: underline;
     text-decoration-skip-ink: auto;
     text-decoration-style: solid;
+    text-decoration-thickness: .125em;
+    text-underline-offset: 1.5px;
+    text-decoration-color: var(--link-color);
 }

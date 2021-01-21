@@ -1,7 +1,7 @@
 .blog {
     .markdown {
         p, ol, li, dd, dt {
-            @apply text-xl mb-3 font-normal font-book break-word;
+            @apply text-lg mb-3 font-book font-light;
             line-height: 1.8; // leading-snug not coming thru for some reason
             @screen lg {
                 @apply text-xl;
@@ -19,7 +19,7 @@
         blockquote {
             @apply py-4;
             p {
-                @apply pl-6 border-l-2 font-light opacity-75;
+                @apply pl-6 border-l-2 font-light opacity-75 border-gray-500;
             }
             & + blockquote {
                 @apply py-0;
