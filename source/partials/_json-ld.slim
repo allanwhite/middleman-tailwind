@@ -1,11 +1,64 @@
-- if defined?(type) && type == "person"
-    javascript type='application/ld+json':
-        {
-            "@context": "http://www.schema.org",
-            "@type": "#{type}",
-            "name": "#{data.site.author.name}",
-            "jobTitle": "#{data.site.author.role}",
-            "url": "#{data.site.author.website}",
-            "email": "#{data.site.author.email}",
-        }
-//             "logo": "#{data.site.host}/images/logo-icon-256.png"
+- if defined?(type)
+    - date_pub = entry.pub_date.strftime("%Y-%m-%dT%I:%M%p")
+    - case type
+        - when "person"
+            javascript type='application/ld+json':
+                {
+                    "@context": "http://www.schema.org",
+                    "@type": "#{type}",
+                    "name": "#{data.site.author.name}",
+                    "jobTitle": "#{data.site.author.role}",
+                    "url": "#{data.site.author.website}",
+                    "email": "#{data.site.author.email}",
+                }
+        - when "blog"
+            javascript type='application/ld+json':
+                {
+                    "@context":"http://schema.org",
+                    "@type": "BlogPosting",
+                    "image": "http://example.com/images/image.jpg",
+                    "url": "#{entry.cover_image.url(w: 600, h: 300, crop: :edges, fit: :crop, auto: :compress)}",
+                    "headline": "#{entry.title}",
+                    "dateCreated": "#{date_pub}",
+                    "datePublished": "#{date_pub}",
+                    "dateModified": "#{date_pub}",
+                    "inLanguage": "en-US",
+                    "isFamilyFriendly": "true",
+                    "copyrightYear": "2021",
+                    "copyrightHolder": "#{data.site.author.name}",
+                    "contentLocation": {
+                        "@type": "Place",
+                        "name": "Gresham, Oregon USA"
+                    },
+                    "accountablePerson": {
+                        "@type": "Person",
+                        "name": "#{data.site.author.name}",
+                        "url": "#{data.site.host}"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "#{data.site.author.name}",
+                        "url": "#{data.site.host}"
+                    },
+                    "creator": {
+                        "@type": "Person",
+                        "name": "#{data.site.author.name}",
+                        "url": "#{data.site.host}"
+                    },
+                    "publisher": {
+                        "@type": "Person",
+                        "name": "#{data.site.author.name}",
+                        "url": "#{data.site.host}"
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "#{data.site.host}/#{data.site.favicon}",
+                            "width":"400",
+                            "height":"55"
+                        }
+                    },
+                    "mainEntityOfPage": "True",
+                    "genre":["SEO","JSON-LD"],
+                    "articleSection": "Blog Posts",
+                    "articleBody": "#{entry.summary}"
+                }
+                //             "logo": "#{data.site.host}/images/logo-icon-256.png"

@@ -17,13 +17,15 @@ page_classes: "blog"
     //    --link-hover: var(--color-blue-dark);
     //}
 / - post = locals[:post]
-- set_meta_tags title: "#{post.title} | Blog", full_title: false
-= partial "partials/json-ld", :locals => { :type => "person" }
+- set_meta_tags title: "#{post.title} | Blog", full_title: false, url: current_page_url, description: "#{post.summary}"
+= partial "partials/json-ld", :locals => { :type => "blog", :entry => post }
 - bg_theme = (post.theme.nil? ? nil : "bg-#{post.theme.class_name}")
 - entry_id = post.id
 - this_post = locals[:item]
 - unless post.canonical_source.empty?
     - current_page.data.canonical_source = post.canonical_source
+- else
+    - current_page.data.canonical_source = current_page_url
 
 - sorted_blog_posts = dato.blogs.to_a.sort_by{ | blog_post | blog_post['pub_date'] }.reverse!
 
