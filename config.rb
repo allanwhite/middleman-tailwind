@@ -1,6 +1,6 @@
 Dir['./*/*.rb'].each { |file| load file }
 include FaviconsHelper
-# include SiteHelpers
+include SiteHelpers
 
 activate :autoprefixer do |prefix|
   prefix.browsers = "last 2 versions"
