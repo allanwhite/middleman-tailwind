@@ -88,8 +88,8 @@
                         .gallery-container.mx-auto class=columns
                             - block.gallery.each do | gallery_item |
                                 figure.gallery-item class=(gallery_item.custom_data[:classes].present? ? gallery_item.custom_data[:classes] : nil)
-                                    img.lozad.zoomable.rounded-scale src=gallery_item.url(w: 400, blur: 320, auto: :compress) data-src=gallery_item.url(w: 1400, auto: :compress) data-zoom-src=gallery_item.url(w: 2400, auto: :compress) alt="" width=gallery_item.width height=gallery_item.height /
-                                    img.lozad.zoomable.rounded-scale src=loader_rect data-src=gallery_item.url(w: 1400, auto: :compress) data-zoom-src=gallery_item.url(w: 2400, auto: :compress) alt="" width=gallery_item.width height=gallery_item.height /
+                                    / img.lozad.zoomable.rounded-scale src=gallery_item.url(w: 400, blur: 320, auto: :compress) data-src=gallery_item.url(w: 1400, auto: :compress) data-zoom-src=gallery_item.url(w: 2400, auto: :compress) alt="" width=gallery_item.width height=gallery_item.height /
+                                    img.lozad.zoomable.rounded-scale src=loader_rect data-src=gallery_item.url(w: 1400, auto: :compress) data-zoom-src=gallery_item.url(w: 2400, auto: :compress) alt=(gallery_item.title.present? ? gallery_item.title : nil) width=gallery_item.width height=gallery_item.height /
                                     / - unless gallery_item.nil? && gallery_item.empty?
                                     figcaption class="px-1 py-3 font-sans font-light italic leading-tight line-length" = (gallery_item.title.present? ? gallery_item.title : nil)
                                 / = partial "partials/gallery-picture", :locals => { :the_img => gallery_item, :classes => '' }
