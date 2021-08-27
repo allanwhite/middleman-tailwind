@@ -1,5 +1,5 @@
 - if defined?(type)
-    / - shareimg = data.site.thumbnail
+    - date_pub = entry.pub_date.strftime("%Y-%m-%dT%I:%M%p")
     - case type
         - when "person"
             javascript type='application/ld+json':
@@ -12,14 +12,12 @@
                     "email": "#{data.site.author.email}",
                 }
         - when "blog"
-            - date_pub = entry.pub_date.strftime("%Y-%m-%dT%I:%M%p")
-            - shareimg = entry.cover_image.nil? ? data.site.thumbnail : entry.cover_image.url(w: 600, h: 300, crop: :edges, fit: :crop, auto: :compress)
             javascript type='application/ld+json':
                 {
                     "@context":"http://schema.org",
                     "@type": "BlogPosting",
-                    "image": "#{shareimg}",
-                    "url": "#{current_page_url}",
+                    "image": "http://example.com/images/image.jpg",
+                    "url": "#{entry.cover_image.url(w: 600, h: 300, crop: :edges, fit: :crop, auto: :compress)}",
                     "headline": "#{entry.title}",
                     "dateCreated": "#{date_pub}",
                     "datePublished": "#{date_pub}",
