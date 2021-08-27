@@ -23,6 +23,7 @@ scss:
         }
     }
 
+
 section#top.relative.overflow-hidden.flex.flex-col.min-h-66.w-full.bg-orange.justify-center.items-center.z--10.lozad.bg-no-repeat.bg-cover data-background-image="/images/work/moodboard-2-angle-preload.svg"
     header.z-10.pad-y-xl.bg-blur.rounded class="md:rounded-lg md:mb-16 lg:mb-20"
         .flex class="flex-col justify-center items-center md:flex-row md:items-start md:justify-start"
@@ -45,11 +46,14 @@ main.bg-gray-100.pad.z-20.relative
         .max-w-6xl.flex.flex-col.justify-start.items-center.mx-auto class="md:flex-row lg:p-8"
             .w-full class="lg:w-1/2"
                 // h2.headline-3.theme-alt class="" About
-                img.rounded-full.lozad.mb-4.float-right.ml-3 src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
-                p class="text-lg lg:text-2xl lg:leading-normal font-sans font-normal mb-3" style="max-width: 50em;" 
-                    | I'm an interdisciplinary designer and developer with 25 years of experience, living near Portland, Oregon. I've solved business problems in organizations of all sizes through communication design, branding, video, event design, product & user experience design, and web development.
-                p class="text-lg lg:text-2xl lg:leading-normal font-sans font-normal mb-6" style="max-width: 50em;" 
-                    | Currently, I am an Enterprise Solutions Engineer for <a href="https://contentful.com/" title="Contentful, Gmbh">Contentful</a>. 
+                - unless dato.home.intro_text.empty?
+                    img.rounded-full.lozad.mb-4.float-right.ml-3 src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
+                    div class="intro markdown line-length mb-16 lg:mb-3" style="max-width: 50em;"
+                        = Kramdown::Document.new(dato.home.intro_text).to_html 
+                / p class="text-lg lg:text-2xl lg:leading-normal font-sans font-normal mb-3" style="max-width: 50em;" 
+                /     | I'm an interdisciplinary designer and developer with 25 years of experience, living near Portland, Oregon. I've solved business problems in organizations of all sizes through communication design, branding, video, event design, product & user experience design, and web development.
+                / p class="text-lg lg:text-2xl lg:leading-normal font-sans font-normal mb-6" style="max-width: 50em;" 
+                /     | Currently, I am an Enterprise Solutions Engineer for <a href="https://contentful.com/" title="Contentful, Gmbh">Contentful</a>. 
             .w-full class="lg:w-1/2 md:pl-12 lg:pl-20"
                 div class="text-lg font-bold subhead text-gray-500" Recent
                 h2.headline-3.pb-6 class="lg:pb-8" Writing

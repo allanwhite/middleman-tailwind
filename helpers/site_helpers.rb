@@ -101,9 +101,9 @@ module SiteHelpers
     #     '<svg class="icon icon-size--small" width="27" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 32"><use xlink:href="/public/icons/util-icons-sprite.svg#icon-tag"></use></svg>'
     # end
     #  # super tiny images to use as src preloaders while lozad loads main image
-    # def loader_rect
-    #     "https://images.ctfassets.net/189dvqdsjh46/60M3sIMdt8dyJUuX1a5oJw/ce77d30769d913103fcf480dee9df865/loader-rect.png"
-    # end
+    def loader_rect
+        "/images/loader-rect.svg"
+    end
     # def loader_square
     #     "https://images.ctfassets.net/189dvqdsjh46/10BSgwANXD4R7OKMT1j20G/3ba1fd760173695d4e4fb9ec4199fab9/loader-square.png"
     # end
