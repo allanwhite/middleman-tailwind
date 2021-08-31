@@ -48,12 +48,11 @@ main.bg-gray-100.pad.z-20.relative
                 // h2.headline-3.theme-alt class="" About
                 - unless dato.home.intro_text.empty?
                     img.rounded-full.lozad.mb-4.float-right.ml-3 src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
-                    div class="intro markdown line-length mb-16 lg:mb-3" style="max-width: 50em;"
+                    div class="intro markdown line-length mb-16 lg:mb-8" style="max-width: 50em;"
                         = Kramdown::Document.new(dato.home.intro_text).to_html 
-                / p class="text-lg lg:text-2xl lg:leading-normal font-sans font-normal mb-3" style="max-width: 50em;" 
-                /     | I'm an interdisciplinary designer and developer with 25 years of experience, living near Portland, Oregon. I've solved business problems in organizations of all sizes through communication design, branding, video, event design, product & user experience design, and web development.
-                / p class="text-lg lg:text-2xl lg:leading-normal font-sans font-normal mb-6" style="max-width: 50em;" 
-                /     | Currently, I am an Enterprise Solutions Engineer for <a href="https://contentful.com/" title="Contentful, Gmbh">Contentful</a>. 
+                a.button.anim-in.text-sm class="mr-0 md:mr-6" style="transition-delay: 1.5s; " title="Contact me or schedule a meeting" href="#contact"
+                    | Contact me
+                    = inline_svg "icon-chevron-down.svg", class: "icon-inline ml-1" 
             .w-full class="lg:w-1/2 md:pl-12 lg:pl-20"
                 div class="text-lg font-bold subhead text-gray-500" Recent
                 h2.headline-3.pb-6 class="lg:pb-8" Writing
@@ -70,9 +69,7 @@ main.bg-gray-100.pad.z-20.relative
                         a href="/blog/" title="Back to the blog list"
                             | More Writing
                             = inline_svg "icon-chevron-right.svg", class: "icon-inline ml-1 text-sm" 
-                / a.button.anim-in.text-sm class="mr-0 md:mr-6" style="transition-delay: 0.2s; " title="More Blog" href="/blog"
-                    | Read more
-                    = inline_svg "icon-chevron-right.svg", class: "icon-inline ml-1" 
+
 
     section#recent.w-full.mb-scale
         .max-w-6xl.mx-auto.mb-8
