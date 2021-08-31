@@ -15,7 +15,7 @@ geocoding:
 author:
   name: 'R. Allan White'
   email: 'hello@allanwhite.design'
-  phone: '+1.503.799.2217'
+  phone: '+1.971.220.5976'
   website: 'https://allanwhite.design'
   role: 'Designer & Developer'
   # Available social media tags: bitbucket dribbble facebook github gitlab instagram linkedin medium twitter
@@ -29,7 +29,7 @@ img:
 
 contact:
   -
-    label: "503.799.2217"
+    label: "971.220.5976"
     action: "Call Allan"
     url: "tel:+15037992217"
     icon: icon-phone.svg

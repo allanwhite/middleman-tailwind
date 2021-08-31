@@ -66,9 +66,9 @@ main.bg-gray-100.pad.z-20.relative
                                 h3.text-xl.font-book.font-medium.leading-tight.mb-0 class="md:leading-snug md:text-xl" = blog.title
                             / p.text-sm.font-sans.font-light class="md:leading-snug md:text-lg" = (blog.subheader.nil? ? nil : blog.subheader)
 
-                / a.button.anim-in.text-sm class="mr-0 md:mr-6" style="transition-delay: 0.2s;" title="Email Allan" href="#contact"
-                    | Let's talk
-                    = inline_svg "icon-chevron-down.svg", class: "icon-inline ml-1" 
+                a.button.anim-in.text-sm class="mr-0 md:mr-6" style="transition-delay: 0.2s; " title="More Blog" href="/blog"
+                    | Read more
+                    = inline_svg "icon-chevron-right.svg", class: "icon-inline ml-1" 
 
     section#recent.w-full.mb-scale
         .max-w-6xl.mx-auto.mb-8

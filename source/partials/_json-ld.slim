@@ -1,5 +1,4 @@
 - if defined?(type)
-    - date_pub = entry.pub_date.strftime("%Y-%m-%dT%I:%M%p")
     - case type
         - when "person"
             javascript type='application/ld+json':
@@ -9,14 +8,14 @@
                     "name": "#{data.site.author.name}",
                     "jobTitle": "#{data.site.author.role}",
                     "url": "#{data.site.author.website}",
-                    "email": "#{data.site.author.email}",
                 }
+            // "email": "#{data.site.author.email}",
         - when "blog"
+            - date_pub = entry.pub_date.strftime("%Y-%m-%dT%I:%M%p")
             javascript type='application/ld+json':
                 {
                     "@context":"http://schema.org",
                     "@type": "BlogPosting",
-                    "image": "http://example.com/images/image.jpg",
                     "url": "#{entry.cover_image.url(w: 600, h: 300, crop: :edges, fit: :crop, auto: :compress)}",
                     "headline": "#{entry.title}",
                     "dateCreated": "#{date_pub}",
@@ -62,3 +61,4 @@
                     "articleBody": "#{entry.summary}"
                 }
                 //             "logo": "#{data.site.host}/images/logo-icon-256.png"
+                //             "image": "http://example.com/images/image.jpg",
