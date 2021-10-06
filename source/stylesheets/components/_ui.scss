@@ -85,8 +85,9 @@ a.card-hover {
             .cta {
                 color: var(--color-orange);
             }
-            .card-meta {
+            .card-meta, .card-opacity-target {
                 opacity: 1;
+                transition: all $speed * 2 linear;
             }
         }    
     }
@@ -116,6 +117,7 @@ details {
     }
 }
 .pill {
+    transition: all $speed * 2 linear;
     @apply font-cond text-xs py-1 px-2 inline-block mb-2 leading-tight uppercase tracking-widest border;
     color: var(--text-color);
     &:hover {
