@@ -14,14 +14,17 @@ a.card-hover.project-card.project-card-full.p-0.bg-white.overflow-hidden class="
             - if post.tags.present?
                 .card-meta.mt-3.mx-3.absolute.right-0
                     - post.tags[0...3].each do | post_tag |
-                        span.pill.mr-2.text-xs.opacity-100 = post_tag.title 
+                        span.pill.mr-2.text-xs.opacity-100.bg-blur = post_tag.title 
             img.feature-image.lozad class="object-cover w-full h-64" src=post.cover_image.url(w: 640, blur:200, auto: :compress) data-src=post.cover_image.url(w: 800, auto: :compress) alt=post.title
         div class="p-6 self-stretch"
-            h4.mb-1.text-sm.font-bold = post.pub_date.strftime('%B %-d, %Y')
+            h4.mb-2.text-sm
+                span.font-bold
+                    = post.pub_date.strftime('%B %-d, %Y')
+                - if external == true
+                    span.font-book.font-medium.leading-tight.mb-0.italic
+                        span.px-2 •
+                        = post.publication
+                        = inline_svg "icon-link-external.svg", class: "icon-inline ml-1 fill-current opacity-0 card-opacity-target" 
+
             h3.text-xl.font-book.font-medium.leading-tight.mb-2 class="md:leading-snug md:text-xl" = post.title
             .text-sm.font-sans.font-light class="md:leading-snug md:text-lg" = (post.subheader.nil? ? nil : post.subheader)
-            - if external == true
-                h4.text-lg.font-sans.font-regular
-                    | Read at 
-                    = post.publication
-                    = inline_svg "icon-link-external.svg", class: "icon-inline ml-1 fill-current" 
