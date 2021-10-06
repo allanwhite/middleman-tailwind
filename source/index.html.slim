@@ -48,9 +48,9 @@ main.bg-gray-100.pad.z-20.relative
                 // h2.headline-3.theme-alt class="" About
                 - unless dato.home.intro_text.empty?
                     img.rounded-full.lozad.mb-4.float-right.ml-3 src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
-                    div class="intro markdown line-length mb-16 lg:mb-8" style="max-width: 50em;"
+                    div class="intro markdown line-length mb-4 lg:mb-8" style="max-width: 50em;"
                         = Kramdown::Document.new(dato.home.intro_text).to_html 
-                a.button.anim-in.text-sm class="mr-0 md:mr-6" style="transition-delay: 1.5s; " title="Contact me or schedule a meeting" href="#contact"
+                a.button.anim-in.text-sm.mb-16 class="mr-0 md:mr-6 md:mb-1" style="transition-delay: 1.5s; " title="Contact me or schedule a meeting" href="#contact"
                     | Contact me
                     = inline_svg "icon-chevron-down.svg", class: "icon-inline ml-1" 
             .w-full class="lg:w-1/2 md:pl-12 lg:pl-20"
