@@ -9,6 +9,7 @@
 
 - sorted_posts = dato.blogs.to_a.sort_by{ | post | post['pub_date'] }.reverse!
 - sorted_links = dato.links.to_a.sort_by{ | item | item['pub_date'] }.reverse!
+- sorted_readings = dato.readings.to_a.sort_by{ | item | item['pub_date'] }.reverse!
 
 scss:
     html {
@@ -23,7 +24,24 @@ scss:
             //.image-tinted {opacity: 0; transition-delay: 0.3s;}
         }
     }
-
+    .project-card {
+        //&:nth-child(1) {
+        //    grid-column: 1 / span 2;
+        //}
+        @media screen and (min-width: 768px) {
+            &:nth-child(2) {
+                grid-column: 1 / span 2;
+                .card-title {
+                    h3 {
+                        font-size: 150%;
+                        font-weight: bolder;
+                    }
+                }
+                //grid-row: 1 / span 2;
+            }
+            // .card-hover
+        }
+    }
 main.relative.w-full.pad class="bg-gray-100" id="top"
     / - post = locals[:item]
     header.masthead.pad-longform.pad-y-xl class="" style="padding-bottom: 1rem;"
@@ -39,15 +57,35 @@ main.relative.w-full.pad class="bg-gray-100" id="top"
     /     .max-w-6xl.mx-auto.mb-8
     /         div class="text-lg font-bold subhead md:ml-8 text-gray-500" Recent
     /         h2.headline-3.mb-8 class="md:ml-6" Blog
-    .grid-container.max-w-7xl.mx-auto
-        - sorted_posts.each do | blog |
+    section.grid-container.max-w-7xl.mx-auto id="blog"
+        - sorted_posts[0, 1].each do | blog |
             = partial "partials/card-post", :locals => { :post => blog }
-        .project-card.project-card-full.bg-blue.italic.rounded-lg.overflow-hidden.flex.flex-col.justify-center.text-center
-            h3.text-4xl.font-book.font-light.text-white Elsewhere
+        .project-card.project-card-full.rounded-lg.overflow-hidden.flex.flex-col class="justify-center lg:justify-end xl:col-start-3 xxl:col-start-4"
+            //.project-card.overflow-hidden.flex.flex-col.justify-center.text-center
+            h3.text-2xl.font-cond.text-xl.leading-tight.uppercase.tracking-widest.mb-6.opacity-75 Quick takes
+            ul.no-bullet
+                - sorted_readings[0...5].each do | reading |
+                    li.mb-4
+                        //(blog.subheader.nil? ? blog.title : blog.subheader)
+                        //= partial "partials/card-post", :locals => { :post => blog }
+                        h4.text-regular.font-serif.font-medium.leading-tight.mb-1
+                            = reading.title
+                            span.pl-2.font-bold.font-sans.text-sm.opacity-50 = reading.pub_date.strftime('%e %b')
+                        .text-sm.font-sans.font-light = (reading.summary.nil? ? nil : reading.summary)
+                        / p.text-sm.font-sans.font-light class="md:leading-snug md:text-lg" = (blog.subheader.nil? ? nil : blog.subheader)
+        - sorted_posts[2, 20].each do | blog |
+            = partial "partials/card-post", :locals => { :post => blog }
+    section.text-center.pad-y-xl id="elsewhere"
+        h3.text-4xl.font-book.font-light.italic Elsewhere
+        p.text-regular.font-sans.font-regular.text-center Writing • Publishing • Speaking
+    section.grid-container.max-w-7xl.mx-auto
         - sorted_links.each do | link |
             = partial "partials/card-post", :locals => { :post => link, :external => true }
         
-
+    section.cta-section.mx-auto.text-center.pad
+        / = partial "partials/cta", :locals => { :current_entry => post.id }
+        h3.text-3xl-scale.font-serif.font-bold.italic.anim-in 
+            a style="transition-delay: 0.5s;" href="/#recent" title="View recent work" Read some case studies. 
 
     footer.relative.w-full.pad
         = partial "partials/footer-links"

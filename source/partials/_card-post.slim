@@ -16,7 +16,7 @@ a.card-hover.project-card.project-card-full.p-0.bg-white.overflow-hidden class="
                     - post.tags[0...3].each do | post_tag |
                         span.pill.mr-2.text-xs.opacity-100.bg-blur = post_tag.title 
             img.feature-image.lozad class="object-cover w-full h-64" src=post.cover_image.url(w: 640, blur:200, auto: :compress) data-src=post.cover_image.url(w: 800, auto: :compress) alt=post.title
-        div class="p-6 self-stretch"
+        section class="card-title p-6 self-stretch"
             h4.mb-2.text-sm
                 span.font-bold
                     = post.pub_date.strftime('%B %-d, %Y')
