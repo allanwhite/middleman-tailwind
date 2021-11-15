@@ -1,0 +1,21 @@
+- title_guts = capture do
+    h4
+        - case item.category
+            - when "Reading"
+                = inline_svg "icon-book.svg", class: "icon-inline fill-current opacity-50" 
+            - when "Listening"
+                = inline_svg "icon-headphones.svg", class: "icon-inline fill-current opacity-50" 
+            - when "Thoughts"
+                //= inline_svg "icon-bulb.svg", class: "icon-inline fill-current opacity-50"
+        span.text-regular.font-serif.font-medium.leading-tight.mb-1
+            = item.title
+            span.pl-2.font-sans.text-xs = item.pub_date.strftime('%e %b')
+
+- if item.publication.present?
+    a href=item.publication title="Read '#{item.title}' in a new window" target="_blank"
+        = title_guts
+    .text-sm.font-sans.font-light = (item.summary.nil? ? nil : item.summary)
+
+- else 
+    = title_guts
+    .text-sm.font-sans.font-light = (item.summary.nil? ? nil : item.summary)
