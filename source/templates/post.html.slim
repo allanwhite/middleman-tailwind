@@ -46,13 +46,15 @@ main.relative.w-full.pb-16 class=bg_theme id="top"
             / h3.text-xl.font-bold.subhead.separator-arrow Case Studies
             h1.text-3xl-scale.font-regular.font-serif.leading-tight.mb-2 class="xl:mb-2" = post.title
             h2.text-xl.font-serif.font-light.leading-tight.mb-8 class="lg:text-2xl" = (post.subheader.nil? ? nil : post.subheader )
-            h4.flex.flex-row.mb-4
-                span.mr-6.text-xl.font-medium = post.pub_date.strftime('%B %-d, %Y')
+            / aside class="w-full lg:w-1/3 xl:w-2/5 lg:pr-8 xl:pr-16"                    
+
+        .max-w-7xl.mx-auto.flex.flex-col class="lg:flex-row"
+            div class="w-full lg:w-1/3 xl:w-2/5 md:w-auto md:pr-8 xl:pr-16"
+                h4.mb-3.mr-6.text-xl.font-medium = post.pub_date.strftime('%B %-d, %Y')
                 - unless post.tags.nil?
-                    ul.inline-list.inline-block
+                    ul.inline-list.block.mb-3
                         - post.tags.each do | tag |
                             li.pill.mr-2.mb-0.opacity-75 = tag.title 
-            aside class="w-full lg:w-1/3 xl:w-2/5 lg:pr-8 xl:pr-16"                    
                 details.toc.hidden class="lg:block"
                     summary.toc-title.text-xl.font-sans.font-base.mb-4.tracking-wide Table of Contents
                     ul.ml-5.toc-list.text-sm
@@ -72,15 +74,12 @@ main.relative.w-full.pb-16 class=bg_theme id="top"
                             source src=post.audio.url type="audio/mpeg"
                             | Your browser does not support the audio element.
 
-        .max-w-7xl.mx-auto.flex.flex-col class="lg:flex-row lg:flex-row-reverse"
-            / div class="w-full lg:w-1/3 xl:w-2/5 md:w-auto md:pr-8 xl:pr-16"
-
             div class="w-full lg:w-2/3 xl:w-3/5"
                 - unless post.intro.empty?
                     .lead.markdown.pr-0 class="mb-8 lg:pr-6"
                         = Kramdown::Document.new(post.intro).to_html
                 figure.rounded-lg.overflow-hidden.mb-6
-                    img.feature-image.lozad.object-fit class="w-auto" src=post.cover_image.url(w: 480, h: 320, blur:200, auto: :compress) data-src=post.cover_image.url(w: 960, h: 640, crop: :focalpoint, fit: :crop, auto: :compress) alt=post.title
+                    img.feature-image.lozad.object-fit class="w-auto" src=post.cover_image.url(w: 480, h: 320, blur:200, auto: :compress) data-src=post.cover_image.url(w: 960, h: 640, crop: :focalpoint, fit: :crop, auto: :compress) alt = (post.cover_image.alt.nil? ? post.title : post.cover_image.alt)
 
     //- mobile version
     details#articleToc.toc.sticky.top-0.left-0.bg-blur-light.pt-3.px-2.pb-1.z-20.shadow-lg.outline-none class="lg:hidden"
