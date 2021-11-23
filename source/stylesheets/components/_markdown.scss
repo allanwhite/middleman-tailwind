@@ -6,16 +6,16 @@
             @screen lg {
                 @apply text-xl;
             }
-
         }
     }
     &.intro {
         p, ul, ol, li, dd, dt {
             @apply text-xl mb-4 font-normal;
             line-height: 1.6; // leading-snug not coming thru for some reason
-            @screen lg {
-                @apply text-2xl;
-            }
+            // @screen lg {
+            //     @apply text-2xl;
+            // }
+            font-size: 110%;
 
         }
     }
