@@ -18,18 +18,18 @@
             @apply font-light;
         }
         blockquote { // having issues with @apply here, not sure why. This rule getting skipped on build, postcss issue maybe.
-            // @apply py-4;
-            padding: 2rem 0;
+            @apply py-4;
+            // padding: 2rem 0;
             p {
-                // @apply pl-6 border-l-4 italic border-gray-500;
-                padding-left: 1.5rem;
-                font-style: italic;
-                border-left-width: 2px;
+                @apply pl-6 border-l-4 italic border-gray-500;
+                // padding-left: 1.5rem;
+                // font-style: italic;
+                // border-left-width: 2px;
                 border-color: var(--accent-color);
             }
             & + blockquote {
-                padding: 0 inherit;
-                // @apply py-0;
+                // padding: 0 inherit;
+                @apply py-0;
             }
         }
     }

@@ -22,7 +22,7 @@ const PROD_PLUGINS = [
       __dirname + '/../source/**/*.erb',
       __dirname + '/../source/**/*.slim'
     ],
-    whitelist: ['animated', 'active', 'loaded'],
+    whitelist: ['animated', 'active', 'loaded', 'blockquote'],
     whitelistPatterns: [/^bg-/, /^text-/, /^medium-zoom-/],
     // whitelistPatternsChildren: [/^bg-/],
     extractors: [{
