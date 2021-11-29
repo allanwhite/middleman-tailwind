@@ -41,6 +41,7 @@ a, a:link {
     --text-color-alt: var(--color-blue-dark);
     --link-color: var(--color-white);
     --link-hover: var(--color-aqua-light);
+    --accent-color: var(--link-hover);
     color: var(--text-color);
     .theme-alt {
         color: var(--color-white);
@@ -52,6 +53,7 @@ a, a:link {
     --text-color-alt: var(--color-orange);
     --link-color: var(--color-orange);
     --link-hover: var(--color-orange-light);
+    --accent-color: var(--color-aqua);
     color: var(--text-color);
     .theme-alt {
         color: var(--color-white);
@@ -68,11 +70,13 @@ a, a:link {
     --bg: var(--color-blue);
     // --link-color: var(--color-aqua);
     // --link-hover: var(--color-aqua-light);
+    --accent-color: var(--color-aqua);
 }
 .bg-blue-dark {
     --bg: var(--color-blue-dark);
     // --link-color: var(--color-aqua);
     // --link-hover: var(--color-aqua-light);
+    --accent-color: var(--color-aqua);
 }
 .bg-white, .bg-gray-100, .bg-gray-200, .bg-gray-300, .bg-gray-400, .bg-tan, .bg-aqua-pale {
     --bg: var(--color-white);
@@ -81,6 +85,7 @@ a, a:link {
     --text-color-alt: var(--color-orange);
     --link-color: var(--color-orange);
     --link-hover: var(--color-orange-dark);
+    --accent-color: var(--color-aqua-dark);
     color: var(--text-color);
     .theme-alt {
         color: var(--text-color-alt);
