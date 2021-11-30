@@ -100,9 +100,14 @@ main.bg-gray-100.pad.z-20.relative
             h2.headline-3.mb-8 class="md:ml-6" Writing & Presenting
         .grid-container
             - sorted_links = dato.links.to_a.sort_by{ | item | item['pub_date'] }.reverse!
-            - sorted_links[0...5].each do | link |
+            / - sorted_links[0...5].each do | link |
                 = partial "partials/card-post", :locals => { :post => link, :external => true }
             / h3.text-4xl.font-book.font-light.text-white Elsewhere
+
+            - sorted_links[0, 1].each do | link |
+                = partial "partials/card-post-featured", :locals => { :post => link, :external => true, :classes => "col-span-1 md:col-span-2" }
+            - sorted_links[1, 5].each do | link |
+                = partial "partials/card-post", :locals => { :post => link, :external => true }
 
 footer#contact.relative.w-full.bg-orange.z-0.pad
     .max-w-6xl.flex.justify-start.mx-auto
