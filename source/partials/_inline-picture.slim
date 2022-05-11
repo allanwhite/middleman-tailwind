@@ -26,12 +26,12 @@ figure class=(defined?(classes) ? classes : nil)
         p = the_img.custom_data["style"]
     / p = classes
     // https://apoorv.pro/lozad.js/#example-with-picture-tag
-    picture.lozad.zoomable.rounded-scale.overflow-hidden data-alt=img_alt data-iesrc=the_img.url(w: 800, h: 600, fm: :jpg) style=("display: block; min-height: 1rem") width=the_img.width height=the_img.height 
-        source media="(min-width: 1438px)" srcset=the_img.url(w: 2400, fm: :jpg)
-        source media="(min-width: 1200px)" srcset=the_img.url(w: 1600, fm: :jpg)
-        source media="(min-width: 992px)"  srcset=the_img.url(w: 1200, fm: :jpg)
-        source media="(min-width: 576px)"  srcset=the_img.url(w: 800, fm: :jpg)
-        source media="(min-width: 320px)"  srcset=the_img.url(w: 640, fm: :jpg)
+    picture.lozad.zoomable.rounded-scale.overflow-hidden data-alt=img_alt data-iesrc=the_img.url(w: 800, h: 600, fm: :webp) style=("display: block; min-height: 1rem") width=the_img.width height=the_img.height 
+        source media="(min-width: 1438px)" srcset=the_img.url(w: 2400, fm: :webp)
+        source media="(min-width: 1200px)" srcset=the_img.url(w: 1600, fm: :webp)
+        source media="(min-width: 992px)"  srcset=the_img.url(w: 1200, fm: :webp)
+        source media="(min-width: 576px)"  srcset=the_img.url(w: 800, fm: :webp)
+        source media="(min-width: 320px)"  srcset=the_img.url(w: 640, fm: :webp)
         / noscript
-        /     img src=the_img.url(w: 800, fm: :jpg) alt=img_alt
+        /     img src=the_img.url(w: 800, fm: :webp) alt=img_alt
 

@@ -33,7 +33,7 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "tailwind-css-variables": "^2.0.3",
-    "tailwindcss": "^1.0",
+    "tailwindcss": "^1.9",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3"
   },
