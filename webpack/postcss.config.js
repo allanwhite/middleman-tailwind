@@ -22,8 +22,8 @@ const PROD_PLUGINS = [
       __dirname + '/../source/**/*.erb',
       __dirname + '/../source/**/*.slim'
     ],
-    whitelist: ['animated', 'active', 'loaded', 'blockquote'],
-    whitelistPatterns: [/^bg-/, /^text-/, /^medium-zoom-/],
+    whitelist: ['animated', 'active', 'loaded', 'blockquote', 'inline-float'],
+    whitelistPatterns: [/^bg-/, /^text-/, /^medium-zoom-/, /^float-/],
     // whitelistPatternsChildren: [/^bg-/],
     extractors: [{
       extractor: TailwindExtractor,

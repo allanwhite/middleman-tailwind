@@ -2,7 +2,7 @@
 .blog {
     .markdown {
         p, ol, li, dd, dt {
-            @apply text-lg mb-3 font-book font-light;
+            @apply text-lg mb-3 font-book font-normal;
             line-height: 1.8; // leading-snug not coming thru for some reason
             @screen lg {
                 @apply text-xl;
@@ -11,11 +11,14 @@
         ul {
             @apply mb-8
         }
+        ul li {
+            line-height: 1.5;
+        }
         p {
             @apply mb-6;
         }
         .aside p {
-            @apply font-light;
+            @apply font-normal;
         }
         blockquote { // having issues with @apply here, not sure why. This rule getting skipped on build, postcss issue maybe.
             @apply py-4;
@@ -30,6 +33,15 @@
             & + blockquote {
                 // padding: 0 inherit;
                 @apply py-0;
+            }
+        }
+        .inline-float {
+            @apply mb-8 w-auto block rounded-md;
+            @screen lg {
+                @apply float-right inline w-1/4 ml-6 mb-0;
+            }
+            @screen xl {
+                @apply w-1/3;
             }
         }
     }

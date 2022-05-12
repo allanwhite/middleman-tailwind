@@ -1,6 +1,7 @@
 
 body {
     color: var(--text-color);
+    background-color: var(--bg);
 }
 a, a:link {
     // text-decoration: unset;
@@ -34,6 +35,23 @@ a, a:link {
     }
 }
 
+.bg-aqua-pale {--bg: var(--color-aqua-pale);}
+.bg-black {--bg: var(--color-black);}
+.bg-blue {--bg: var(--color-blue);}
+.bg-blue-dark {--bg: var(--color-blue-dark);}
+.bg-gray-100 {--bg: var(--color-gray-100);}
+.bg-gray-200 {--bg: var(--color-gray-200);}
+.bg-gray-300 {--bg: var(--color-gray-300);}
+.bg-gray-400 {--bg: var(--color-gray-400);}
+.bg-gray-500 {--bg: var(--color-gray-500);}
+.bg-gray-600 {--bg: var(--color-gray-600);}
+.bg-gray-700 {--bg: var(--color-gray-700);}
+.bg-gray-800 {--bg: var(--color-gray-800);}
+.bg-gray-900 {--bg: var(--color-gray-900);}
+.bg-orange {--bg: var(--color-orange);}
+.bg-tan {--bg: var(--color-tan);}
+.bg-white {--bg: var(--color-white);}
+
 .bg-orange {
     --bg: var(--color-orange);
     --bg-active: var(--color-orange-light);
@@ -47,6 +65,7 @@ a, a:link {
         color: var(--color-white);
     }    
 }
+// dark bgs
 .bg-blue, .bg-blue-dark, .bg-gray-500, .bg-gray-600, .bg-gray-700, .bg-gray-800, .bg-gray-900, .bg-black {
     --bg-active: var(--black-a);
     --text-color: var(--color-white);
@@ -78,8 +97,10 @@ a, a:link {
     // --link-hover: var(--color-aqua-light);
     --accent-color: var(--color-aqua);
 }
+
+// light bg colors
 .bg-white, .bg-gray-100, .bg-gray-200, .bg-gray-300, .bg-gray-400, .bg-tan, .bg-aqua-pale {
-    --bg: var(--color-white);
+    // --bg: var(--color-white);
     --bg-active: var(--white-a);
     --text-color: var(--color-blue);
     --text-color-alt: var(--color-orange);
@@ -107,6 +128,9 @@ a, a:link {
     a {
         border-color: var(--text-color-alt);
     }
+}
+.bg-tan, .bg-white {
+    --link-color: var(--color-orange);
 }
 *[class^="bg-"] {
     color: var(--text-color);

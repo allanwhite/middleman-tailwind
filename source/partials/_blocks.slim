@@ -10,7 +10,7 @@
                 - when "centered"
                     .w-full.mx-auto class="xl:max-w-4xl"
                         - unless block.block_title.empty?
-                            h3.text-2xl-scale.font-sans.font-medium.leading-tight.mb-8.mt-4 = block.block_title
+                            h3.text-2xl-scale.font-sans.font-bold.leading-tight.mb-8.mt-4 = block.block_title
                             - unless block.aside.empty?
                                 .aside.markdown.italic.font-normal = Kramdown::Document.new(block.aside).to_html
                             - unless block.block_image.nil?
@@ -21,7 +21,7 @@
                     - unless block.block_title.empty?
                         .flex.justify-end.mt-12
                             div class="self-end w-full md:w-2/3 lg:w-2/3 xl:w-3/5"
-                                h3.text-2xl-scale.font-sans.font-medium.leading-tight.mb-3.mt-4 class="lg:mb-8" = block.block_title
+                                h3.text-2xl-scale.font-sans.font-bold.leading-tight.mb-3.mt-4 class="lg:mb-8" = block.block_title
 
                     .flex-col.flex class="md:flex-row"
                         aside class="w-full md:w-1/3 lg:w-1/3 xl:w-2/5 md:pr-8 lg:pr-12 xl:pr-16"
@@ -49,14 +49,14 @@
                         - unless block.caption.nil?
                             figcaption class="mt-12 max-w-3xl mt-0 mb-4 mx-auto"
                                 - unless block.block_title.empty?
-                                    h3.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
+                                    h3.text-3xl.font-sans.font-bold.leading-tight.mb-3 = block.block_title
                                 .markdown
                                     = Kramdown::Document.new(block.caption).to_html
                 - else
                     figure class="flex flex-col xxl:flex-row xxl:items-center xxl:justify-between"
                         figcaption class="mt-12 xxl:w-1/3 xxl:pr-6 mt-0 mb-4"
                             - unless block.block_title.empty?
-                                h3.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
+                                h3.text-3xl.font-sans.font-bold.leading-tight.mb-3 = block.block_title
                             .markdown.line-length
                                 = Kramdown::Document.new(block.caption).to_html
                         = partial "partials/inline-picture", :locals => { :the_img => block.image, :classes => 'xxl:w-2/3' }
@@ -67,7 +67,7 @@
                 - unless block.block_title.empty?
                     .w-full class="md:w-1/2 lg:w-1/3"
                         .sticky.sticky-desc class="md:pr-4 lg:pr-8"
-                            h3.text-3xl-scale.font-sans.font-medium.leading-tight.mb-3 class="lg:mb-8" = block.block_title
+                            h3.text-3xl-scale.font-sans.font-bold.leading-tight.mb-3 class="lg:mb-8" = block.block_title
                             - unless block.desc.empty?
                                 .lead.font-sans.font-light.mb-3.pr-3.pb-2.markdown = Kramdown::Document.new(block.desc).to_html
                 .w-full class="md:w-1/2 lg:w-2/3"
@@ -106,14 +106,14 @@
                 .mx-auto.max-w-5xl.flex.justify-center.items-center class="flex-col lg:flex-row"
                     .w-full.mb-4.pb-2 class="lg:w-1/2 lg:pr-12"
                         - unless block.block_title.empty?
-                            h3.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
+                            h3.text-3xl.font-sans.font-bold.leading-tight.mb-3 = block.block_title
                         .markdown.lead.font-light = Kramdown::Document.new(block.block_body).to_html
                     .w-full.mb-4 class="lg:w-1/2"
                         = partial "partials/inline-picture", :locals => { :the_img => block.inline_image, :classes => '' }
             - else
                 .mx-auto.max-w-2xl
                     - unless block.block_title.empty?
-                        h3.text-3xl.font-sans.font-medium.leading-tight.mb-3 = block.block_title
+                        h3.text-3xl.font-sans.font-bold.leading-tight.mb-3 = block.block_title
                     .markdown.lead = Kramdown::Document.new(block.block_body).to_html
     - when "video_block"
         section.content-block.block-video.relative.w-full.pad class=(block.theme.nil? ? nil : "bg-#{block.theme.class_name}") id=block.id
@@ -121,7 +121,7 @@
                 - if block.block_title.present? || block.video_caption.present?
                     .w-full.mb-4 class="lg:w-1/3 lg:pr-8"
                         - unless block.block_title.empty?
-                            h3.text-2xl.font-sans.font-medium.leading-tight.mb-2 = block.block_title
+                            h3.text-2xl.font-sans.font-bold.leading-tight.mb-2 = block.block_title
                         - unless block.video_caption.empty?
                             .markdown.lead.max-w-xl.font-light = Kramdown::Document.new(block.video_caption).to_html
                 .w-full.mb-4 class="lg:w-2/3"

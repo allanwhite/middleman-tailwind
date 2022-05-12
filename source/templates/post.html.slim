@@ -5,21 +5,10 @@ page_classes: "blog"
 # custom_css: "blog.css"
 ---
 
-//scss:
-    :root {
-       --bg: var(--bg);
-    }
-    .masthead, footer {
-        background-color: var(--bg);
-    }
-    //footer a {
-    //    --link-color: var(--color-blue);
-    //    --link-hover: var(--color-blue-dark);
-    //}
-/ - post = locals[:post]
 - set_meta_tags title: "#{post.title} | Blog", full_title: false, url: current_page_url, description: "#{post.summary}"
 = partial "partials/json-ld", :locals => { :type => "blog", :entry => post }
 - bg_theme = (post.theme.nil? ? nil : "bg-#{post.theme.class_name}")
+/ - page_classes = 'blog foo ' + bg_theme
 - entry_id = post.id
 - this_post = locals[:item]
 - unless post.canonical_source.empty?
@@ -28,6 +17,15 @@ page_classes: "blog"
     - current_page.data.canonical_source = current_page_url
 
 - sorted_blog_posts = dato.blogs.to_a.sort_by{ | blog_post | blog_post['pub_date'] }.reverse!
+
+- unless post.theme.nil?
+    <style>:root { --bg: var(--color-#{post.theme.class_name}); }</style>
+
+    //scss:
+    //    :root {
+    //        --bg: var(--bg);
+    //        
+    //    }
 
 - content_for(:head) do
     = dato_meta_tags(post)
@@ -45,7 +43,7 @@ main.relative.w-full.pb-16 class=bg_theme id="top"
                 a.subhead.text-lg.mr-4 href="/blog" title="Blog" Blog
             / h3.text-xl.font-bold.subhead.separator-arrow Case Studies
             h1.text-3xl-scale.font-regular.font-serif.leading-tight.mb-2 class="xl:mb-2" = post.title
-            h2.text-xl.font-serif.font-light.leading-tight.mb-8 class="lg:text-2xl" = (post.subheader.nil? ? nil : post.subheader )
+            h2.text-xl.font-serif.font-light.italic.leading-tight.mb-8 class="lg:text-2xl" = (post.subheader.nil? ? nil : post.subheader )
             / aside class="w-full lg:w-1/3 xl:w-2/5 lg:pr-8 xl:pr-16"                    
 
         .max-w-7xl.mx-auto.flex.flex-col class="lg:flex-row"
