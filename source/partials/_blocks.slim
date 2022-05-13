@@ -9,7 +9,7 @@
             - unless block.block_title.empty?
                 .flex.flex-col.justify-end.mt-12 class="md:flex-row"
                     div class="self-end w-full md:w-2/3 lg:w-2/3"
-                        h3.text-2xl-scale.font-sans.font-bold.leading-tight.mt-4 class="lg:mb-8" = block.block_title
+                        h3.text-2xl-scale.font-sans.font-bold.leading-tight.mt-4.mb-4 class="lg:mb-6" = block.block_title
             .flex.flex-col.justify-end class="md:flex-row"
                 aside.relative class="w-full md:w-1/3 lg:w-1/3 md:pr-8 lg:pr-12 xl:pr-16"
                     .sticky.sticky-desc
@@ -28,23 +28,6 @@
                         / - else
                     - unless block.block_body.empty?
                         div class="xl:columns-2 gap-6 block-body markdown font-normal" = Kramdown::Document.new(block.block_body).to_html
-
-
-                    / .flex-col.flex class="md:flex-row"
-                        aside class="w-full md:w-1/3 lg:w-1/3 xl:w-2/5 md:pr-8 lg:pr-12 xl:pr-16"
-                        div class="w-full md:w-2/3 lg:w-2/3"
-                            - unless block.block_body.empty?
-                                .block-body.markdown.font-normal
-                                    div class="xl:columns-2 gap-6" = Kramdown::Document.new(block.block_body).to_html
-
-                / - else
-                    .flex-col.flex class="md:flex-row"
-                        aside class="w-full md:w-1/3 lg:w-1/3 xl:w-2/5 md:pr-8 lg:pr-12 xl:pr-16"
-                            .sticky.sticky-desc
-                                - unless block.aside.empty?
-                                    .aside.markdown.italic.font-light.pb-8 = Kramdown::Document.new(block.aside).to_html
-                                - unless block.block_image.nil?
-                                    = partial "partials/inline-picture", :locals => { :the_img => block.block_image, :classes => 'mb-6 xl:mb-12' }
 
     - when "related_work"  
         section.content-block.block-related-work.pad-longform id=block.id
