@@ -20,6 +20,16 @@
         .aside p {
             @apply font-normal;
         }
+        // these deprecated in TW3
+        .xl\:columns-2 {
+            column-count: 2;
+        }
+        .gap-6 {
+            gap: 1.5rem;
+        }
+        .column-span-all {
+            column-span: all;
+        }
         blockquote { // having issues with @apply here, not sure why. This rule getting skipped on build, postcss issue maybe.
             @apply py-4;
             // padding: 2rem 0;
@@ -49,15 +59,15 @@
         @apply font-book; 
     }
     .pad-longform { // managing responsive framing of written content <shrugs>
-        @apply max-w-7xl px-6 mx-auto;
+        @apply max-w-8xl px-6 mx-auto;
         @screen md {
-            @apply px-12;
+            @apply px-10;
         }
         @screen lg {
-            @apply px-16;
+            @apply px-12;
         }
         @screen xl {
-            @apply px-20;
+            @apply px-16;
         }
     }
     .block-quote {
@@ -65,8 +75,15 @@
             @apply font-book font-light leading-relaxed opacity-75;
         }
         .attribution p {
-            @apply text-xl font-sans font-medium mt-4;
+            @apply text-xl font-sans font-medium mt-4 uppercase tracking-widest;
         }
     }
+    .content-block.block-quote p {
+        @apply leading-tight;
+    }
+
 }
+// .block-writing + .block-writing { // override spacing if blocks are same type
+//     margin-bottom: 0 !important;
+// }
 /*! purgecss end ignore */

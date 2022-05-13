@@ -12,7 +12,7 @@ function makeZoomable() {
   mediumZoom('.zoomable', {
     margin: 12,
     // scrollOffset: 0,
-    background: 'rgba(25, 18, 25, .7)',
+    background: 'rgba(25, 18, 25, .3)',
   });
 }
 makeZoomable();

@@ -5,24 +5,38 @@
         section.content-block.block-section-header.pad style="padding-bottom: 0;" class=(block.classes.nil? ? "pb-0" : block.classes) id=block.id
             h3.section-header = block.title
     - when "writing_block"
-        section.content-block.block-dialogue.pad-longform id=block.id
-            - case block.layout
-                - when "centered"
-                    .w-full.mx-auto class="xl:max-w-4xl"
-                        - unless block.block_title.empty?
-                            h3.text-2xl-scale.font-sans.font-bold.leading-tight.mb-8.mt-4 = block.block_title
-                            - unless block.aside.empty?
-                                .aside.markdown.italic.font-normal = Kramdown::Document.new(block.aside).to_html
+        section.content-block.block-writing.pad-longform.mb-10 id=block.id
+            - unless block.block_title.empty?
+                .flex.flex-col.justify-end.mt-12 class="md:flex-row"
+                    div class="self-end w-full md:w-2/3 lg:w-2/3 xl:w-3/5"
+                        h3.text-2xl-scale.font-sans.font-bold.leading-tight.mt-4 class="lg:mb-8" = block.block_title
+            .flex.flex-col.justify-end class="md:flex-row"
+                aside class="w-full md:w-1/3 lg:w-1/3 xl:w-2/5 md:pr-8 lg:pr-12 xl:pr-16"
+                    - case block.layout
+                        - when "centered"
+                        - else
                             - unless block.block_image.nil?
                                 = partial "partials/inline-picture", :locals => { :the_img => block.block_image, :classes => 'mb-6 xl:mb-12' }
-                            - unless block.block_body.empty?
-                                .block-body.markdown.font-normal = Kramdown::Document.new(block.block_body).to_html
-                - else
-                    - unless block.block_title.empty?
-                        .flex.justify-end.mt-12
-                            div class="self-end w-full md:w-2/3 lg:w-2/3 xl:w-3/5"
-                                h3.text-2xl-scale.font-sans.font-bold.leading-tight.mb-3.mt-4 class="lg:mb-8" = block.block_title
+                    - unless block.aside.empty?
+                        .aside.markdown.italic.font-light.pb-8 = Kramdown::Document.new(block.aside).to_html
+                div class="w-full md:w-2/3 lg:w-2/3 xl:w-3/5"
+                    - case block.layout
+                        - when "centered"
+                            - unless block.block_image.nil?
+                                = partial "partials/inline-picture", :locals => { :the_img => block.block_image, :classes => 'mb-6 xl:mb-12' }
+                        / - else
+                    - unless block.block_body.empty?
+                        div class="xl:columns-2 gap-6 block-body markdown font-normal" = Kramdown::Document.new(block.block_body).to_html
 
+
+                    / .flex-col.flex class="md:flex-row"
+                        aside class="w-full md:w-1/3 lg:w-1/3 xl:w-2/5 md:pr-8 lg:pr-12 xl:pr-16"
+                        div class="w-full md:w-2/3 lg:w-2/3 xl:w-3/5"
+                            - unless block.block_body.empty?
+                                .block-body.markdown.font-normal
+                                    div class="xl:columns-2 gap-6" = Kramdown::Document.new(block.block_body).to_html
+
+                / - else
                     .flex-col.flex class="md:flex-row"
                         aside class="w-full md:w-1/3 lg:w-1/3 xl:w-2/5 md:pr-8 lg:pr-12 xl:pr-16"
                             .sticky.sticky-desc
@@ -30,9 +44,6 @@
                                     .aside.markdown.italic.font-light.pb-8 = Kramdown::Document.new(block.aside).to_html
                                 - unless block.block_image.nil?
                                     = partial "partials/inline-picture", :locals => { :the_img => block.block_image, :classes => 'mb-6 xl:mb-12' }
-                        - unless block.block_body.empty?
-                            div class="w-full md:w-2/3 lg:w-2/3 xl:w-3/5"
-                                .block-body.markdown.font-normal = Kramdown::Document.new(block.block_body).to_html
 
     - when "related_work"  
         section.content-block.block-related-work.pad-longform id=block.id
