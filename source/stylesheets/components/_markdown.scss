@@ -1,5 +1,5 @@
-.markdown {
-    &.lead {
+.markdown { // encapsulating type styles from editorial fields
+    &.lead { // these two are set off a bit in articles
         p, ul, ol, li, dd, dt {
             @apply text-lg mb-4 font-light;
             line-height: 1.6; // leading-snug not coming thru for some reason
@@ -19,7 +19,7 @@
 
         }
     }
-    p, ul, ol, li, dd, dt {
+    p, ul, ol, li, dd, dt { // common styles. The core typography styles are in ../_theme.scss
         @apply mb-4;
         line-height: 1.6;
     }
@@ -27,7 +27,7 @@
         list-style: disc;
         @apply text-base ml-6;
     }
-    h1, h2, h3, h4, h5, h6 {
+    h1, h2, h3, h4, h5, h6 { // getting some base header styles laid down
         @apply font-medium mt-4;
         margin-bottom: 0.3em;
     }
@@ -37,10 +37,10 @@
     h3, h4 {
         @apply text-lg;
     }
-    h4 {
+    h4 { // same size, but different look - but only in articles
         @apply tracking-wider uppercase;
     }
-    a {
+    a { // different link style than in components. These only appear in long-form copy
         @include links-underlined;
         @apply font-medium;
     }
