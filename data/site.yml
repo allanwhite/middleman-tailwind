@@ -43,6 +43,11 @@ contact:
     action: "Call Allan at "
     url: "https://www.linkedin.com/in/allanwhite"
     icon: icon-linkedin.svg
+  -
+    label: "Instagram"
+    action: "Follow me on Instagram"
+    url: "https://instagram.com/allanwhite"
+    icon: icon-instagram.svg
   - 
     label: "Book a meeting"
     action: "Schedule a meeting with Allan via Calendly"
@@ -70,8 +75,8 @@ links:
     action: "Explore my code sketches on CodePen"
     url: "https://codepen.io/allanwhite/pens/"
     icon: icon-codepen.svg
-  -
-    label: "Download my résumé"
-    action: "Download Allan's Resume"
-    url: "/images/work/Allan White - Resume 2019 (designer & developer).pdf"
-    icon: icon-file-text-o.svg
+  # -
+  #   label: "Download my résumé"
+  #   action: "Download Allan's Resume"
+  #   url: "/images/work/Allan White - Resume 2019 (designer & developer).pdf"
+  #   icon: icon-file-text-o.svg
