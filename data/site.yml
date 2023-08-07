@@ -17,7 +17,7 @@ author:
   email: 'hello@allanwhite.design'
   phone: '+1.971.220.5976'
   website: 'https://allanwhite.design'
-  role: 'Designer & Developer'
+  role: 'Content designer, developer, communicator'
   # Available social media tags: bitbucket dribbble facebook github gitlab instagram linkedin medium twitter
   github: 'allanwhite'
   twitter: 'allanwhite'
@@ -30,17 +30,17 @@ img:
 contact:
   -
     label: "971.220.5976"
-    action: "Call Allan"
+    action: "Call or text Allan"
     url: "tel:+19712205976"
     icon: icon-phone.svg
   -
     label: "@allanwhite"
-    action: "Follow Allan on Twitter"
+    action: "Follow Allan on Twitter or 𝕏 or whatever he calls it now"
     url: "https://twitter.com/allanwhite"
     icon: icon-twitter.svg
   -
     label: "LinkedIn"
-    action: "Call Allan at "
+    action: "Connect with me on LinkedIn"
     url: "https://www.linkedin.com/in/allanwhite"
     icon: icon-linkedin.svg
   -
@@ -57,12 +57,12 @@ contact:
 links:
   -
     label: "Work"
-    action: "See Allan's work at Behance"
+    action: "Read case studies and more"
     url: "/#recent"
     icon: icon-eyeball.svg
   -
     label: "Blog"
-    action: "Read Allan's Writing at his blog"
+    action: "ReadMe"
     url: "/blog"
     icon: icon-pencil.svg
   -
