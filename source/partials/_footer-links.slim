@@ -4,7 +4,8 @@
             = inline_svg "easel-logo.svg", class: "opacity-0 anim-3 logo inline-block h-20 mr-4 w-auto"
             .title
                 h3 class="opacity-0 anim-1 title text-2xl mt-4 font-normal font-serif leading-none tracking-tight" R. Allan White
-                h2 class="subhead text-lg mb-12 opacity-0 anim-2" Designer & Developer
+                h2 class="subhead text-lg mb-12 opacity-0 anim-2"
+                    = data.site.author.role
 
     div class="w-full md:w-auto flex flex-col justify-start items-start sm:flex-row mb-4 mr-8"
         ul.list-none.mr-8.anim-in style="transition-delay: 1s;" class="mb-4 md:mb-0 md:mr-6 lg:mr-8"
