@@ -31,7 +31,7 @@ page_classes: "blog"
     = dato_meta_tags(post)
 main.relative.w-full.pb-16 class=bg_theme id="top"
     / - post = locals[:item]
-    header.masthead.pad-longform.pad-y-xl class="" style="padding-bottom: 1rem;"
+    header.masthead.pad-y-xl class="" style="padding-bottom: 1rem;"
         .flex.mx-auto class="mb-6 lg:mb-16 flex-col lg:flex-row"
             div class="w-auto lg:w-1/3"
                 nav class="flex flex-row justify-start items-center mb-4"
@@ -72,7 +72,8 @@ main.relative.w-full.pb-16 class=bg_theme id="top"
                 - unless post.intro.empty?
                     .lead.markdown.pr-0 class="mb-8 lg:pr-6"
                         = Kramdown::Document.new(post.intro).to_html
-                figure.rounded-lg.overflow-hidden.mb-6
+                = partial "partials/inline-picture", :locals => { :the_img => post.cover_image, :classes => '' }
+                //figure.rounded-lg.overflow-hidden.mb-6
                     img.feature-image.lozad.object-fit class="w-auto" src=post.cover_image.url(w: 480, h: 320, blur:200, auto: :compress) data-src=post.cover_image.url(w: 960, h: 640, crop: :focalpoint, fit: :crop, auto: :compress) alt = (post.cover_image.alt.nil? ? post.title : post.cover_image.alt)
 
     //- mobile version

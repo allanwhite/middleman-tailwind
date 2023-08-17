@@ -42,7 +42,7 @@ p {
     &-sm {
         padding: calc(0.6rem + 1vw);
     }
-    &-y-xl {
+    &-y-xl { // so why does this have x-pad...?
         padding: calc(1rem + 7vw) calc(0.6rem + 5vw);
     }
 }
