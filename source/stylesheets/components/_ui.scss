@@ -42,6 +42,8 @@ a.waypoint {
 }
 .button {
     @apply whitespace-no-wrap text-sm inline-block px-4 py-2 border-2 rounded font-sans font-medium cursor-pointer;
+    color: var(--text-color);
+    fill: var(--text-color);
     @screen md {
         @apply px-4 py-2 text-base;
         // &:hover {
@@ -70,6 +72,9 @@ a.waypoint {
 }
 a.card-hover {
     color: var(--text-color);
+}
+.card {
+    @apply rounded-lg;
 }
 .card-hover {
     @apply rounded-lg;

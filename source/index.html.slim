@@ -44,7 +44,7 @@ main.bg-gray-100.pad.z-20.relative
     section#about.w-full.mb-scale
         .max-w-6xl.flex.flex-col.justify-start.mx-auto class="md:flex-row lg:p-8"
             .w-full class="lg:w-1/2 md:order-2"
-                .card class="card-hover bg-white rounded-xl p-6 mb-12 md:mb-4 md:p-8 lg:p-10 transform -rotate-3 lg:-mt-64 md:-mt-32 -mt-24"
+                .card class="card-hover bg-white rounded-xl p-6 mb-12 md:mb-4 md:p-8 lg:p-10 transform -rotate-3 lg:-mt-48 md:-mt-24 -mt-24"
                     //h2.headline-3.theme-alt class="" About Allan
                     - unless dato.home.intro_text.empty?
                         img.rounded-full.lozad.mb-4.float-right.ml-3 src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-24 md:w-32" /
@@ -63,7 +63,7 @@ main.bg-gray-100.pad.z-20.relative
                             a href="/blog/#{blog.slug}" title = (blog.subheader.nil? ? blog.title : blog.subheader)
                                 //= partial "partials/card-post", :locals => { :post => blog }
                                 h3.text-xl.font-book.font-medium.leading-tight.mb-0 class="md:leading-snug md:text-xl" = blog.title
-                            / p.text-sm.font-sans.font-light class="md:leading-snug md:text-lg" = (blog.subheader.nil? ? nil : blog.subheader)
+                                p.text-sm.font-sans.font-light class="md:leading-snug md:text-lg" = (blog.subheader.nil? ? nil : blog.subheader)
 
                     li.mt-6.text-xl.font-sans.anim-in style="transition-delay: 0.7s;"
                         a.button href="/blog/" title="Back to the blog list"
@@ -78,8 +78,22 @@ main.bg-gray-100.pad.z-20.relative
         .grid-container
             - dato.works.each do | work |
                 = partial "partials/card-work", :locals => { :work => work }
+            .card.flex.flex-col.items-center.justify-center
+                h3.text-4xl.font-book.font-light.italic Older works
+                p.text-regular.font-sans.font-regular.text-center At Bēhance
 
-    section#work.w-full.mb-scale
+            - info_work.each do | category |
+                - if category.link
+                    a.card-hover.pad-sm class="w-full card" href=category.url title=category.link
+                        h3.text-xl.font-bold.subhead.mb-4 = category.title
+                        p.line-length.mb-4 = category.desc
+                        .cta.font-bold = category.link
+                - else
+                    .card-hover.pad-sm class="w-full card"
+                        h3.text-xl.font-bold.subhead.mb-4 = category.title
+                        p.line-length = category.desc
+
+    /section#work.w-full.mb-scale
         .max-w-6xl.px-0.anim-list.mx-auto
             h2.headline-3 class="md:ml-8" Work
             div class="text-lg font-bold md:ml-10 mb-10 text-gray-500" On Bēhance
