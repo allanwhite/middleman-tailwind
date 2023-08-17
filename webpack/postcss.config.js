@@ -23,7 +23,7 @@ const PROD_PLUGINS = [
       __dirname + '/../source/**/*.slim'
     ],
     whitelist: ['animated', 'active', 'loaded', 'blockquote', 'inline-float'],
-    whitelistPatterns: [/^bg-/, /^text-/, /^medium-zoom-/, /^float-/],
+    whitelistPatterns: [/^bg-/, /^text-/, /^medium-zoom-/, /^float-/, /^min-h-/],
     // whitelistPatternsChildren: [/^bg-/],
     extractors: [{
       extractor: TailwindExtractor,

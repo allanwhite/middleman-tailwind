@@ -9,6 +9,14 @@
     min-height: 640px;
     min-height: 66vh;
 }
+.min-h-40 {
+    min-height: 480px;
+    min-height: 36vh;
+    @screen md {
+        min-height: 512px;
+        min-height: 40vh;    
+    }
+}
 
 .calendly-overlay .calendly-popup {
     max-height: 1024px;

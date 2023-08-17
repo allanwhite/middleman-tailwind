@@ -23,13 +23,13 @@ scss:
         }
     }
 
-section#top.relative.overflow-hidden.flex.flex-col.min-h-48.w-full.bg-orange.justify-center.items-center.z--10.lozad.bg-no-repeat.bg-cover data-background-image="/images/work/moodboard-2-angle-preload.svg"
-    header.z-10.p-10.bg-blur.rounded class="md:rounded-lg md:p-16 md:m-12 lg:m-20 xl:m-24"
-        .flex class="flex-col md:flex-row items-start justify-start"
+section#top.relative.overflow-hidden.flex.flex-col.min-h-40.w-full.bg-orange.justify-center.items-center.z--10.lozad.bg-no-repeat.bg-cover data-background-image="/images/work/moodboard-2-angle-preload.svg"
+    header.z-10.p-12.bg-blur.rounded class="md:rounded-lg md:p-16 md:m-12 lg:m-20 xl:m-24"
+        .flex class="flex-col md:flex-row items-start justify-start md:items-center"
             = inline_svg "easel-logo.svg", class: "opacity-0 anim-3 logo inline-block h-32 md:h-48 md:mb-4 mr-8 w-auto"
             .title
-                h1 class="opacity-0 anim-1 title text-4xl mt-4 text-5xl-scale sm:text-6xl-scale font-normal font-serif leading-none tracking-tight" R. Allan White
-                h2.subhead.text-xl class="opacity-0 anim-2 sm:text-2xl-scale" = data.site.author.role
+                h1 class="opacity-0 anim-1 title mt-4 mb-2 md:mb-0 text-4xl-scale font-normal font-serif leading-none tracking-tight" R. Allan White
+                h2 class="opacity-0 anim-2 text-2xl-scale leading-tight" = data.site.author.role
     / a.waypoint.z-10 href="#work" title="More"
         = inline_svg "icon-angle-down-large.svg", class: "h-10 md:h-24 fill-current anim-4 opacity-0"
     .zoom-ease.work-gallery.z-0.left-0.top-0.pov.overflow-hidden.absolute.h-screen.w-full class=""
@@ -44,7 +44,7 @@ main.bg-gray-100.pad.z-20.relative
     section#about.w-full.mb-scale
         .max-w-6xl.flex.flex-col.justify-start.mx-auto class="md:flex-row lg:p-8"
             .w-full class="lg:w-1/2 md:order-2"
-                .card class="card-hover bg-white rounded-xl p-6 mb-12 md:mb-4 md:p-8 lg:p-10 transform -rotate-3 lg:-mt-64 md:-mt-32 -mt-16"
+                .card class="card-hover bg-white rounded-xl p-6 mb-12 md:mb-4 md:p-8 lg:p-10 transform -rotate-3 lg:-mt-64 md:-mt-32 -mt-24"
                     //h2.headline-3.theme-alt class="" About Allan
                     - unless dato.home.intro_text.empty?
                         img.rounded-full.lozad.mb-4.float-right.ml-3 src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-24 md:w-32" /
