@@ -62,9 +62,9 @@ main.relative.w-full class=bg_theme id="top"
                 / = partial "partials/inline-picture", :locals => { :the_img => a
     //- mobile version
     details.toc.sticky.top-0.left-0.bg-blur-light.pt-3.px-2.pb-1.z-20.shadow-lg.outline-none class="lg:hidden"
-        summary.toc-title.text-lg.font-serif.mb-2.tracking-wide.leading-tight.text-blue.outline-none title="Table of Contents"
+        summary.toc-title.text-lg.font-serif.mb-2.ml-2.tracking-wide.leading-tight.outline-none title="Table of Contents"
             = article.title
-        ul.ml-5.toc-list
+        ul.ml-5.mt-4.toc-list
             - article.blocks.each do | block |
                 = partial "partials/page-toc", :locals => { :block => block, :classes => "toc-link" }
 
@@ -78,7 +78,7 @@ section.cta-section.mx-auto.text-center.pad class=bg_theme
 section#recent.relative.z-20.w-full.pad class=bg_theme
     .max-w-7xl.mx-auto
         div class="text-lg font-bold subhead md:ml-6 text-gray-500" Recent
-        h2.font-serif.font-light.text-4xl-scale.leading-none.mb-2.theme-alt class="md:mb-6 md:ml-6" Case Studies
+        h2.font-serif.font-light.text-4xl-scale.leading-none.mb-2 class="md:mb-6 md:ml-6" Case Studies
         .grid-container
             - dato.works.each do | work |
                 - if entry_id != work.id

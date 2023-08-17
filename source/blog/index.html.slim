@@ -43,7 +43,7 @@ main.relative.w-full.pad class="bg-gray-100" id="top"
     section.grid-container.max-w-7xl.mx-auto id="blog"
         - sorted_posts[0, 1].each do | blog |
             = partial "partials/card-post-featured", :locals => { :post => blog, :classes => "col-span-1 md:col-span-2" }
-        .project-card.project-card-full.rounded-lg.overflow-hidden.flex.flex-col class="justify-center lg:justify-end xl:col-start-3 xxl:col-start-4"
+        .project-card.project-card-full.rounded-lg.overflow-hidden.flex.flex-col class="justify-center lg:justify-end xl:col-start-3 xxl:col-start-4 order-last lg:order-none"
             //.project-card.overflow-hidden.flex.flex-col.justify-center.text-center
             h3.text-2xl.font-cond.text-xl.leading-tight.uppercase.tracking-widest.mb-6.opacity-75 Quick takes
             ul.no-bullet

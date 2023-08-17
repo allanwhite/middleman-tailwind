@@ -42,6 +42,8 @@ a.waypoint {
 }
 .button {
     @apply whitespace-no-wrap text-sm inline-block px-4 py-2 border-2 rounded font-sans font-medium cursor-pointer;
+    color: var(--text-color);
+    fill: var(--text-color);
     @screen md {
         @apply px-4 py-2 text-base;
         // &:hover {
@@ -70,6 +72,9 @@ a.waypoint {
 }
 a.card-hover {
     color: var(--text-color);
+}
+.card {
+    @apply rounded-lg;
 }
 .card-hover {
     @apply rounded-lg;
@@ -108,13 +113,21 @@ a.card-hover {
 // }
 details {
     transition: color $speed;
-    color: var(--link-color);
+    color: var(--text-color);
     &:hover {
         color: var(--link-hover);
     }
     &[open] {
         color: var(--text-color);
     }
+}
+a.toc-link, a.toc-link:visited {
+    color: var(--text-color);
+    // @screen lg {
+    //     color: var(--text-color);
+    // }
+    // border-color: var(--text-color-alt);
+    // @apply border-b p-1;
 }
 .pill {
     transition: all $speed * 2 linear;

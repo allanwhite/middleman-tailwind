@@ -13,7 +13,8 @@
 }
                                                
 /* iPhone 5 
-You can also target devices with aspect ratio. */                       @media screen and (device-aspect-ratio: 40/71) {                              
+You can also target devices with aspect ratio. */
+@media screen and (device-aspect-ratio: 40/71) {                              
     .h-screen {                           
         height: 500px;                         
     }                       
