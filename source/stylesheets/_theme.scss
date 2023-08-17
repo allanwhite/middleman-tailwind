@@ -81,7 +81,7 @@ $card-gap: calc(0.5rem + 2vw);
 @supports (backdrop-filter: blur(14px)) {
     .bg-blur-light {
         backdrop-filter: blur(14px);
-        background-color: hsla(0, 0%, 100%, 0.9); // slight tint
+        background-color: hsla(0, 0%, 100%, 0.1); // slight tint
     }
 }
 .pov {

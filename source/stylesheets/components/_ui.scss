@@ -108,13 +108,21 @@ a.card-hover {
 // }
 details {
     transition: color $speed;
-    color: var(--link-color);
+    color: var(--text-color);
     &:hover {
         color: var(--link-hover);
     }
     &[open] {
         color: var(--text-color);
     }
+}
+a.toc-link, a.toc-link:visited {
+    color: var(--text-color);
+    // @screen lg {
+    //     color: var(--text-color);
+    // }
+    // border-color: var(--text-color-alt);
+    // @apply border-b p-1;
 }
 .pill {
     transition: all $speed * 2 linear;
