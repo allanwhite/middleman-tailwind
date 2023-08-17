@@ -42,9 +42,9 @@ section#top.relative.overflow-hidden.flex.flex-col.min-h-48.w-full.bg-orange.jus
             p.lead I'm Allan White, an interdisciplinary designer and developer with 25 years of experience, living near Portland, Oregon. I've solved business problems in organizations of all sizes through communication design, branding, video, event design, product & user experience design, and web development.
 main.bg-gray-100.pad.z-20.relative
     section#about.w-full.mb-scale
-        .max-w-6xl.flex.flex-col.justify-start.items-center.mx-auto class="md:flex-row lg:p-8"
-            .w-full class="lg:w-1/2"
-                .card.card-hover.bg-white.rounded-xl class="p-6 md:p-8 lg:p-10 transform -rotate-3"
+        .max-w-6xl.flex.flex-col.justify-start.mx-auto class="md:flex-row lg:p-8"
+            .w-full class="lg:w-1/2 md:order-2"
+                .card class="card-hover bg-white rounded-xl p-6 mb-12 md:mb-4 md:p-8 lg:p-10 transform -rotate-3 lg:-mt-64 md:-mt-32 -mt-16"
                     //h2.headline-3.theme-alt class="" About Allan
                     - unless dato.home.intro_text.empty?
                         img.rounded-full.lozad.mb-4.float-right.ml-3 src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
@@ -53,7 +53,7 @@ main.bg-gray-100.pad.z-20.relative
                     a.button.anim-in.text-sm.mb-16 class="mr-0 md:mr-6 md:mb-1" style="transition-delay: 1.5s; " title="Contact me or schedule a meeting" href="#contact"
                         | Contact me
                         = inline_svg "icon-chevron-down.svg", class: "icon-inline ml-1" 
-            .w-full class="lg:w-1/2 md:pl-12 lg:pl-20"
+            .w-full class="lg:w-1/2"
                 div class="text-lg font-bold subhead text-gray-500" Recent
                 h2.headline-3.pb-6 class="lg:pb-8" Blog
                 - sorted_posts = dato.blogs.to_a.sort_by{ | post | post['pub_date'] }.reverse!
