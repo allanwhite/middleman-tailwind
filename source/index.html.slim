@@ -62,8 +62,8 @@ main.bg-gray-100.pad.z-20.relative
                         li.mb-3
                             a href="/blog/#{blog.slug}" title = (blog.subheader.nil? ? blog.title : blog.subheader)
                                 //= partial "partials/card-post", :locals => { :post => blog }
-                                h3.text-xl.font-book.font-medium.leading-tight.mb-0 class="md:leading-snug md:text-xl" = blog.title
-                                p.text-sm.font-sans.font-light class="md:leading-snug md:text-lg" = (blog.subheader.nil? ? nil : blog.subheader)
+                                h3.text-xl.font-book.font-bold.leading-tight.mb-0 class="md:leading-snug md:text-xl" = blog.title
+                                p.text-xs.font-sans.font-base class="md:leading-snug md:text-sm" = (blog.subheader.nil? ? nil : blog.subheader)
 
                     li.mt-6.text-xl.font-sans.anim-in style="transition-delay: 0.7s;"
                         a.button href="/blog/" title="Back to the blog list"
@@ -87,7 +87,12 @@ main.bg-gray-100.pad.z-20.relative
                     a.card-hover.pad-sm class="w-full card" href=category.url title=category.link
                         h3.text-xl.font-bold.subhead.mb-4 = category.title
                         p.line-length.mb-4 = category.desc
-                        .cta.font-bold = category.link
+                        span.font-book.font-medium.leading-tight.mb-0.italic
+                            / .cta.font-bold
+                            = category.link
+                            = inline_svg "icon-link-external.svg", class: "icon-inline ml-1 fill-current opacity-0 card-opacity-target" 
+
+
                 - else
                     .card-hover.pad-sm class="w-full card"
                         h3.text-xl.font-bold.subhead.mb-4 = category.title
@@ -113,7 +118,7 @@ main.bg-gray-100.pad.z-20.relative
         .max-w-6xl.mx-auto.mb-8
             div class="text-lg font-bold subhead md:ml-8 text-gray-500" Recent
             h2.headline-3.mb-8 class="md:ml-6" Writing & Presenting
-        .grid-container
+        .grid-container.items-start
             - sorted_links = dato.links.to_a.sort_by{ | item | item['pub_date'] }.reverse!
             / - sorted_links[0...5].each do | link |
                 = partial "partials/card-post", :locals => { :post => link, :external => true }
