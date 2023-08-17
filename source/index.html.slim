@@ -84,18 +84,16 @@ main.bg-gray-100.pad.z-20.relative
 
             - info_work.each do | category |
                 - if category.link
-                    a.card-hover.pad-sm class="w-full card" href=category.url title=category.link
-                        h3.text-xl.font-bold.subhead.mb-4 = category.title
+                    a.card-hover.pad-sm.self-start class="hover:bg-white w-full card" href=category.url title=category.link
+                        h3.text-lg.font-bold.subhead.mb-4 = category.title
                         p.line-length.mb-4 = category.desc
                         span.font-book.font-medium.leading-tight.mb-0.italic
                             / .cta.font-bold
                             = category.link
                             = inline_svg "icon-link-external.svg", class: "icon-inline ml-1 fill-current opacity-0 card-opacity-target" 
-
-
                 - else
-                    .card-hover.pad-sm class="w-full card"
-                        h3.text-xl.font-bold.subhead.mb-4 = category.title
+                    .card-hover.pad-sm.self-start class="hover:bg-white w-full card"
+                        h3.text-lg.font-bold.subhead.mb-4 = category.title
                         p.line-length = category.desc
 
     /section#work.w-full.mb-scale
