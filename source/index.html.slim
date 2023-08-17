@@ -23,13 +23,13 @@ scss:
         }
     }
 
-section#top.relative.overflow-hidden.flex.flex-col.min-h-66.w-full.bg-orange.justify-center.items-center.z--10.lozad.bg-no-repeat.bg-cover data-background-image="/images/work/moodboard-2-angle-preload.svg"
-    header.z-10.pad-y-xl.bg-blur.rounded class="md:rounded-lg md:mb-16 lg:mb-20"
-        .flex class="flex-col justify-center items-center md:flex-row md:items-start md:justify-start"
+section#top.relative.overflow-hidden.flex.flex-col.min-h-48.w-full.bg-orange.justify-center.items-center.z--10.lozad.bg-no-repeat.bg-cover data-background-image="/images/work/moodboard-2-angle-preload.svg"
+    header.z-10.p-10.bg-blur.rounded class="md:rounded-lg md:p-16 md:m-12 lg:m-16 xl:m-20"
+        .flex class="flex-col md:flex-row items-start justify-start"
             = inline_svg "easel-logo.svg", class: "opacity-0 anim-3 logo inline-block h-32 md:h-48 md:mb-4 mr-8 w-auto"
             .title
                 h1 class="opacity-0 anim-1 title text-4xl mt-4 text-5xl-scale sm:text-6xl-scale font-normal font-serif leading-none tracking-tight" R. Allan White
-                h2.subhead.text-xl class="opacity-0 anim-2 sm:text-3xl-scale" Designer & Developer
+                h2.subhead.text-xl class="opacity-0 anim-2 sm:text-2xl-scale" = data.site.author.role
     / a.waypoint.z-10 href="#work" title="More"
         = inline_svg "icon-angle-down-large.svg", class: "h-10 md:h-24 fill-current anim-4 opacity-0"
     .zoom-ease.work-gallery.z-0.left-0.top-0.pov.overflow-hidden.absolute.h-screen.w-full class=""
@@ -44,27 +44,28 @@ main.bg-gray-100.pad.z-20.relative
     section#about.w-full.mb-scale
         .max-w-6xl.flex.flex-col.justify-start.items-center.mx-auto class="md:flex-row lg:p-8"
             .w-full class="lg:w-1/2"
-                // h2.headline-3.theme-alt class="" About
-                - unless dato.home.intro_text.empty?
-                    img.rounded-full.lozad.mb-4.float-right.ml-3 src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
-                    div class="intro markdown line-length mb-4 lg:mb-8" style="max-width: 50em;"
-                        = Kramdown::Document.new(dato.home.intro_text).to_html 
-                a.button.anim-in.text-sm.mb-16 class="mr-0 md:mr-6 md:mb-1" style="transition-delay: 1.5s; " title="Contact me or schedule a meeting" href="#contact"
-                    | Contact me
-                    = inline_svg "icon-chevron-down.svg", class: "icon-inline ml-1" 
+                .card.card-hover.bg-white.rounded-xl class="p-6 md:p-8 lg:p-10 transform -rotate-3"
+                    //h2.headline-3.theme-alt class="" About Allan
+                    - unless dato.home.intro_text.empty?
+                        img.rounded-full.lozad.mb-4.float-right.ml-3 src=data.site.img.disc data-src="images/allan-white-portrait-2019.jpg" alt="photo" class="w-32" /
+                        div class="intro markdown line-length mb-4 lg:mb-8" style="max-width: 50em;"
+                            = Kramdown::Document.new(dato.home.intro_text).to_html 
+                    a.button.anim-in.text-sm.mb-16 class="mr-0 md:mr-6 md:mb-1" style="transition-delay: 1.5s; " title="Contact me or schedule a meeting" href="#contact"
+                        | Contact me
+                        = inline_svg "icon-chevron-down.svg", class: "icon-inline ml-1" 
             .w-full class="lg:w-1/2 md:pl-12 lg:pl-20"
                 div class="text-lg font-bold subhead text-gray-500" Recent
-                h2.headline-3.pb-6 class="lg:pb-8" Writing
+                h2.headline-3.pb-6 class="lg:pb-8" Blog
                 - sorted_posts = dato.blogs.to_a.sort_by{ | post | post['pub_date'] }.reverse!
                 ul.no-bullet
-                    - sorted_posts[0...3].each do | blog |
-                        li.mb-4
+                    - sorted_posts[0...4].each do | blog |
+                        li.mb-3
                             a href="/blog/#{blog.slug}" title = (blog.subheader.nil? ? blog.title : blog.subheader)
                                 //= partial "partials/card-post", :locals => { :post => blog }
-                                h3.text-xl.font-book.font-medium.leading-tight.mb-0.italic class="md:leading-snug md:text-xl" = blog.title
+                                h3.text-xl.font-book.font-medium.leading-tight.mb-0 class="md:leading-snug md:text-xl" = blog.title
                             / p.text-sm.font-sans.font-light class="md:leading-snug md:text-lg" = (blog.subheader.nil? ? nil : blog.subheader)
 
-                    li.text-xl.font-sans.anim-in style="transition-delay: 0.7s;"
+                    li.mt-6.text-xl.font-sans.anim-in style="transition-delay: 0.7s;"
                         a href="/blog/" title="Back to the blog list"
                             | More Writing
                             = inline_svg "icon-chevron-right.svg", class: "icon-inline ml-1 text-sm" 
