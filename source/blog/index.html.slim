@@ -40,7 +40,7 @@ main.relative.w-full.pad class="bg-gray-100" id="top"
     /     .max-w-6xl.mx-auto.mb-8
     /         div class="text-lg font-bold subhead md:ml-8 text-gray-500" Recent
     /         h2.headline-3.mb-8 class="md:ml-6" Blog
-    section.grid-container.max-w-7xl.mx-auto id="blog"
+    section.grid-container.items-start.max-w-7xl.mx-auto id="blog"
         - sorted_posts[0, 1].each do | blog |
             = partial "partials/card-post-featured", :locals => { :post => blog, :classes => "col-span-1 md:col-span-2" }
         .project-card.project-card-full.rounded-lg.overflow-hidden.flex.flex-col class="justify-center lg:justify-end xl:col-start-3 xxl:col-start-4 order-last lg:order-none"
@@ -55,7 +55,7 @@ main.relative.w-full.pad class="bg-gray-100" id="top"
     section.text-center.pad-y-xl id="elsewhere"
         h3.text-4xl.font-book.font-light.italic Elsewhere
         p.text-regular.font-sans.font-regular.text-center Writing • Publishing • Speaking
-    section.grid-container.max-w-7xl.mx-auto
+    section.grid-container.items-start.max-w-7xl.mx-auto
         - sorted_links[0, 1].each do | link |
             = partial "partials/card-post-featured", :locals => { :post => link, :external => true, :classes => "col-span-1 md:col-span-2" }
         - sorted_links[1, 20].each do | link |
