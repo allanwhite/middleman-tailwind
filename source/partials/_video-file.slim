@@ -1,2 +1,6 @@
-video width="100%" autoplay=true playsinline=true loop="true" preload="metadata" muted=true controls=true
-    source src=video_file.url type="video/#{video_file.format}" 
+- if video_poster.present?
+    video width="100%" autoplay=false playsinline=true loop="false" preload="none" muted=true controls=true poster=video_poster.url(w: 1920, h: 1080, fit: :crop, auto: :compress)
+        source src=video_file.url type="video/#{video_file.format}" 
+- else
+    video width="100%" autoplay=true playsinline=true loop="true" preload="metadata" muted=true controls=true
+        source src=video_file.url type="video/#{video_file.format}" 
