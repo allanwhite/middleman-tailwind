@@ -30,3 +30,6 @@ The webpack setup has all CSS being tree shaken (removing all unused CSS so that
 
 `bundle install` for ruby deps. I added Ruby Slim templating. 
 `yarn` then `yarn build|start`.
+
+### What next?
+We'll see! I'd love to start fresh with a new CMS and new front-end. It's probably not going to be Middleman but Astro or something new. There's so many new features in CSS that are widely supported, I might not even use Tailwind...
