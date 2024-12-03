@@ -104,7 +104,7 @@ main.bg-gray-100.pad.z-20.relative
                 = partial "partials/card-post", :locals => { :post => link, :image => true, :external => true }
         .grid-container.items-start
             - sorted_links[4, 15].each do | link |
-                = partial "partials/card-post", :locals => { :post => link, :image => false, :external => true }
+                = partial "partials/card-post-noimage", :locals => { :post => link, :external => true }
 
 
     section#recent.w-full.mb-scale

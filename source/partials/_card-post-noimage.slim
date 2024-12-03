@@ -1,6 +1,6 @@
 scss:
     .pill {
-        --text-color: var(--color-white);
+        --text-color: var(--text-color);
     }
 - if post.item_type.api_key == "link"
     - external = true
@@ -8,14 +8,10 @@ scss:
 - else
     - external = false
     - ext_link = "/blog/#{post.slug}"
-a.card-hover.project-card.project-card-full.p-0.bg-white.overflow-hidden class="w-full" href=ext_link title=post.title
+a.card-hover.project-card.project-card-full.p-0.overflow-hidden class="w-full hover:bg-white" href=ext_link title=post.title
     .flex.flex-col.justify-between.relative class=""
-        - if post.cover_image.present?
-            - if post.tags.present?
-                .card-meta.mt-3.mx-3.absolute.right-0.z-10
-                    - post.tags[0...3].each do | post_tag |
-                        span.pill.mr-2.text-xs.opacity-100.bg-blur = post_tag.title 
-            img.feature-image.lozad class="object-cover w-full h-64" src=post.cover_image.url(w: 640, blur:200, auto: :compress) data-src=post.cover_image.url(w: 800, auto: :compress) alt=post.title
+        / - if post.cover_image.present?
+        /     img.feature-image.lozad class="object-cover w-full h-64" src=post.cover_image.url(w: 640, blur:200, auto: :compress) data-src=post.cover_image.url(w: 800, auto: :compress) alt=post.title
         section class="card-title p-6 self-stretch"
             h4.mb-2.text-sm
                 span.font-bold
@@ -28,3 +24,7 @@ a.card-hover.project-card.project-card-full.p-0.bg-white.overflow-hidden class="
 
             h3.text-xl.font-book.font-medium.leading-tight.mb-2 class="md:leading-snug md:text-xl" = post.title
             .text-sm.font-sans.font-light class="md:leading-snug md:text-lg" = (post.subheader.nil? ? nil : post.subheader)
+            - if post.tags.present?
+                .card-meta.mt-3
+                    - post.tags[0...3].each do | post_tag |
+                        span.pill.mr-2.text-xs.opacity-50 = post_tag.title 
