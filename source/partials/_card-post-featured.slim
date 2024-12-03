@@ -15,9 +15,10 @@ a.card-hover.project-card.project-card-full.relative.p-0.bg-white.overflow-hidde
             .card-meta.mt-3.mx-3.absolute.right-0
                 - post.tags[0...3].each do | post_tag |
                     span.pill.mr-2.text-xs.opacity-100.bg-blur = post_tag.title 
-        img.feature-image.lozad class="object-cover md:w-full md:h-full" src=post.cover_image.url(w: 640,h: 360, crop: :focalpoint, fit: :crop, blur:200, auto: :compress) data-src=post.cover_image.url(w: 800, h:450, crop: :focalpoint, fit: :crop, auto: :compress) alt=post.title
+        figure(class="opacity-75 hover:opacity-100 transition-opacity duration-300")
+            img.feature-image.lozad class="object-cover md:w-full md:h-full" src=post.cover_image.url(w: 640,h: 360, crop: :focalpoint, fit: :crop, blur:200, auto: :compress) data-src=post.cover_image.url(w: 800, h:450, crop: :focalpoint, fit: :crop, auto: :compress) alt=post.title
         // div.lozad class="bg-cover w-full h-full" data-background-image=post.cover_image.url(w: 1200, auto: :compress)
-    section class="card-title p-8 absolute bottom-0 bg-black hidden md:block"
+    section class="card-title p-8 absolute bottom-0 bg-black rounded-tr-xl hidden md:block"
         h4.mb-2.text-sm
             span.font-bold
                 = post.pub_date.strftime('%B %-d, %Y')
