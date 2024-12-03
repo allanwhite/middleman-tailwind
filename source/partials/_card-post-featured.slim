@@ -12,22 +12,25 @@ a.card-hover.project-card.project-card-full.relative.p-0.bg-white.overflow-hidde
                 .pill {
                     --text-color: var(--color-white);
                 }
-            .card-meta.mt-3.mx-3.absolute.right-0.z-10
+            .card-meta.mt-3.mx-3.absolute.right-0.z-10(class="hidden md:inline-block")
                 - post.tags[0...3].each do | post_tag |
-                    span.pill-gray.mr-2 = post_tag.title 
-        figure(class="opacity-75 hover:opacity-100 transition-opacity duration-300")
+                    span.pill-gray.mr-2.bg-blur = post_tag.title 
+        figure(class="md:opacity-75 md:hover:opacity-100 transition-opacity duration-300")
             img.feature-image.lozad class="object-cover md:w-full md:h-full" src=post.cover_image.url(w: 640,h: 360, crop: :focalpoint, fit: :crop, blur:200, auto: :compress) data-src=post.cover_image.url(w: 800, h:450, crop: :focalpoint, fit: :crop, auto: :compress) alt=post.title
         // div.lozad class="bg-cover w-full h-full" data-background-image=post.cover_image.url(w: 1200, auto: :compress)
     section class="card-title p-8 absolute bottom-0 bg-black rounded-tr-xl hidden md:block"
         h4.mb-2.text-sm
-            span.font-bold
+            span.font-medium
                 = post.pub_date.strftime('%B %-d, %Y')
             - if external == true
                 span.font-book.font-medium.leading-tight.mb-0.italic
                     span.px-2 •
                     = post.publication
                     = inline_svg "icon-link-external.svg", class: "icon-inline ml-1 fill-current opacity-0 card-opacity-target" 
-
+            / - if post.tags.present?
+            /     .span.ml-2 •
+            /     - post.tags[0...3].each do | post_tag |
+            /         span.mr-2.font-cond.text-xs.uppercase.tracking-widest = post_tag.title 
         h3.text-2xl.font-book.font-bold.leading-tight.mb-2 class="md:leading-snug" = post.title
         .text-xl.font-sans.font-light.leading-tight class="md:leading-snug md:text-lg" = (post.subheader.nil? ? nil : post.subheader)
 

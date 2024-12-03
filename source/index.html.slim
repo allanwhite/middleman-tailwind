@@ -98,13 +98,13 @@ main.bg-gray-100.pad.z-20.relative
                 = partial "partials/card-post", :locals => { :post => link, :external => true }
             / h3.text-4xl.font-book.font-light.text-white Elsewhere
 
-            - sorted_links[0, 4].each do | link |
+            - sorted_links[0, 3].each do | link |
                 = partial "partials/card-post-featured", :locals => { :post => link, :external => true, :classes => "col-span-1 md:col-span-2" }
-            / - sorted_links[4, 7].each do | link |
-                = partial "partials/card-post", :locals => { :post => link, :image => true, :external => true }
-        .grid-container.items-start
-            - sorted_links[4, 15].each do | link |
+            - sorted_links[3, 15].each do | link |
+                = partial "partials/card-post", :locals => { :post => link, :external => true }
+            / - sorted_links[4, 15].each do | link |
                 = partial "partials/card-post-noimage", :locals => { :post => link, :external => true }
+        / .grid-container.items-start
 
 
     section#recent.w-full.mb-scale
