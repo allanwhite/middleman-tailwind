@@ -10,7 +10,7 @@ scss:
     - ext_link = "/blog/#{post.slug}"
 a.card-hover.project-card.project-card-full.p-0.bg-white.overflow-hidden class="w-full" href=ext_link title=post.title
     .flex.flex-col.justify-between.relative class=""
-        - if post.cover_image.present?
+        - if post.cover_image.present? && image == true
             - if post.tags.present?
                 .card-meta.mt-3.mx-3.absolute.right-0
                     - post.tags[0...3].each do | post_tag |

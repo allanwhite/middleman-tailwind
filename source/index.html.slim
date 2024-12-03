@@ -92,7 +92,7 @@ main.bg-gray-100.pad.z-20.relative
         .max-w-6xl.mx-auto.mb-8
             div class="text-lg font-bold subhead md:ml-8 text-gray-500" Recent
             h2.headline-3.mb-8 class="md:ml-6" Publications
-        .grid-container.items-start
+        .grid-container.items-start.mb-10
             - sorted_links = dato.links.to_a.sort_by{ | item | item['pub_date'] }.reverse!
             / - sorted_links[0...5].each do | link |
                 = partial "partials/card-post", :locals => { :post => link, :external => true }
@@ -100,8 +100,12 @@ main.bg-gray-100.pad.z-20.relative
 
             - sorted_links[0, 1].each do | link |
                 = partial "partials/card-post-featured", :locals => { :post => link, :external => true, :classes => "col-span-1 md:col-span-2" }
-            - sorted_links[1, 10].each do | link |
-                = partial "partials/card-post", :locals => { :post => link, :external => true }
+            - sorted_links[1, 5].each do | link |
+                = partial "partials/card-post", :locals => { :post => link, :image => true, :external => true }
+        .grid-container.items-start
+            - sorted_links[6, 15].each do | link |
+                = partial "partials/card-post", :locals => { :post => link, :image => false, :external => true }
+
 
     section#recent.w-full.mb-scale
         .max-w-6xl.mx-auto.mb-8
@@ -110,10 +114,29 @@ main.bg-gray-100.pad.z-20.relative
         .grid-container
             - dato.works.each do | work |
                 = partial "partials/card-work", :locals => { :work => work }
-            .card.flex.flex-col.items-center.justify-center
-                h3.text-4xl.font-book.font-light.italic Older works
-                p.text-regular.font-sans.font-regular.text-center At Bēhance
+            / .card.flex.flex-col.items-center.justify-center
+            /     h3.text-4xl.font-book.font-light.italic Older works
+            /     p.text-regular.font-sans.font-regular.text-center At Bēhance
 
+            / - info_work.each do | category |
+            /     - if category.link
+            /         a.card-hover.pad-sm.self-start class="hover:bg-white w-full card" href=category.url title=category.link
+            /             h3.text-lg.font-bold.subhead.mb-4 = category.title
+            /             p.text-sm.font-light.line-length.mb-4.leading-tight = category.desc
+            /             span.font-book.font-medium.leading-tight.mb-0.italic
+            /                 / .cta.font-bold
+            /                 = category.link
+            /                 = inline_svg "icon-link-external.svg", class: "icon-inline ml-1 fill-current opacity-0 card-opacity-target" 
+            /     - else
+            /         .card-hover.pad-sm.self-start class="hover:bg-white w-full card"
+            /             h3.text-lg.font-bold.subhead.mb-4 = category.title
+            /             p.line-length = category.desc
+
+    section#recent.w-full.mb-scale
+        .max-w-6xl.mx-auto.mb-8
+            div class="text-lg font-bold subhead md:ml-8 text-gray-500" Older Works
+            h2.headline-3.mb-8 class="md:ml-6" Bēhance
+        .grid-container
             - info_work.each do | category |
                 - if category.link
                     a.card-hover.pad-sm.self-start class="hover:bg-white w-full card" href=category.url title=category.link
