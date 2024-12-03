@@ -114,8 +114,8 @@ main.bg-gray-100.pad.z-20.relative
 
     section#elsewhere.w-full.mb-scale
         .max-w-6xl.mx-auto.mb-8
-            div class="text-lg font-bold subhead md:ml-8 text-gray-500" Recent
-            h2.headline-3.mb-8 class="md:ml-6" Writing & Presenting
+            div class="text-lg font-bold subhead md:ml-8 text-gray-500" Elsewhere
+            h2.headline-3.mb-8 class="md:ml-6" Publications
         .grid-container.items-start
             - sorted_links = dato.links.to_a.sort_by{ | item | item['pub_date'] }.reverse!
             / - sorted_links[0...5].each do | link |
@@ -124,7 +124,7 @@ main.bg-gray-100.pad.z-20.relative
 
             - sorted_links[0, 1].each do | link |
                 = partial "partials/card-post-featured", :locals => { :post => link, :external => true, :classes => "col-span-1 md:col-span-2" }
-            - sorted_links[1, 5].each do | link |
+            - sorted_links[1, 10].each do | link |
                 = partial "partials/card-post", :locals => { :post => link, :external => true }
 
 footer#contact.relative.w-full.bg-orange.z-0.pad
